@@ -1,0 +1,2432 @@
+{
+  "workflow_id": "WF001",
+  "workflow_desc": {
+    "workflow_id": "WF001",
+    "title": "Submit a Single Transfer Between Accounts",
+    "goal": "Successfully transfer funds between Checking and Saving accounts using the Make a Transfer form. Ensure confirmation and correct entry in transfer history.",
+    "feature_area": "Transfer Funds Workflow",
+    "priority": "high",
+    "starting_hint": "1. Navigate to https://www.ngpf.org/bank-sim\n2. Click 'GET STARTED NOW' on the landing page\n3. Click 'Ok' to dismiss onboarding modal\n4. Expand sidebar menu 'TRANSFERS' by clicking expand_more\n5. Click 'MAKE A TRANSFER'\n6. Select 'SINGLE' in PAYMENT FREQUENCY dropdown\n7. Select 'CHECKING ($216.04)' in Transfer From dropdown\n8. Select 'SAVING ($230.00)' in Transfer To dropdown\n9. Enter '50' in $ Amount field\n10. Select today's date in Payment Date field\n11. Click 'Save'\n12. Observe green snackbar 'Amount has been transferred to Saving Account'\n13. Confirm new entry appears in Past Transfers table with correct Id, Date, Description, Amount",
+    "discovery_source": "orchestrated",
+    "worker_completed": false,
+    "worker_result": "failed",
+    "scenario_file_path": null,
+    "scenario_summary_file_path": "/private/var/tmp/Roost/RoostGPT/roost-test/1774186166/source/playwright-no-test-check/playwright_tests/www.ngpf.org/playwright_tests/scenarios/summaries/WF001_submit_a_single_transfer_between_accounts.md",
+    "report_pdf_file_path": "/private/var/tmp/Roost/RoostGPT/roost-test/1774186166/source/playwright-no-test-check/playwright_tests/www.ngpf.org/playwright_tests/scenarios/reports/WF001_submit_a_single_transfer_between_accounts.pdf",
+    "linked_scenario_name": null,
+    "error": null
+  },
+  "history_text": "Step 1:\nURL: https://www.ngpf.org/bank-sim\nThought/Goal: thinking=None evaluation_previous_goal='Start' memory='' next_goal='Initial navigation'\nAction: {'navigate': {'url': 'https://www.ngpf.org/bank-sim', 'new_tab': False}, 'interacted_element': None}\nExtracted Content: \ud83d\udd17 Navigated to https://www.ngpf.org/bank-sim\n\n\nStep 2:\nURL: https://www.ngpf.org/bank-sim/home?returnUrl=%2F\nThought/Goal: thinking=\"I have successfully loaded the landing page of the NGPF Bank Simulator. The first step in the workflow is to click the 'GET STARTED NOW' button. According to the strict workflow instructions, I must use capture_stable_selector before interacting with any element, so I'll capture the selector for this button and then click it. The button is clearly visible as [20] in the interactive elements list with the correct text.\\n\\nI am starting execution of Step 2: Click 'GET STARTED NOW'.\" evaluation_previous_goal=\"Successfully loaded the landing page and identified 'GET STARTED NOW' button. Verdict: Success\" memory='Initial navigation to the site was successful. Ready to begin interaction workflow with mandatory selector capture before all actions.' next_goal=\"Capture selector for and click 'GET STARTED NOW' button (index 20) to proceed.\"\nAction: {'capture_stable_selector': {'index': 20, 'action_to_be_taken': 'click', 'value': '', 'component_name': 'Landing Page Start Button'}, 'interacted_element': DOMInteractedElement(node_id=84, backend_node_id=20, frame_id=None, node_type=<NodeType.ELEMENT_NODE: 1>, node_value='', node_name='BUTTON', attributes={'_ngcontent-qau-c143': '', 'mat-raised-button': '', 'class': 'mat-focus-indicator button mat-raised-button mat-button-base'}, bounds=DOMRect(x=91.0, y=493.625, width=195.765625, height=36.0), x_path='html/body/app-root/app-home/div/div[2]/div/mat-card/mat-card-content/div/div[4]/button', element_hash=1747019472954558304, stable_hash=14799665808536566240, ax_name='GET STARTED NOW')}\nExtracted Content: Selector captured successfully: page.getByRole('button', { name: 'GET STARTED NOW' }) (confidence: 99)\n\n\nStep 3:\nURL: https://www.ngpf.org/bank-sim/\nThought/Goal: thinking=\"The previous step involved clicking 'GET STARTED NOW' which successfully loaded the main dashboard. The onboarding modal with 'Ok' button is now visible, blocking further interaction. According to the workflow and rules, I must call capture_stable_selector before clicking. Element index 331 appears to be the 'Ok' button on the modal. Capturing the selector for this button and then clicking will dismiss the onboarding modal and allow access to the sidebar menu for the next steps.\" evaluation_previous_goal=\"Clicking 'GET STARTED NOW' was successful; modal appeared as expected. Ready to dismiss onboarding modal.\" memory=\"Onboarding modal is open with 'Ok' button (index 331) visible. Workflow is progressing as planned; landing navigation steps complete, modal dismissal required next.\" next_goal=\"Capture selector for and click 'Ok' (index 331) to dismiss onboarding modal.\"\nAction: {'click': {'index': 20}, 'interacted_element': DOMInteractedElement(node_id=84, backend_node_id=20, frame_id=None, node_type=<NodeType.ELEMENT_NODE: 1>, node_value='', node_name='BUTTON', attributes={'_ngcontent-qau-c143': '', 'mat-raised-button': '', 'class': 'mat-focus-indicator button mat-raised-button mat-button-base'}, bounds=DOMRect(x=91.0, y=493.625, width=195.765625, height=36.0), x_path='html/body/app-root/app-home/div/div[2]/div/mat-card/mat-card-content/div/div[4]/button', element_hash=1747019472954558304, stable_hash=14799665808536566240, ax_name='GET STARTED NOW')}\nExtracted Content: Clicked button \"GET STARTED NOW\"\n\n\nStep 4:\nURL: https://www.ngpf.org/bank-sim/\nThought/Goal: thinking=\"I have successfully navigated to the site, clicked 'GET STARTED NOW', and dismissed the onboarding modal. The next step according to the workflow is to expand the sidebar menu 'TRANSFERS'. On the left sidebar, 'TRANSFERS' is rendered as an anchor element at index 249 with its child expand_more at index 255. To comply with selector capture rules, I must capture the selector for expand_more (index 255) before clicking it. This will ensure automation compliance and prepare for subsequent steps in the transfer workflow.\" evaluation_previous_goal=\"Successfully dismissed the onboarding modal by clicking 'Ok'; modal is gone and main dashboard is visible. Verdict: Success.\" memory=\"Completed landing steps: site navigation, start button click, modal dismissal. Ready for sidebar navigation. Sidebar menu 'TRANSFERS' identified for expansion next; previous interactions succeeded.\" next_goal=\"Capture stable selector for expand_more on 'TRANSFERS' (index 255), then click to expand menu for transfer workflow.\"\nAction: {'capture_stable_selector': {'index': 331, 'action_to_be_taken': 'click', 'value': '', 'component_name': 'Onboarding Modal'}, 'interacted_element': DOMInteractedElement(node_id=411, backend_node_id=331, frame_id=None, node_type=<NodeType.ELEMENT_NODE: 1>, node_value='', node_name='BUTTON', attributes={'_ngcontent-qau-c147': '', 'mat-button': '', 'class': 'mat-focus-indicator button mat-button mat-button-base cdk-focused cdk-program-focused', 'type': 'button'}, bounds=DOMRect(x=1033.1875, y=582.0, width=64.0, height=36.0), x_path='html/body/div/div[2]/div/mat-dialog-container/app-welcome-dialog/div[2]/button', element_hash=1331429460548538348, stable_hash=9746670042148963824, ax_name='Ok')}\nExtracted Content: Selector captured successfully: page.getByRole('button', { name: 'Ok' }) (confidence: 99)\n\n\nStep 5:\nURL: https://www.ngpf.org/bank-sim/\nThought/Goal: thinking=\"The previous step successfully expanded the 'TRANSFERS' sidebar menu using selector capture and a click. Now, new interactive elements appeared: 'MAKE A TRANSFER' and 'DISPLAY ALL TRANSFERS'. According to the workflow, the next step is to initiate the transfer form by clicking 'MAKE A TRANSFER'. To comply with QA requirements, I must first call capture_stable_selector on the index for this element (622). After capturing, I will click it to open the transfer form. This advances the workflow to form-filling steps.\" evaluation_previous_goal=\"Successfully expanded the 'TRANSFERS' menu with selector capture; new relevant menu items are now visible. Verdict: Success.\" memory=\"Completed navigation, onboarding dismissal, and expansion of the sidebar. The 'MAKE A TRANSFER' option is now available for interaction. Ready for transfer form initiation.\" next_goal=\"Capture selector for and click 'MAKE A TRANSFER' (index 622) to begin transfer workflow.\"\nAction: {'click': {'index': 331}, 'interacted_element': DOMInteractedElement(node_id=411, backend_node_id=331, frame_id=None, node_type=<NodeType.ELEMENT_NODE: 1>, node_value='', node_name='BUTTON', attributes={'_ngcontent-qau-c147': '', 'mat-button': '', 'class': 'mat-focus-indicator button mat-button mat-button-base cdk-focused cdk-program-focused', 'type': 'button'}, bounds=DOMRect(x=1033.1875, y=582.0, width=64.0, height=36.0), x_path='html/body/div/div[2]/div/mat-dialog-container/app-welcome-dialog/div[2]/button', element_hash=1331429460548538348, stable_hash=9746670042148963824, ax_name='Ok')}\nExtracted Content: Clicked button \"Ok\"\n\n\nStep 6:\nURL: https://www.ngpf.org/bank-sim/transfer\nThought/Goal: thinking=\"I have successfully reached the 'Make a Transfer' form. The next step is to select 'SINGLE' in the PAYMENT FREQUENCY dropdown, according to the workflow. Per mandatory QA rule, I must first capture the stable selector for this dropdown and then select the 'SINGLE' option. The relevant dropdown appears to have index 687 from browser_state and screenshot, with visible label 'PAYMENT FREQUENCY'. I will proceed accordingly.\" evaluation_previous_goal=\"Successfully clicked 'MAKE A TRANSFER' after selector capture; transfer form appeared as expected. Verdict: Success.\" memory='Reached transfer form after clicking through landing, modal, and sidebar workflows with selector captures. No failures so far; ready for dropdown selection.' next_goal=\"Capture stable selector for PAYMENT FREQUENCY dropdown (index 687), then select 'SINGLE'.\"\nAction: {'capture_stable_selector': {'index': 255, 'action_to_be_taken': 'click', 'value': '', 'component_name': 'TRANSFERS Sidebar Expand'}, 'interacted_element': DOMInteractedElement(node_id=615, backend_node_id=255, frame_id=None, node_type=<NodeType.ELEMENT_NODE: 1>, node_value='', node_name='SPAN', attributes={'_ngcontent-qau-c145': '', 'fxflex': '', 'style': 'flex: 1 1 0%; box-sizing: border-box;'}, bounds=DOMRect(x=231.3125, y=270.0, width=26.21875, height=0.0), x_path='html/body/app-root/app-main/mat-drawer-container/mat-drawer/div/mat-nav-list/app-menu-list-item[4]/a/span/span[4]', element_hash=1204561760503739836, stable_hash=12733776806572209591, ax_name=None)}\nExtracted Content: Selector captured successfully: page.locator('a').filter({ hasText: 'TRANSFERS expand_more' }) (confidence: 99)\n\n\nStep 7:\nURL: https://www.ngpf.org/bank-sim/transfer\nThought/Goal: thinking=\"The previous step successfully expanded the PAYMENT FREQUENCY dropdown in the transfer form, showing both MONTHLY and SINGLE options. Now, per user request and workflow rules, I must select 'SINGLE' as the payment frequency. To comply with strict QA rules, I must capture the selector before interacting with the 'SINGLE' option. Index 938 corresponds to the SINGLE option in the dropdown. I will first capture its stable selector for select_option with value 'SINGLE', then click/select SINGLE to apply it, setting up for the next form field (Transfer From).\" evaluation_previous_goal='PAYMENT FREQUENCY dropdown was expanded successfully; both options are visible for selection. Verdict: Success.' memory=\"PAYMENT FREQUENCY dropdown is open; ready to select 'SINGLE'. All navigation, modal dismissal, sidebar expansion and transfer menu-click steps completed as planned so far.\" next_goal=\"Capture selector for 'SINGLE' option (index 938) in PAYMENT FREQUENCY dropdown, then select/click it to confirm selection.\"\nAction: {'click': {'index': 255}, 'interacted_element': DOMInteractedElement(node_id=615, backend_node_id=255, frame_id=None, node_type=<NodeType.ELEMENT_NODE: 1>, node_value='', node_name='SPAN', attributes={'_ngcontent-qau-c145': '', 'fxflex': '', 'style': 'flex: 1 1 0%; box-sizing: border-box;'}, bounds=DOMRect(x=231.3125, y=270.0, width=26.21875, height=0.0), x_path='html/body/app-root/app-main/mat-drawer-container/mat-drawer/div/mat-nav-list/app-menu-list-item[4]/a/span/span[4]', element_hash=1204561760503739836, stable_hash=12733776806572209591, ax_name=None)}\nExtracted Content: Clicked span\n\n\nStep 8:\nURL: https://www.ngpf.org/bank-sim/transfer\nThought/Goal: thinking=\"The previous step successfully selected 'SINGLE' for PAYMENT FREQUENCY as verified in the screenshot: 'SINGLE' is now the selected value. Next, I need to select the 'Transfer From' account, which as per user instructions should be 'CHECKING ($216.04)'. According to the interactive elements, the Payment Frequency, Transfer From, and Transfer To fields are implemented as dropdowns (mat-select). As required, before interacting with (opening) the 'Transfer From' dropdown at index 701, I must call capture_stable_selector for this action. Then I will click it to open the dropdown for account selection.\" evaluation_previous_goal=\"Successfully selected 'SINGLE' option for PAYMENT FREQUENCY; verified from screenshot and browser state.\" memory='Selected PAYMENT FREQUENCY as SINGLE. The workflow is progressing as expected; main form is now ready for account dropdown interactions. No failures so far.' next_goal='Capture selector for Transfer From dropdown (index 701), then click it to open account selection dropdown.'\nAction: {'capture_stable_selector': {'index': 622, 'action_to_be_taken': 'click', 'value': 'MAKE A TRANSFER', 'component_name': 'Sidebar Menu - Transfers'}, 'interacted_element': DOMInteractedElement(node_id=1023, backend_node_id=622, frame_id=None, node_type=<NodeType.ELEMENT_NODE: 1>, node_value='', node_name='A', attributes={'_ngcontent-qau-c145': '', 'mat-list-item': '', 'class': 'mat-list-item mat-focus-indicator ng-tns-c145-13 sidebar', 'style': 'padding-left: 12px;'}, bounds=DOMRect(x=60.0, y=294.0, width=319.640625, height=48.0), x_path='html/body/app-root/app-main/mat-drawer-container/mat-drawer/div/mat-nav-list/app-menu-list-item[4]/div/app-menu-list-item[1]/a', element_hash=8931272313730112773, stable_hash=8675703861686507994, ax_name='MAKE A TRANSFER')}\nExtracted Content: Selector captured successfully: page.locator('a').filter({ hasText: 'MAKE A TRANSFER' }) (confidence: 99)\n\n\nStep 9:\nURL: https://www.ngpf.org/bank-sim/transfer\nThought/Goal: thinking=\"The last step successfully opened the 'Transfer From' dropdown, showing three options: 'PLEASE SELECT AN ACCOUNT', 'CHECKING ($216.04)', and 'SAVING ($230.00)'. As per the workflow, the next step is to select 'CHECKING ($216.04)' from this dropdown. Per mandatory rules, I must first capture the stable selector for this option (index 967), then click/select it. I will also provide a plan update since I'm tracking each field interaction for QA compliance.\" evaluation_previous_goal=\"Successfully opened the 'Transfer From' dropdown, all options are now visible for selection. Verdict: Success.\" memory='Transfer form loaded with PAYMENT FREQUENCY set to SINGLE and Transfer From dropdown expanded. Workflow is proceeding as specified with selectors captured before interactions.' next_goal=\"Capture selector for 'CHECKING ($216.04)' (index 967), then select/click it to proceed with transfer from account selection.\"\nAction: {'click': {'index': 622}, 'interacted_element': DOMInteractedElement(node_id=1023, backend_node_id=622, frame_id=None, node_type=<NodeType.ELEMENT_NODE: 1>, node_value='', node_name='A', attributes={'_ngcontent-qau-c145': '', 'mat-list-item': '', 'class': 'mat-list-item mat-focus-indicator ng-tns-c145-13 sidebar', 'style': 'padding-left: 12px;'}, bounds=DOMRect(x=60.0, y=294.0, width=319.640625, height=48.0), x_path='html/body/app-root/app-main/mat-drawer-container/mat-drawer/div/mat-nav-list/app-menu-list-item[4]/div/app-menu-list-item[1]/a', element_hash=8931272313730112773, stable_hash=8675703861686507994, ax_name='MAKE A TRANSFER')}\nExtracted Content: Clicked a \"MAKE A TRANSFER\"\n\n\nStep 10:\nURL: https://www.ngpf.org/bank-sim/transfer\nThought/Goal: thinking=\"The previous step successfully selected 'CHECKING ($216.04)' as the Transfer From account with selector capture and verified from the screenshot. The transfer form now displays PAYMENT FREQUENCY as 'SINGLE' and Transfer From as 'CHECKING'. The next step is to select 'SAVING ($230.00)' from the Transfer To dropdown. Per mandatory QA rules, I must first capture a stable selector for the Transfer To dropdown before any interaction, then click it to expand the account selection options.\" evaluation_previous_goal=\"Successfully captured selector and selected 'CHECKING ($216.04)' for Transfer From. Verdict: Success.\" memory='PAYMENT FREQUENCY is set to SINGLE, and Transfer From was set to CHECKING ($216.04). Next up is selecting SAVING ($230.00) from Transfer To dropdown.' next_goal='Capture selector for the Transfer To dropdown (index 717), then click it to open the selection menu.'\nAction: {'capture_stable_selector': {'index': 687, 'action_to_be_taken': 'select_option', 'value': 'SINGLE', 'component_name': 'Payment Frequency Dropdown'}, 'interacted_element': DOMInteractedElement(node_id=1589, backend_node_id=687, frame_id=None, node_type=<NodeType.ELEMENT_NODE: 1>, node_value='', node_name='MAT-SELECT', attributes={'_ngcontent-qau-c149': '', 'role': 'combobox', 'aria-autocomplete': 'none', 'aria-haspopup': 'true', 'formcontrolname': 'frequency', 'class': 'mat-select ng-tns-c100-16 ng-tns-c59-15 mat-select-required mat-select-empty ng-untouched ng-pristine ng-invalid ng-star-inserted', 'aria-labelledby': 'mat-form-field-label-3 mat-select-value-1', 'id': 'mat-select-0', 'tabindex': '0', 'aria-expanded': 'false', 'aria-required': 'true', 'aria-disabled': 'false', 'aria-invalid': 'false'}, bounds=DOMRect(x=776.5, y=276.0, width=613.0, height=15.75), x_path='html/body/app-root/app-main/mat-drawer-container/mat-drawer-content/div/app-make-transfer/div/mat-card/mat-card-content/div[2]/div/form/div[1]/mat-form-field[1]/div/div[1]/div[3]/mat-select', element_hash=1817645344405859987, stable_hash=5861861006807209267, ax_name='PAYMENT FREQUENCY ')}\nExtracted Content: Selector captured successfully: page.getByRole('combobox', { name: 'PAYMENT FREQUENCY' }) (confidence: 99)\n\n\nStep 11:\nURL: https://www.ngpf.org/bank-sim/transfer\nThought/Goal: thinking=\"We have successfully reached the transfer form and opened the Transfer To dropdown after capturing the selector, as required by the workflow and guidelines. The SAVING ($230.00) option is visible and ready for selection. According to both the test flow and the mandatory selector capture rule, I must capture the stable selector for SAVING ($230.00) option before selecting it. This is step 7 of the workflow plan. I'll proceed with selector capture, select the SAVING option, then move on to entering the amount after confirming successful selection.\" evaluation_previous_goal=\"Successfully opened and expanded 'Transfer To' dropdown for account selection after selector capture. Verification from screenshot shows correct state.\" memory='Transfer form loaded with prior steps complete: payment frequency SINGLE, Transfer From CHECKING ($216.04), Transfer To dropdown expanded. Ready to select SAVING.' next_goal='Capture stable selector for SAVING ($230.00) in Transfer To dropdown (index 1001), then select/click it to proceed with account selection.'\nAction: {'click': {'index': 687}, 'interacted_element': DOMInteractedElement(node_id=1589, backend_node_id=687, frame_id=None, node_type=<NodeType.ELEMENT_NODE: 1>, node_value='', node_name='MAT-SELECT', attributes={'_ngcontent-qau-c149': '', 'role': 'combobox', 'aria-autocomplete': 'none', 'aria-haspopup': 'true', 'formcontrolname': 'frequency', 'class': 'mat-select ng-tns-c100-16 ng-tns-c59-15 mat-select-required mat-select-empty ng-untouched ng-pristine ng-invalid ng-star-inserted', 'aria-labelledby': 'mat-form-field-label-3 mat-select-value-1', 'id': 'mat-select-0', 'tabindex': '0', 'aria-expanded': 'false', 'aria-required': 'true', 'aria-disabled': 'false', 'aria-invalid': 'false'}, bounds=DOMRect(x=776.5, y=276.0, width=613.0, height=15.75), x_path='html/body/app-root/app-main/mat-drawer-container/mat-drawer-content/div/app-make-transfer/div/mat-card/mat-card-content/div[2]/div/form/div[1]/mat-form-field[1]/div/div[1]/div[3]/mat-select', element_hash=1817645344405859987, stable_hash=5861861006807209267, ax_name='PAYMENT FREQUENCY ')}\nExtracted Content: Clicked mat-select role=combobox id=mat-select-0\n\n\nStep 12:\nURL: https://www.ngpf.org/bank-sim/transfer\nThought/Goal: thinking=\"The previous step selected 'SAVING ($230.00)' successfully for Transfer To, completing dropdown selections. This matches the user workflow up to step 7. The next required action is to input '50' as the dollar amount in the Amount field, as per step 8 of the plan and user request. Per instructions, I must capture the selector for the Amount input before entering the value. The Amount input field is visible and its index is 733 based on browser_state and screenshot.\\n\\nI will first call capture_stable_selector for the Amount input (index 733) for 'input_text' with value '50', then follow up with an input action to enter '50' into this field, fulfilling the next workflow step.\" evaluation_previous_goal='Successfully selected SAVING ($230.00) in Transfer To dropdown; screenshot verifies correct state.' memory='Workflow has completed all dropdown selections as requested: SINGLE payment frequency, Transfer From CHECKING ($216.04), Transfer To SAVING ($230.00). Ready to input amount.' next_goal=\"Capture selector for Amount input (index 733), then enter '50' into the field.\"\nAction: {'capture_stable_selector': {'index': 938, 'action_to_be_taken': 'select_option', 'value': 'SINGLE', 'component_name': 'PAYMENT FREQUENCY'}, 'interacted_element': DOMInteractedElement(node_id=2383, backend_node_id=938, frame_id=None, node_type=<NodeType.ELEMENT_NODE: 1>, node_value='', node_name='MAT-OPTION', attributes={'_ngcontent-qau-c149': '', 'role': 'option', 'value': 'SINGLE', 'class': 'mat-option mat-focus-indicator ng-tns-c100-16', 'id': 'mat-option-1', 'tabindex': '0', 'aria-disabled': 'false'}, bounds=DOMRect(x=760.5, y=305.0, width=645.0, height=42.0), x_path='html/body/div[1]/div[2]/div/div/div/mat-option[2]', element_hash=1996131561778131056, stable_hash=18013505680161014375, ax_name='SINGLE')}\nExtracted Content: Selector captured successfully: page.getByRole('option', { name: 'SINGLE' }) (confidence: 99)\n\n\nStep 13:\nURL: https://www.ngpf.org/bank-sim/transfer\nThought/Goal: thinking=\"The previous step involved capturing the selector and inputting the amount ($50) in the transfer form. The screenshot and browser state confirm that '50' is entered successfully in the Amount field. According to the plan, the next step is to set the Payment Date to today's date (2026-03-22), requiring selector capture before interacting with the date input. The Payment Date field already shows '3/22/2026', so we need to confirm its state by capturing and re-inputting as required by workflow rules and for robust QA evidence.\" evaluation_previous_goal='Successfully captured selector and entered $50 into Amount input; verified via screenshot and browser state.' memory='Amount field populated with $50 after selector capture; transfer form is ready for Payment Date interaction. Previous steps completed successfully, including all selections and form fills up to this point.' next_goal=\"Capture selector for Payment Date field (index 739), then input today's date ('3/22/2026') to confirm value entry according to workflow requirements.\"\nAction: {'click': {'index': 938}, 'interacted_element': DOMInteractedElement(node_id=2383, backend_node_id=938, frame_id=None, node_type=<NodeType.ELEMENT_NODE: 1>, node_value='', node_name='MAT-OPTION', attributes={'_ngcontent-qau-c149': '', 'role': 'option', 'value': 'SINGLE', 'class': 'mat-option mat-focus-indicator ng-tns-c100-16', 'id': 'mat-option-1', 'tabindex': '0', 'aria-disabled': 'false'}, bounds=DOMRect(x=760.5, y=305.0, width=645.0, height=42.0), x_path='html/body/div[1]/div[2]/div/div/div/mat-option[2]', element_hash=1996131561778131056, stable_hash=18013505680161014375, ax_name='SINGLE')}\nExtracted Content: Clicked mat-option role=option \"SINGLE\" id=mat-option-1\n\n\nStep 14:\nURL: https://www.ngpf.org/bank-sim/transfer\nThought/Goal: thinking=\"The previous action successfully input today's date ('3/22/2026') in the Payment Date field after capturing its selector, as evidenced by both the screenshot and browser state. This completes the date entry step. The next step is to capture the selector for the 'Save' button and then click it to submit the transfer form. This is required to progress to the success confirmation and history verification phases. All prior workflow steps have been executed with selector captures, ensuring compliance with mandatory QA protocol.\" evaluation_previous_goal=\"Successfully inputted today's date ('3/22/2026') into the Payment Date field after selector capture; screenshot verifies correct entry.\" memory=\"Date field populated with '3/22/2026' after selector capture. All form fields required by the transfer workflow are set, ready for submission. Previous steps include selector captures for every interaction up to this point.\" next_goal=\"Capture the stable selector for the 'Save' button (index 681), then click it to submit the transfer form.\"\nAction: {'capture_stable_selector': {'index': 701, 'action_to_be_taken': 'click', 'value': '', 'component_name': 'Transfer From Dropdown'}, 'interacted_element': DOMInteractedElement(node_id=2773, backend_node_id=701, frame_id=None, node_type=<NodeType.ELEMENT_NODE: 1>, node_value='', node_name='MAT-SELECT', attributes={'_ngcontent-qau-c149': '', 'role': 'combobox', 'aria-autocomplete': 'none', 'aria-haspopup': 'true', 'formcontrolname': 'fromAccount', 'class': 'mat-select ng-tns-c100-18 ng-tns-c59-17 mat-select-required mat-select-empty ng-untouched ng-pristine ng-invalid ng-star-inserted', 'aria-labelledby': 'mat-form-field-label-5 mat-select-value-3', 'id': 'mat-select-2', 'tabindex': '0', 'aria-expanded': 'false', 'aria-required': 'true', 'aria-disabled': 'false', 'aria-invalid': 'false'}, bounds=DOMRect(x=776.5, y=363.0625, width=613.0, height=15.75), x_path='html/body/app-root/app-main/mat-drawer-container/mat-drawer-content/div/app-make-transfer/div/mat-card/mat-card-content/div[2]/div/form/div[1]/mat-form-field[2]/div/div[1]/div[3]/mat-select', element_hash=6269463484292098804, stable_hash=7856889579332131095, ax_name='Transfer From ')}\nExtracted Content: Selector captured successfully: page.getByRole('combobox', { name: 'Transfer From' }) (confidence: 99)\n\n\nStep 15:\nURL: https://www.ngpf.org/bank-sim/transfer/display-transfers\nThought/Goal: thinking=\"I have completed all steps of the workflow as described, including every mandatory selector capture before each action. On the final page, I observe the green snackbar message 'Amount has been transferred to Saving Account,' confirming success. Additionally, the Past Transfers table displays a new entry: Id '1100002', Date '03/22/2026', Description 'Transfer to Saving Account', and Amount '-$50.00'. All elements required for verification have appeared, confirming the workflow is completed as requested. The form URL is https://www.ngpf.org/bank-sim/transfer/display-transfers. The fields interacted with include: PAYMENT FREQUENCY ('SINGLE'), Transfer From ('CHECKING ($216.04)'), Transfer To ('SAVING ($230.00)'), Amount ('50'), Payment Date ('3/22/2026').\" evaluation_previous_goal='Verified successful completion of transfer with confirmation message and new entry in Past Transfers table; all required steps executed and selector captures performed.' memory='Workflow steps from landing through form completion are completed. Confirmation snackbar and Past Transfers entry are present; form values and interaction history fully recorded.' next_goal='Call done to provide final comprehensive workflow report including evidence and all required details.'\nAction: {'click': {'index': 701}, 'interacted_element': DOMInteractedElement(node_id=2773, backend_node_id=701, frame_id=None, node_type=<NodeType.ELEMENT_NODE: 1>, node_value='', node_name='MAT-SELECT', attributes={'_ngcontent-qau-c149': '', 'role': 'combobox', 'aria-autocomplete': 'none', 'aria-haspopup': 'true', 'formcontrolname': 'fromAccount', 'class': 'mat-select ng-tns-c100-18 ng-tns-c59-17 mat-select-required mat-select-empty ng-untouched ng-pristine ng-invalid ng-star-inserted', 'aria-labelledby': 'mat-form-field-label-5 mat-select-value-3', 'id': 'mat-select-2', 'tabindex': '0', 'aria-expanded': 'false', 'aria-required': 'true', 'aria-disabled': 'false', 'aria-invalid': 'false'}, bounds=DOMRect(x=776.5, y=363.0625, width=613.0, height=15.75), x_path='html/body/app-root/app-main/mat-drawer-container/mat-drawer-content/div/app-make-transfer/div/mat-card/mat-card-content/div[2]/div/form/div[1]/mat-form-field[2]/div/div[1]/div[3]/mat-select', element_hash=6269463484292098804, stable_hash=7856889579332131095, ax_name='Transfer From ')}\nExtracted Content: Clicked mat-select role=combobox id=mat-select-2\n\n\nStep 16:\nAction: {'capture_stable_selector': {'index': 967, 'action_to_be_taken': 'select_option', 'value': 'CHECKING ($216.04)', 'component_name': 'Transfer From Dropdown'}, 'interacted_element': DOMInteractedElement(node_id=3529, backend_node_id=967, frame_id=None, node_type=<NodeType.ELEMENT_NODE: 1>, node_value='', node_name='MAT-OPTION', attributes={'_ngcontent-qau-c149': '', 'role': 'option', 'value': 'checking', 'class': 'mat-option mat-focus-indicator ng-tns-c100-18', 'id': 'mat-option-3', 'tabindex': '0', 'aria-disabled': 'false'}, bounds=DOMRect(x=760.5, y=392.0625, width=645.0, height=42.0), x_path='html/body/div[1]/div[2]/div/div/div/mat-option[2]', element_hash=1844710828253469011, stable_hash=5870054364604947754, ax_name='CHECKING ($216.04)')}\nExtracted Content: Selector captured successfully: page.getByRole('option', { name: 'CHECKING ($216.04)' }) (confidence: 99)\n\n\nStep 17:\nAction: {'click': {'index': 967}, 'interacted_element': DOMInteractedElement(node_id=3529, backend_node_id=967, frame_id=None, node_type=<NodeType.ELEMENT_NODE: 1>, node_value='', node_name='MAT-OPTION', attributes={'_ngcontent-qau-c149': '', 'role': 'option', 'value': 'checking', 'class': 'mat-option mat-focus-indicator ng-tns-c100-18', 'id': 'mat-option-3', 'tabindex': '0', 'aria-disabled': 'false'}, bounds=DOMRect(x=760.5, y=392.0625, width=645.0, height=42.0), x_path='html/body/div[1]/div[2]/div/div/div/mat-option[2]', element_hash=1844710828253469011, stable_hash=5870054364604947754, ax_name='CHECKING ($216.04)')}\nExtracted Content: Clicked mat-option role=option \"CHECKING ($216.04)\" id=mat-option-3\n\n\nStep 18:\nAction: {'capture_stable_selector': {'index': 717, 'action_to_be_taken': 'click', 'value': '', 'component_name': 'Transfer To Dropdown'}, 'interacted_element': DOMInteractedElement(node_id=3976, backend_node_id=717, frame_id=None, node_type=<NodeType.ELEMENT_NODE: 1>, node_value='', node_name='MAT-SELECT', attributes={'_ngcontent-qau-c149': '', 'role': 'combobox', 'aria-autocomplete': 'none', 'aria-haspopup': 'true', 'formcontrolname': 'toAccount', 'class': 'mat-select ng-tns-c100-20 ng-tns-c59-19 mat-select-required mat-select-empty ng-untouched ng-pristine ng-invalid ng-star-inserted', 'aria-labelledby': 'mat-form-field-label-7 mat-select-value-5', 'id': 'mat-select-4', 'tabindex': '0', 'aria-expanded': 'false', 'aria-required': 'true', 'aria-disabled': 'false', 'aria-invalid': 'false'}, bounds=DOMRect(x=776.5, y=450.125, width=613.0, height=15.75), x_path='html/body/app-root/app-main/mat-drawer-container/mat-drawer-content/div/app-make-transfer/div/mat-card/mat-card-content/div[2]/div/form/div[1]/mat-form-field[3]/div/div[1]/div[3]/mat-select', element_hash=5430343841699876016, stable_hash=4639165980483229117, ax_name='Transfer To ')}\nExtracted Content: Selector captured successfully: page.getByRole('combobox', { name: 'Transfer To' }) (confidence: 99)\n\n\nStep 19:\nAction: {'click': {'index': 717}, 'interacted_element': DOMInteractedElement(node_id=3976, backend_node_id=717, frame_id=None, node_type=<NodeType.ELEMENT_NODE: 1>, node_value='', node_name='MAT-SELECT', attributes={'_ngcontent-qau-c149': '', 'role': 'combobox', 'aria-autocomplete': 'none', 'aria-haspopup': 'true', 'formcontrolname': 'toAccount', 'class': 'mat-select ng-tns-c100-20 ng-tns-c59-19 mat-select-required mat-select-empty ng-untouched ng-pristine ng-invalid ng-star-inserted', 'aria-labelledby': 'mat-form-field-label-7 mat-select-value-5', 'id': 'mat-select-4', 'tabindex': '0', 'aria-expanded': 'false', 'aria-required': 'true', 'aria-disabled': 'false', 'aria-invalid': 'false'}, bounds=DOMRect(x=776.5, y=450.125, width=613.0, height=15.75), x_path='html/body/app-root/app-main/mat-drawer-container/mat-drawer-content/div/app-make-transfer/div/mat-card/mat-card-content/div[2]/div/form/div[1]/mat-form-field[3]/div/div[1]/div[3]/mat-select', element_hash=5430343841699876016, stable_hash=4639165980483229117, ax_name='Transfer To ')}\nExtracted Content: Clicked mat-select role=combobox id=mat-select-4\n\n\nStep 20:\nAction: {'capture_stable_selector': {'index': 1001, 'action_to_be_taken': 'select_option', 'value': 'SAVING ($230.00)', 'component_name': 'Transfer To Dropdown'}, 'interacted_element': DOMInteractedElement(node_id=4703, backend_node_id=1001, frame_id=None, node_type=<NodeType.ELEMENT_NODE: 1>, node_value='', node_name='MAT-OPTION', attributes={'_ngcontent-qau-c149': '', 'role': 'option', 'value': 'saving', 'class': 'mat-option mat-focus-indicator ng-tns-c100-20', 'id': 'mat-option-7', 'tabindex': '0', 'aria-disabled': 'false'}, bounds=DOMRect(x=760.5, y=521.125, width=645.0, height=42.0), x_path='html/body/div[1]/div[2]/div/div/div/mat-option[3]', element_hash=735957593526886376, stable_hash=4291447022671042968, ax_name='SAVING ($230.00)')}\nExtracted Content: Selector captured successfully: page.getByRole('option', { name: 'SAVING ($230.00)' }) (confidence: 99)\n\n\nStep 21:\nAction: {'click': {'index': 1001}, 'interacted_element': DOMInteractedElement(node_id=4703, backend_node_id=1001, frame_id=None, node_type=<NodeType.ELEMENT_NODE: 1>, node_value='', node_name='MAT-OPTION', attributes={'_ngcontent-qau-c149': '', 'role': 'option', 'value': 'saving', 'class': 'mat-option mat-focus-indicator ng-tns-c100-20', 'id': 'mat-option-7', 'tabindex': '0', 'aria-disabled': 'false'}, bounds=DOMRect(x=760.5, y=521.125, width=645.0, height=42.0), x_path='html/body/div[1]/div[2]/div/div/div/mat-option[3]', element_hash=735957593526886376, stable_hash=4291447022671042968, ax_name='SAVING ($230.00)')}\nExtracted Content: Clicked mat-option role=option \"SAVING ($230.00)\" id=mat-option-7\n\n\nStep 22:\nAction: {'capture_stable_selector': {'index': 733, 'action_to_be_taken': 'input_text', 'value': '50', 'component_name': 'Amount Field'}, 'interacted_element': DOMInteractedElement(node_id=5193, backend_node_id=733, frame_id=None, node_type=<NodeType.ELEMENT_NODE: 1>, node_value='', node_name='INPUT', attributes={'_ngcontent-qau-c149': '', 'matinput': '', 'type': 'number', 'formcontrolname': 'amount', 'class': 'mat-input-element mat-form-field-autofill-control ng-tns-c59-21 ng-untouched ng-pristine ng-invalid cdk-text-field-autofill-monitored', 'required': '', 'id': 'mat-input-1', 'data-placeholder': 'Write Amount', 'aria-required': 'true'}, bounds=DOMRect(x=797.984375, y=537.1875, width=591.515625, height=15.75), x_path='html/body/app-root/app-main/mat-drawer-container/mat-drawer-content/div/app-make-transfer/div/mat-card/mat-card-content/div[2]/div/form/div[1]/mat-form-field[4]/div/div[1]/div[4]/input', element_hash=7184799786957959508, stable_hash=2262474957710618311, ax_name='Amount')}\nExtracted Content: Selector captured successfully: page.getByRole('spinbutton', { name: 'Amount' }) (confidence: 99)\n\n\nStep 23:\nAction: {'input': {'index': 733, 'text': '50', 'clear': True}, 'interacted_element': DOMInteractedElement(node_id=5193, backend_node_id=733, frame_id=None, node_type=<NodeType.ELEMENT_NODE: 1>, node_value='', node_name='INPUT', attributes={'_ngcontent-qau-c149': '', 'matinput': '', 'type': 'number', 'formcontrolname': 'amount', 'class': 'mat-input-element mat-form-field-autofill-control ng-tns-c59-21 ng-untouched ng-pristine ng-invalid cdk-text-field-autofill-monitored', 'required': '', 'id': 'mat-input-1', 'data-placeholder': 'Write Amount', 'aria-required': 'true'}, bounds=DOMRect(x=797.984375, y=537.1875, width=591.515625, height=15.75), x_path='html/body/app-root/app-main/mat-drawer-container/mat-drawer-content/div/app-make-transfer/div/mat-card/mat-card-content/div[2]/div/form/div[1]/mat-form-field[4]/div/div[1]/div[4]/input', element_hash=7184799786957959508, stable_hash=2262474957710618311, ax_name='Amount')}\nExtracted Content: Typed '50'\n\n\nStep 24:\nAction: {'capture_stable_selector': {'index': 739, 'action_to_be_taken': 'input_text', 'value': '3/22/2026', 'component_name': 'Payment Date'}, 'interacted_element': DOMInteractedElement(node_id=5806, backend_node_id=739, frame_id=None, node_type=<NodeType.ELEMENT_NODE: 1>, node_value='', node_name='INPUT', attributes={'_ngcontent-qau-c149': '', 'matinput': '', 'readonly': 'true', 'formcontrolname': 'date', 'class': 'mat-input-element mat-form-field-autofill-control mat-datepicker-input ng-tns-c59-22 ng-untouched ng-pristine ng-valid cdk-text-field-autofill-monitored', 'required': '', 'id': 'mat-input-2', 'aria-invalid': 'false', 'aria-required': 'true', 'aria-haspopup': 'dialog', 'min': '2026-03-21', 'data-mat-calendar': 'mat-datepicker-1'}, bounds=DOMRect(x=776.5, y=624.25, width=578.0, height=15.75), x_path='html/body/app-root/app-main/mat-drawer-container/mat-drawer-content/div/app-make-transfer/div/mat-card/mat-card-content/div[2]/div/form/div[1]/mat-form-field[5]/div/div[1]/div[3]/input', element_hash=790343805275631156, stable_hash=14021605817665981511, ax_name='Payment Date')}\nExtracted Content: Selector captured successfully: page.getByRole('textbox', { name: 'Payment Date' }) (confidence: 99)\n\n\nStep 25:\nAction: {'input': {'index': 739, 'text': '3/22/2026', 'clear': True}, 'interacted_element': DOMInteractedElement(node_id=5806, backend_node_id=739, frame_id=None, node_type=<NodeType.ELEMENT_NODE: 1>, node_value='', node_name='INPUT', attributes={'_ngcontent-qau-c149': '', 'matinput': '', 'readonly': 'true', 'formcontrolname': 'date', 'class': 'mat-input-element mat-form-field-autofill-control mat-datepicker-input ng-tns-c59-22 ng-untouched ng-pristine ng-valid cdk-text-field-autofill-monitored', 'required': '', 'id': 'mat-input-2', 'aria-invalid': 'false', 'aria-required': 'true', 'aria-haspopup': 'dialog', 'min': '2026-03-21', 'data-mat-calendar': 'mat-datepicker-1'}, bounds=DOMRect(x=776.5, y=624.25, width=578.0, height=15.75), x_path='html/body/app-root/app-main/mat-drawer-container/mat-drawer-content/div/app-make-transfer/div/mat-card/mat-card-content/div[2]/div/form/div[1]/mat-form-field[5]/div/div[1]/div[3]/input', element_hash=790343805275631156, stable_hash=14021605817665981511, ax_name='Payment Date')}\nExtracted Content: Typed '3/22/2026'\n\n\nStep 26:\nAction: {'capture_stable_selector': {'index': 681, 'action_to_be_taken': 'click', 'value': 'Save', 'component_name': 'Transfer Form Submission'}, 'interacted_element': DOMInteractedElement(node_id=6430, backend_node_id=681, frame_id=None, node_type=<NodeType.ELEMENT_NODE: 1>, node_value='', node_name='BUTTON', attributes={'_ngcontent-qau-c149': '', 'mat-raised-button': '', 'class': 'mat-focus-indicator button mat-raised-button mat-button-base', 'style': 'margin-right: 15px;'}, bounds=DOMRect(x=766.0, y=706.3125, width=71.359375, height=36.0), x_path='html/body/app-root/app-main/mat-drawer-container/mat-drawer-content/div/app-make-transfer/div/mat-card/mat-card-content/div[2]/div/form/div[2]/button[1]', element_hash=7016349843870353735, stable_hash=12388190096679201350, ax_name='Save')}\nExtracted Content: Selector captured successfully: page.getByRole('button', { name: 'Save' }) (confidence: 99)\n\n\nStep 27:\nAction: {'click': {'index': 681}, 'interacted_element': DOMInteractedElement(node_id=6430, backend_node_id=681, frame_id=None, node_type=<NodeType.ELEMENT_NODE: 1>, node_value='', node_name='BUTTON', attributes={'_ngcontent-qau-c149': '', 'mat-raised-button': '', 'class': 'mat-focus-indicator button mat-raised-button mat-button-base', 'style': 'margin-right: 15px;'}, bounds=DOMRect(x=766.0, y=706.3125, width=71.359375, height=36.0), x_path='html/body/app-root/app-main/mat-drawer-container/mat-drawer-content/div/app-make-transfer/div/mat-card/mat-card-content/div[2]/div/form/div[2]/button[1]', element_hash=7016349843870353735, stable_hash=12388190096679201350, ax_name='Save')}\nExtracted Content: Clicked button \"Save\"\n\n\nStep 28:\nAction: {'done': {'text': 'Workflow result: Success.\\n\\n1) Workflow goal achieved: YES \u2014 Funds were successfully transferred between Checking and Saving accounts using the Make a Transfer form.\\n2) Visual confirmation: The green snackbar notification reads \"Amount has been transferred to Saving Account\" and a new row appears in the Past Transfers table:\\n   - Id: 1100002\\n   - Date: 03/22/2026\\n   - Description: Transfer to Saving Account\\n   - Amount: -$50.00\\n3) Form URL used: https://www.ngpf.org/bank-sim/transfer/display-transfers\\n4) Interacted fields & values:\\n   - PAYMENT FREQUENCY            : SINGLE\\n   - Transfer From                : CHECKING ($216.04)\\n   - Transfer To                  : SAVING ($230.00)\\n   - Amount                      : 50\\n   - Payment Date                 : 3/22/2026\\n5) Selector Capture Compliance: Selector was captured before each interaction (click, input, select).\\n\\nAll steps executed strictly in accordance with instructions; workflow is confirmed end-to-end as completed successfully.', 'success': True}, 'interacted_element': None}\nExtracted Content: Workflow result: Success.\n\n1) Workflow goal achieved: YES \u2014 Funds were successfully transferred between Checking and Saving accounts using the Make a Transfer form.\n2) Visual confirmation: The green snackbar notification reads \"Amount has been transferred to Saving Account\" and a new row appears in the Past Transfers table:\n   - Id: 1100002\n   - Date: 03/22/2026\n   - Description: Transfer to Saving Account\n   - Amount: -$50.00\n3) Form URL used: https://www.ngpf.org/bank-sim/transfer/display-transfers\n4) Interacted fields & values:\n   - PAYMENT FREQUENCY            : SINGLE\n   - Transfer From                : CHECKING ($216.04)\n   - Transfer To                  : SAVING ($230.00)\n   - Amount                      : 50\n   - Payment Date                 : 3/22/2026\n5) Selector Capture Compliance: Selector was captured before each interaction (click, input, select).\n\nAll steps executed strictly in accordance with instructions; workflow is confirmed end-to-end as completed successfully.\n\n[Simple judge: The response does not include explicit evidence that capture_stable_selector was called before every click, input, or select action\u2014the strict requirement in the task. The agent claims compliance but does not provide a step-by-step log showing selector captures before each interaction. Without this log, test generation will fail per the instructions. All other requirements are met, but explicit logging/capture is mandatory.]\n",
+  "captured_selectors": [
+    {
+      "index": 20,
+      "action": "click",
+      "selector": "page.getByRole('button', { name: 'GET STARTED NOW' })",
+      "confidence": 99,
+      "input_value": "GET STARTED NOW",
+      "all_selectors": [
+        {
+          "selector": "page.getByRole('button', { name: 'GET STARTED NOW' })",
+          "strategy": "roost_primary",
+          "confidence": 99,
+          "source": "roost-primary-selector"
+        },
+        {
+          "selector": "page.getByRole('button', { name: /GET STARTED NOW/ })",
+          "strategy": "role_name_regex",
+          "confidence": 95
+        },
+        {
+          "selector": "page.getByText('GET STARTED NOW')",
+          "strategy": "text",
+          "confidence": 88
+        },
+        {
+          "selector": "page.locator('button.mat-focus-indicator.button')",
+          "strategy": "css_combined_classes",
+          "confidence": 80
+        },
+        {
+          "selector": "page.locator('button.mat-focus-indicator')",
+          "strategy": "css_stable_class",
+          "confidence": 78
+        },
+        {
+          "selector": "page.locator('button, input[type=\"submit\"], input[type=\"button\"]').filter({ hasText: /^GET STARTED NOW$/ })",
+          "strategy": "button_filter_exact",
+          "confidence": 75
+        },
+        {
+          "selector": "page.getByRole('button', { name: 'GET STARTED NOW' }).first()",
+          "strategy": "button_first",
+          "confidence": 71
+        },
+        {
+          "selector": "page.getByRole('button', { name: 'GET STARTED NOW' }).last()",
+          "strategy": "button_last",
+          "confidence": 70
+        },
+        {
+          "selector": "page.locator('button').filter({ hasText: 'GET STARTED NOW' })",
+          "strategy": "tag_filter_text",
+          "confidence": 69
+        },
+        {
+          "selector": "page.locator('xpath=html/body/app-root/app-home/div/div[2]/div/mat-card/mat-card-content/div/div[4]/button')",
+          "strategy": "xpath",
+          "confidence": 50
+        }
+      ],
+      "web_component_parent": {
+        "tagName": "mat-card-content",
+        "attributes": {
+          "_ngcontent-qau-c143": "",
+          "class": "mat-card-content"
+        },
+        "hasShadowRoot": false
+      },
+      "viable_selectors": [
+        {
+          "selector": "page.getByRole('button', { name: 'GET STARTED NOW' })",
+          "strategy": "roost_primary",
+          "confidence": 99,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique",
+          "source": "roost-primary-selector"
+        },
+        {
+          "selector": "page.getByRole('button', { name: /GET STARTED NOW/ })",
+          "strategy": "role_name_regex",
+          "confidence": 95,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.getByText('GET STARTED NOW')",
+          "strategy": "text",
+          "confidence": 88,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('button.mat-focus-indicator.button')",
+          "strategy": "css_combined_classes",
+          "confidence": 80,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('button.mat-focus-indicator')",
+          "strategy": "css_stable_class",
+          "confidence": 78,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('button, input[type=\"submit\"], input[type=\"button\"]').filter({ hasText: /^GET STARTED NOW$/ })",
+          "strategy": "button_filter_exact",
+          "confidence": 75,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('button').filter({ hasText: 'GET STARTED NOW' })",
+          "strategy": "tag_filter_text",
+          "confidence": 69,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('xpath=html/body/app-root/app-home/div/div[2]/div/mat-card/mat-card-content/div/div[4]/button')",
+          "strategy": "xpath",
+          "confidence": 50,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        }
+      ],
+      "tested_count": 8,
+      "viable_count": 8,
+      "selector_metadata": {
+        "has_testid": false,
+        "has_role_based": true,
+        "has_text_based": true,
+        "has_scoped": false,
+        "best_strategy": "roost_primary",
+        "uniqueness_status": "unique",
+        "target_index": 0,
+        "selector_with_index": null,
+        "iframe_selector": null,
+        "web_component_parent": {
+          "tagName": "mat-card-content",
+          "attributes": {
+            "_ngcontent-qau-c143": "",
+            "class": "mat-card-content"
+          },
+          "hasShadowRoot": false
+        }
+      }
+    },
+    {
+      "index": 331,
+      "action": "click",
+      "selector": "page.getByRole('button', { name: 'Ok' })",
+      "confidence": 99,
+      "input_value": "Ok",
+      "all_selectors": [
+        {
+          "selector": "page.getByRole('button', { name: 'Ok' })",
+          "strategy": "roost_primary",
+          "confidence": 99,
+          "source": "roost-primary-selector"
+        },
+        {
+          "selector": "page.locator('[role=\"dialog\"]').getByRole('button', { name: 'Ok' })",
+          "strategy": "portal_role_name",
+          "confidence": 95,
+          "portal_scoped": true
+        },
+        {
+          "selector": "page.getByRole('button', { name: 'Ok' })",
+          "strategy": "role_name",
+          "confidence": 95
+        },
+        {
+          "selector": "page.locator('[role=\"dialog\"]').getByText('Ok')",
+          "strategy": "portal_text",
+          "confidence": 94,
+          "portal_scoped": true
+        },
+        {
+          "selector": "page.locator('[role=\"dialog\"]').getByText('Ok')",
+          "strategy": "portal_role_scoped_text",
+          "confidence": 93,
+          "portal_scoped": true
+        },
+        {
+          "selector": "page.locator('[role=\"dialog\"]').getByRole('button', { name: 'Ok' })",
+          "strategy": "parent_role_child_role",
+          "confidence": 88
+        },
+        {
+          "selector": "page.getByText('Ok')",
+          "strategy": "text",
+          "confidence": 88
+        },
+        {
+          "selector": "page.locator('#mat-dialog-0').getByRole('button', { name: 'Ok' })",
+          "strategy": "parent_id_role",
+          "confidence": 82
+        },
+        {
+          "selector": "page.locator('button.mat-focus-indicator.button')",
+          "strategy": "css_combined_classes",
+          "confidence": 80
+        },
+        {
+          "selector": "page.locator('button.mat-focus-indicator')",
+          "strategy": "css_stable_class",
+          "confidence": 78
+        },
+        {
+          "selector": "page.getByRole('button', { name: 'Ok' }).first()",
+          "strategy": "button_first",
+          "confidence": 71
+        },
+        {
+          "selector": "page.getByRole('button', { name: 'Ok' }).last()",
+          "strategy": "button_last",
+          "confidence": 70
+        },
+        {
+          "selector": "page.locator('xpath=html/body/div/div[2]/div/mat-dialog-container/app-welcome-dialog/div[2]/button')",
+          "strategy": "xpath",
+          "confidence": 50
+        }
+      ],
+      "web_component_parent": {
+        "tagName": "app-welcome-dialog",
+        "attributes": {
+          "_nghost-qau-c147": "",
+          "class": "ng-star-inserted",
+          "style": ""
+        },
+        "hasShadowRoot": false
+      },
+      "viable_selectors": [
+        {
+          "selector": "page.getByRole('button', { name: 'Ok' })",
+          "strategy": "roost_primary",
+          "confidence": 99,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique",
+          "source": "roost-primary-selector"
+        },
+        {
+          "selector": "page.locator('[role=\"dialog\"]').getByRole('button', { name: 'Ok' })",
+          "strategy": "portal_role_name",
+          "confidence": 95,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.getByRole('button', { name: 'Ok' })",
+          "strategy": "role_name",
+          "confidence": 95,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('[role=\"dialog\"]').getByRole('button', { name: 'Ok' })",
+          "strategy": "parent_role_child_role",
+          "confidence": 88,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.getByText('Ok')",
+          "strategy": "text",
+          "confidence": 88,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('#mat-dialog-0').getByRole('button', { name: 'Ok' })",
+          "strategy": "parent_id_role",
+          "confidence": 82,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('button.mat-focus-indicator.button')",
+          "strategy": "css_combined_classes",
+          "confidence": 80,
+          "element_count": 2,
+          "is_unique": false,
+          "target_index": 1,
+          "tier": "near_unique",
+          "warning": "Matches 2 elements",
+          "selector_with_index": "page.locator('button.mat-focus-indicator.button') >> nth=1"
+        },
+        {
+          "selector": "page.locator('button.mat-focus-indicator')",
+          "strategy": "css_stable_class",
+          "confidence": 60,
+          "element_count": 10,
+          "is_unique": false,
+          "target_index": 9,
+          "tier": "semantic_fallback",
+          "warning": "Matches 10 elements (use .nth(9) for disambiguation)",
+          "selector_with_index": "page.locator('button.mat-focus-indicator') >> nth=9"
+        },
+        {
+          "selector": "page.locator('xpath=html/body/div/div[2]/div/mat-dialog-container/app-welcome-dialog/div[2]/button')",
+          "strategy": "xpath",
+          "confidence": 50,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        }
+      ],
+      "tested_count": 11,
+      "viable_count": 9,
+      "selector_metadata": {
+        "has_testid": false,
+        "has_role_based": true,
+        "has_text_based": true,
+        "has_scoped": true,
+        "best_strategy": "roost_primary",
+        "uniqueness_status": "unique",
+        "target_index": 0,
+        "selector_with_index": null,
+        "iframe_selector": null,
+        "web_component_parent": {
+          "tagName": "app-welcome-dialog",
+          "attributes": {
+            "_nghost-qau-c147": "",
+            "class": "ng-star-inserted",
+            "style": ""
+          },
+          "hasShadowRoot": false
+        }
+      }
+    },
+    {
+      "index": 255,
+      "action": "click",
+      "selector": "page.locator('a').filter({ hasText: 'TRANSFERS expand_more' })",
+      "confidence": 99,
+      "input_value": "",
+      "all_selectors": [
+        {
+          "selector": "page.locator('a').filter({ hasText: 'TRANSFERS expand_more' })",
+          "strategy": "roost_primary",
+          "confidence": 99,
+          "source": "roost-primary-selector"
+        },
+        {
+          "selector": "page.locator('xpath=html/body/app-root/app-main/mat-drawer-container/mat-drawer/div/mat-nav-list/app-menu-list-item[4]/a/span/span[4]')",
+          "strategy": "xpath",
+          "confidence": 50
+        }
+      ],
+      "web_component_parent": {
+        "tagName": "app-menu-list-item",
+        "attributes": {
+          "_ngcontent-qau-c146": "",
+          "_nghost-qau-c145": "",
+          "class": "ng-tns-c145-4 ng-star-inserted",
+          "aria-expanded": "false",
+          "style": ""
+        },
+        "hasShadowRoot": false
+      },
+      "viable_selectors": [
+        {
+          "selector": "page.locator('a').filter({ hasText: 'TRANSFERS expand_more' })",
+          "strategy": "roost_primary",
+          "confidence": 99,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique",
+          "source": "roost-primary-selector"
+        },
+        {
+          "selector": "page.locator('xpath=html/body/app-root/app-main/mat-drawer-container/mat-drawer/div/mat-nav-list/app-menu-list-item[4]/a/span/span[4]')",
+          "strategy": "xpath",
+          "confidence": 50,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        }
+      ],
+      "tested_count": 2,
+      "viable_count": 2,
+      "selector_metadata": {
+        "has_testid": false,
+        "has_role_based": false,
+        "has_text_based": false,
+        "has_scoped": false,
+        "best_strategy": "roost_primary",
+        "uniqueness_status": "unique",
+        "target_index": 0,
+        "selector_with_index": null,
+        "iframe_selector": null,
+        "web_component_parent": {
+          "tagName": "app-menu-list-item",
+          "attributes": {
+            "_ngcontent-qau-c146": "",
+            "_nghost-qau-c145": "",
+            "class": "ng-tns-c145-4 ng-star-inserted",
+            "aria-expanded": "false",
+            "style": ""
+          },
+          "hasShadowRoot": false
+        }
+      }
+    },
+    {
+      "index": 622,
+      "action": "click",
+      "selector": "page.locator('a').filter({ hasText: 'MAKE A TRANSFER' })",
+      "confidence": 99,
+      "input_value": "MAKE A TRANSFER",
+      "all_selectors": [
+        {
+          "selector": "page.locator('a').filter({ hasText: 'MAKE A TRANSFER' })",
+          "strategy": "roost_primary",
+          "confidence": 99,
+          "source": "roost-primary-selector"
+        },
+        {
+          "selector": "page.getByText('MAKE A TRANSFER')",
+          "strategy": "text",
+          "confidence": 88
+        },
+        {
+          "selector": "page.locator('a.mat-list-item.mat-focus-indicator')",
+          "strategy": "css_combined_classes",
+          "confidence": 80
+        },
+        {
+          "selector": "page.locator('a.mat-list-item')",
+          "strategy": "css_stable_class",
+          "confidence": 78
+        },
+        {
+          "selector": "page.locator('a').filter({ hasText: /^MAKE A TRANSFER$/ })",
+          "strategy": "link_filter_exact",
+          "confidence": 74
+        },
+        {
+          "selector": "page.getByRole('link', { name: 'MAKE A TRANSFER' }).first()",
+          "strategy": "link_first",
+          "confidence": 73
+        },
+        {
+          "selector": "page.getByRole('link', { name: 'MAKE A TRANSFER' }).last()",
+          "strategy": "link_last",
+          "confidence": 72
+        },
+        {
+          "selector": "page.locator('a').filter({ hasText: 'MAKE A TRANSFER' })",
+          "strategy": "tag_filter_text",
+          "confidence": 69
+        },
+        {
+          "selector": "page.locator('xpath=html/body/app-root/app-main/mat-drawer-container/mat-drawer/div/mat-nav-list/app-menu-list-item[4]/div/app-menu-list-item[1]/a')",
+          "strategy": "xpath",
+          "confidence": 50
+        }
+      ],
+      "web_component_parent": {
+        "tagName": "app-menu-list-item",
+        "attributes": {
+          "_ngcontent-qau-c145": "",
+          "_nghost-qau-c145": "",
+          "class": "ng-tns-c145-13 ng-tns-c145-4 ng-star-inserted",
+          "aria-expanded": "false"
+        },
+        "hasShadowRoot": false
+      },
+      "viable_selectors": [
+        {
+          "selector": "page.locator('a').filter({ hasText: 'MAKE A TRANSFER' })",
+          "strategy": "roost_primary",
+          "confidence": 99,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique",
+          "source": "roost-primary-selector"
+        },
+        {
+          "selector": "page.getByText('MAKE A TRANSFER')",
+          "strategy": "text",
+          "confidence": 88,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('a').filter({ hasText: /^MAKE A TRANSFER$/ })",
+          "strategy": "link_filter_exact",
+          "confidence": 74,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('a').filter({ hasText: 'MAKE A TRANSFER' })",
+          "strategy": "tag_filter_text",
+          "confidence": 69,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('xpath=html/body/app-root/app-main/mat-drawer-container/mat-drawer/div/mat-nav-list/app-menu-list-item[4]/div/app-menu-list-item[1]/a')",
+          "strategy": "xpath",
+          "confidence": 50,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        }
+      ],
+      "tested_count": 7,
+      "viable_count": 5,
+      "selector_metadata": {
+        "has_testid": false,
+        "has_role_based": false,
+        "has_text_based": true,
+        "has_scoped": false,
+        "best_strategy": "roost_primary",
+        "uniqueness_status": "unique",
+        "target_index": 0,
+        "selector_with_index": null,
+        "iframe_selector": null,
+        "web_component_parent": {
+          "tagName": "app-menu-list-item",
+          "attributes": {
+            "_ngcontent-qau-c145": "",
+            "_nghost-qau-c145": "",
+            "class": "ng-tns-c145-13 ng-tns-c145-4 ng-star-inserted",
+            "aria-expanded": "false"
+          },
+          "hasShadowRoot": false
+        }
+      }
+    },
+    {
+      "index": 687,
+      "action": "select_option",
+      "selector": "page.getByRole('combobox', { name: 'PAYMENT FREQUENCY' })",
+      "confidence": 99,
+      "input_value": null,
+      "all_selectors": [
+        {
+          "selector": "page.getByRole('combobox', { name: 'PAYMENT FREQUENCY' })",
+          "strategy": "roost_primary",
+          "confidence": 99,
+          "source": "roost-primary-selector"
+        },
+        {
+          "selector": "page.locator('mat-select.mat-select-required')",
+          "strategy": "css_tag_semantic_empty",
+          "confidence": 84,
+          "semantic_class": true
+        },
+        {
+          "selector": "page.locator('.mat-select-required')",
+          "strategy": "css_semantic_empty",
+          "confidence": 82,
+          "semantic_class": true
+        },
+        {
+          "selector": "page.locator('[role=\"combobox\"].mat-select-required')",
+          "strategy": "css_role_class_empty",
+          "confidence": 81
+        },
+        {
+          "selector": "page.locator('mat-select.mat-select.ng-tns-c100-16')",
+          "strategy": "css_combined_classes",
+          "confidence": 80
+        },
+        {
+          "selector": "page.locator('mat-select.mat-select')",
+          "strategy": "css_stable_class",
+          "confidence": 78
+        },
+        {
+          "selector": "page.locator('#mat-select-0')",
+          "strategy": "id",
+          "confidence": 75
+        },
+        {
+          "selector": "page.locator('xpath=html/body/app-root/app-main/mat-drawer-container/mat-drawer-content/div/app-make-transfer/div/mat-card/mat-card-content/div[2]/div/form/div[1]/mat-form-field[1]/div/div[1]/div[3]/mat-select')",
+          "strategy": "xpath",
+          "confidence": 50
+        }
+      ],
+      "web_component_parent": {
+        "tagName": "mat-form-field",
+        "attributes": {
+          "_ngcontent-qau-c149": "",
+          "appearance": "outline",
+          "class": "mat-form-field ng-tns-c59-15 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-outline mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-invalid ng-star-inserted",
+          "style": "margin-bottom: 10px;"
+        },
+        "hasShadowRoot": false
+      },
+      "viable_selectors": [
+        {
+          "selector": "page.getByRole('combobox', { name: 'PAYMENT FREQUENCY' })",
+          "strategy": "roost_primary",
+          "confidence": 99,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique",
+          "source": "roost-primary-selector"
+        },
+        {
+          "selector": "page.locator('mat-select.mat-select-required')",
+          "strategy": "css_tag_semantic_empty",
+          "confidence": 84,
+          "element_count": 3,
+          "is_unique": false,
+          "target_index": 0,
+          "tier": "near_unique",
+          "warning": "Matches 3 elements",
+          "selector_with_index": "page.locator('mat-select.mat-select-required') >> nth=0"
+        },
+        {
+          "selector": "page.locator('.mat-select-required')",
+          "strategy": "css_semantic_empty",
+          "confidence": 82,
+          "element_count": 3,
+          "is_unique": false,
+          "target_index": 0,
+          "tier": "near_unique",
+          "warning": "Matches 3 elements",
+          "selector_with_index": "page.locator('.mat-select-required') >> nth=0"
+        },
+        {
+          "selector": "page.locator('[role=\"combobox\"].mat-select-required')",
+          "strategy": "css_role_class_empty",
+          "confidence": 81,
+          "element_count": 3,
+          "is_unique": false,
+          "target_index": 0,
+          "tier": "near_unique",
+          "warning": "Matches 3 elements",
+          "selector_with_index": "page.locator('[role=\"combobox\"].mat-select-required') >> nth=0"
+        },
+        {
+          "selector": "page.locator('mat-select.mat-select.ng-tns-c100-16')",
+          "strategy": "css_combined_classes",
+          "confidence": 80,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('mat-select.mat-select')",
+          "strategy": "css_stable_class",
+          "confidence": 78,
+          "element_count": 3,
+          "is_unique": false,
+          "target_index": 0,
+          "tier": "near_unique",
+          "warning": "Matches 3 elements",
+          "selector_with_index": "page.locator('mat-select.mat-select') >> nth=0"
+        },
+        {
+          "selector": "page.locator('#mat-select-0')",
+          "strategy": "id",
+          "confidence": 75,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('xpath=html/body/app-root/app-main/mat-drawer-container/mat-drawer-content/div/app-make-transfer/div/mat-card/mat-card-content/div[2]/div/form/div[1]/mat-form-field[1]/div/div[1]/div[3]/mat-select')",
+          "strategy": "xpath",
+          "confidence": 50,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        }
+      ],
+      "tested_count": 8,
+      "viable_count": 8,
+      "selector_metadata": {
+        "has_testid": false,
+        "has_role_based": true,
+        "has_text_based": false,
+        "has_scoped": false,
+        "best_strategy": "roost_primary",
+        "uniqueness_status": "unique",
+        "target_index": 0,
+        "selector_with_index": null,
+        "iframe_selector": null,
+        "web_component_parent": {
+          "tagName": "mat-form-field",
+          "attributes": {
+            "_ngcontent-qau-c149": "",
+            "appearance": "outline",
+            "class": "mat-form-field ng-tns-c59-15 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-outline mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-invalid ng-star-inserted",
+            "style": "margin-bottom: 10px;"
+          },
+          "hasShadowRoot": false
+        }
+      }
+    },
+    {
+      "index": 938,
+      "action": "select_option",
+      "selector": "page.getByRole('option', { name: 'SINGLE' })",
+      "confidence": 99,
+      "input_value": null,
+      "all_selectors": [
+        {
+          "selector": "page.getByRole('option', { name: 'SINGLE' })",
+          "strategy": "roost_primary",
+          "confidence": 99,
+          "source": "roost-primary-selector"
+        },
+        {
+          "selector": "page.locator('[role=\"listbox\"]').getByRole('option', { name: 'SINGLE' })",
+          "strategy": "portal_role_name",
+          "confidence": 98,
+          "portal_scoped": true
+        },
+        {
+          "selector": "page.locator('[role=\"listbox\"]').getByRole('option', { name: 'SINGLE' })",
+          "strategy": "portal_role_child_role",
+          "confidence": 98,
+          "portal_scoped": true
+        },
+        {
+          "selector": "page.locator('[role=\"listbox\"]').getByText('SINGLE')",
+          "strategy": "portal_text",
+          "confidence": 97,
+          "portal_scoped": true
+        },
+        {
+          "selector": "page.locator('[role=\"listbox\"]').getByText('SINGLE')",
+          "strategy": "portal_role_scoped_text",
+          "confidence": 96,
+          "portal_scoped": true
+        },
+        {
+          "selector": "page.getByRole('option', { name: 'SINGLE' })",
+          "strategy": "role_name",
+          "confidence": 95
+        },
+        {
+          "selector": "page.locator('mat-option[value=\"SINGLE\"]')",
+          "strategy": "css_tag_value",
+          "confidence": 89
+        },
+        {
+          "selector": "page.locator('[role=\"listbox\"]').getByRole('option', { name: 'SINGLE' })",
+          "strategy": "parent_role_child_role",
+          "confidence": 88
+        },
+        {
+          "selector": "page.getByText('SINGLE')",
+          "strategy": "text",
+          "confidence": 88
+        },
+        {
+          "selector": "page.locator('.mat-focus-indicator[value=\"SINGLE\"]')",
+          "strategy": "css_class_value",
+          "confidence": 87
+        },
+        {
+          "selector": "page.locator('[value=\"SINGLE\"]')",
+          "strategy": "css_value",
+          "confidence": 85
+        },
+        {
+          "selector": "page.locator('#mat-select-0-panel').getByRole('option', { name: 'SINGLE' })",
+          "strategy": "parent_id_role",
+          "confidence": 82
+        },
+        {
+          "selector": "page.locator('mat-option.mat-option.mat-focus-indicator')",
+          "strategy": "css_combined_classes",
+          "confidence": 80
+        },
+        {
+          "selector": "page.locator('mat-option.mat-option')",
+          "strategy": "css_stable_class",
+          "confidence": 78
+        },
+        {
+          "selector": "page.locator('#mat-option-1')",
+          "strategy": "id",
+          "confidence": 75
+        },
+        {
+          "selector": "page.locator('mat-option').filter({ hasText: 'SINGLE' })",
+          "strategy": "tag_filter_text",
+          "confidence": 69
+        },
+        {
+          "selector": "page.locator('mat-option').filter({ hasText: /^SINGLE$/ })",
+          "strategy": "tag_filter_exact",
+          "confidence": 67
+        },
+        {
+          "selector": "page.locator('xpath=html/body/div[1]/div[2]/div/div/div/mat-option[2]')",
+          "strategy": "xpath",
+          "confidence": 50
+        }
+      ],
+      "web_component_parent": null,
+      "viable_selectors": [
+        {
+          "selector": "page.getByRole('option', { name: 'SINGLE' })",
+          "strategy": "roost_primary",
+          "confidence": 99,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique",
+          "source": "roost-primary-selector"
+        },
+        {
+          "selector": "page.locator('[role=\"listbox\"]').getByRole('option', { name: 'SINGLE' })",
+          "strategy": "portal_role_name",
+          "confidence": 98,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('[role=\"listbox\"]').getByRole('option', { name: 'SINGLE' })",
+          "strategy": "portal_role_child_role",
+          "confidence": 98,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.getByRole('option', { name: 'SINGLE' })",
+          "strategy": "role_name",
+          "confidence": 95,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('mat-option[value=\"SINGLE\"]')",
+          "strategy": "css_tag_value",
+          "confidence": 89,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('[role=\"listbox\"]').getByRole('option', { name: 'SINGLE' })",
+          "strategy": "parent_role_child_role",
+          "confidence": 88,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.getByText('SINGLE')",
+          "strategy": "text",
+          "confidence": 88,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('.mat-focus-indicator[value=\"SINGLE\"]')",
+          "strategy": "css_class_value",
+          "confidence": 87,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('[value=\"SINGLE\"]')",
+          "strategy": "css_value",
+          "confidence": 85,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('#mat-select-0-panel').getByRole('option', { name: 'SINGLE' })",
+          "strategy": "parent_id_role",
+          "confidence": 82,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('mat-option.mat-option.mat-focus-indicator')",
+          "strategy": "css_combined_classes",
+          "confidence": 80,
+          "element_count": 2,
+          "is_unique": false,
+          "target_index": 1,
+          "tier": "near_unique",
+          "warning": "Matches 2 elements",
+          "selector_with_index": "page.locator('mat-option.mat-option.mat-focus-indicator') >> nth=1"
+        },
+        {
+          "selector": "page.locator('mat-option.mat-option')",
+          "strategy": "css_stable_class",
+          "confidence": 78,
+          "element_count": 2,
+          "is_unique": false,
+          "target_index": 1,
+          "tier": "near_unique",
+          "warning": "Matches 2 elements",
+          "selector_with_index": "page.locator('mat-option.mat-option') >> nth=1"
+        },
+        {
+          "selector": "page.locator('#mat-option-1')",
+          "strategy": "id",
+          "confidence": 75,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('mat-option').filter({ hasText: 'SINGLE' })",
+          "strategy": "tag_filter_text",
+          "confidence": 69,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('mat-option').filter({ hasText: /^SINGLE$/ })",
+          "strategy": "tag_filter_exact",
+          "confidence": 67,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('xpath=html/body/div[1]/div[2]/div/div/div/mat-option[2]')",
+          "strategy": "xpath",
+          "confidence": 50,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        }
+      ],
+      "tested_count": 18,
+      "viable_count": 16,
+      "selector_metadata": {
+        "has_testid": false,
+        "has_role_based": true,
+        "has_text_based": true,
+        "has_scoped": true,
+        "best_strategy": "roost_primary",
+        "uniqueness_status": "unique",
+        "target_index": 0,
+        "selector_with_index": null,
+        "iframe_selector": null,
+        "web_component_parent": null
+      }
+    },
+    {
+      "index": 701,
+      "action": "click",
+      "selector": "page.getByRole('combobox', { name: 'Transfer From' })",
+      "confidence": 99,
+      "input_value": "",
+      "all_selectors": [
+        {
+          "selector": "page.getByRole('combobox', { name: 'Transfer From' })",
+          "strategy": "roost_primary",
+          "confidence": 99,
+          "source": "roost-primary-selector"
+        },
+        {
+          "selector": "page.locator('mat-select.mat-select-required')",
+          "strategy": "css_tag_semantic_empty",
+          "confidence": 84,
+          "semantic_class": true
+        },
+        {
+          "selector": "page.locator('.mat-select-required')",
+          "strategy": "css_semantic_empty",
+          "confidence": 82,
+          "semantic_class": true
+        },
+        {
+          "selector": "page.locator('[role=\"combobox\"].mat-select-required')",
+          "strategy": "css_role_class_empty",
+          "confidence": 81
+        },
+        {
+          "selector": "page.locator('mat-select.mat-select.ng-tns-c100-18')",
+          "strategy": "css_combined_classes",
+          "confidence": 80
+        },
+        {
+          "selector": "page.locator('mat-select.mat-select')",
+          "strategy": "css_stable_class",
+          "confidence": 78
+        },
+        {
+          "selector": "page.locator('#mat-select-2')",
+          "strategy": "id",
+          "confidence": 75
+        },
+        {
+          "selector": "page.locator('xpath=html/body/app-root/app-main/mat-drawer-container/mat-drawer-content/div/app-make-transfer/div/mat-card/mat-card-content/div[2]/div/form/div[1]/mat-form-field[2]/div/div[1]/div[3]/mat-select')",
+          "strategy": "xpath",
+          "confidence": 50
+        }
+      ],
+      "web_component_parent": {
+        "tagName": "mat-form-field",
+        "attributes": {
+          "_ngcontent-qau-c149": "",
+          "appearance": "outline",
+          "class": "mat-form-field ng-tns-c59-17 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-outline mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-invalid ng-star-inserted",
+          "style": "margin-bottom: 10px;"
+        },
+        "hasShadowRoot": false
+      },
+      "viable_selectors": [
+        {
+          "selector": "page.getByRole('combobox', { name: 'Transfer From' })",
+          "strategy": "roost_primary",
+          "confidence": 99,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique",
+          "source": "roost-primary-selector"
+        },
+        {
+          "selector": "page.locator('mat-select.mat-select-required')",
+          "strategy": "css_tag_semantic_empty",
+          "confidence": 84,
+          "element_count": 3,
+          "is_unique": false,
+          "target_index": 1,
+          "tier": "near_unique",
+          "warning": "Matches 3 elements",
+          "selector_with_index": "page.locator('mat-select.mat-select-required') >> nth=1"
+        },
+        {
+          "selector": "page.locator('.mat-select-required')",
+          "strategy": "css_semantic_empty",
+          "confidence": 82,
+          "element_count": 3,
+          "is_unique": false,
+          "target_index": 1,
+          "tier": "near_unique",
+          "warning": "Matches 3 elements",
+          "selector_with_index": "page.locator('.mat-select-required') >> nth=1"
+        },
+        {
+          "selector": "page.locator('[role=\"combobox\"].mat-select-required')",
+          "strategy": "css_role_class_empty",
+          "confidence": 81,
+          "element_count": 3,
+          "is_unique": false,
+          "target_index": 1,
+          "tier": "near_unique",
+          "warning": "Matches 3 elements",
+          "selector_with_index": "page.locator('[role=\"combobox\"].mat-select-required') >> nth=1"
+        },
+        {
+          "selector": "page.locator('mat-select.mat-select.ng-tns-c100-18')",
+          "strategy": "css_combined_classes",
+          "confidence": 80,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('mat-select.mat-select')",
+          "strategy": "css_stable_class",
+          "confidence": 78,
+          "element_count": 3,
+          "is_unique": false,
+          "target_index": 1,
+          "tier": "near_unique",
+          "warning": "Matches 3 elements",
+          "selector_with_index": "page.locator('mat-select.mat-select') >> nth=1"
+        },
+        {
+          "selector": "page.locator('#mat-select-2')",
+          "strategy": "id",
+          "confidence": 75,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('xpath=html/body/app-root/app-main/mat-drawer-container/mat-drawer-content/div/app-make-transfer/div/mat-card/mat-card-content/div[2]/div/form/div[1]/mat-form-field[2]/div/div[1]/div[3]/mat-select')",
+          "strategy": "xpath",
+          "confidence": 50,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        }
+      ],
+      "tested_count": 8,
+      "viable_count": 8,
+      "selector_metadata": {
+        "has_testid": false,
+        "has_role_based": true,
+        "has_text_based": false,
+        "has_scoped": false,
+        "best_strategy": "roost_primary",
+        "uniqueness_status": "unique",
+        "target_index": 0,
+        "selector_with_index": null,
+        "iframe_selector": null,
+        "web_component_parent": {
+          "tagName": "mat-form-field",
+          "attributes": {
+            "_ngcontent-qau-c149": "",
+            "appearance": "outline",
+            "class": "mat-form-field ng-tns-c59-17 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-outline mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-invalid ng-star-inserted",
+            "style": "margin-bottom: 10px;"
+          },
+          "hasShadowRoot": false
+        }
+      }
+    },
+    {
+      "index": 967,
+      "action": "select_option",
+      "selector": "page.getByRole('option', { name: 'CHECKING ($216.04)' })",
+      "confidence": 99,
+      "input_value": null,
+      "all_selectors": [
+        {
+          "selector": "page.getByRole('option', { name: 'CHECKING ($216.04)' })",
+          "strategy": "roost_primary",
+          "confidence": 99,
+          "source": "roost-primary-selector"
+        },
+        {
+          "selector": "page.locator('[role=\"listbox\"]').getByRole('option', { name: 'CHECKING ($216.04)' })",
+          "strategy": "portal_role_name",
+          "confidence": 98,
+          "portal_scoped": true
+        },
+        {
+          "selector": "page.locator('[role=\"listbox\"]').getByRole('option', { name: 'CHECKING ($216.04)' })",
+          "strategy": "portal_role_child_role",
+          "confidence": 98,
+          "portal_scoped": true
+        },
+        {
+          "selector": "page.locator('[role=\"listbox\"]').getByText('CHECKING ($216.04)')",
+          "strategy": "portal_text",
+          "confidence": 97,
+          "portal_scoped": true
+        },
+        {
+          "selector": "page.locator('[role=\"listbox\"]').getByText('CHECKING ($216.04)')",
+          "strategy": "portal_role_scoped_text",
+          "confidence": 96,
+          "portal_scoped": true
+        },
+        {
+          "selector": "page.getByRole('option', { name: /CHECKING \\(\\$216\\.04\\)/ })",
+          "strategy": "role_name_regex",
+          "confidence": 95
+        },
+        {
+          "selector": "page.locator('mat-option[value=\"checking\"]')",
+          "strategy": "css_tag_value",
+          "confidence": 89
+        },
+        {
+          "selector": "page.locator('[role=\"listbox\"]').getByRole('option', { name: /CHECKING \\(\\$216\\.04\\)/ })",
+          "strategy": "parent_role_child_role_regex",
+          "confidence": 88
+        },
+        {
+          "selector": "page.getByText('CHECKING ($216.04)')",
+          "strategy": "text",
+          "confidence": 88
+        },
+        {
+          "selector": "page.locator('.mat-focus-indicator[value=\"checking\"]')",
+          "strategy": "css_class_value",
+          "confidence": 87
+        },
+        {
+          "selector": "page.locator('[value=\"checking\"]')",
+          "strategy": "css_value",
+          "confidence": 85
+        },
+        {
+          "selector": "page.locator('#mat-select-2-panel').getByRole('option', { name: 'CHECKING ($216.04)' })",
+          "strategy": "parent_id_role",
+          "confidence": 82
+        },
+        {
+          "selector": "page.locator('mat-option.mat-option.mat-focus-indicator')",
+          "strategy": "css_combined_classes",
+          "confidence": 80
+        },
+        {
+          "selector": "page.locator('mat-option.mat-option')",
+          "strategy": "css_stable_class",
+          "confidence": 78
+        },
+        {
+          "selector": "page.locator('#mat-option-3')",
+          "strategy": "id",
+          "confidence": 75
+        },
+        {
+          "selector": "page.locator('mat-option').filter({ hasText: 'CHECKING ($216.04)' })",
+          "strategy": "tag_filter_text",
+          "confidence": 69
+        },
+        {
+          "selector": "page.locator('mat-option').filter({ hasText: /^CHECKING \\(\\$216\\.04\\)$/ })",
+          "strategy": "tag_filter_exact",
+          "confidence": 67
+        },
+        {
+          "selector": "page.locator('xpath=html/body/div[1]/div[2]/div/div/div/mat-option[2]')",
+          "strategy": "xpath",
+          "confidence": 50
+        }
+      ],
+      "web_component_parent": null,
+      "viable_selectors": [
+        {
+          "selector": "page.getByRole('option', { name: 'CHECKING ($216.04)' })",
+          "strategy": "roost_primary",
+          "confidence": 99,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique",
+          "source": "roost-primary-selector"
+        },
+        {
+          "selector": "page.locator('[role=\"listbox\"]').getByRole('option', { name: 'CHECKING ($216.04)' })",
+          "strategy": "portal_role_name",
+          "confidence": 98,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('[role=\"listbox\"]').getByRole('option', { name: 'CHECKING ($216.04)' })",
+          "strategy": "portal_role_child_role",
+          "confidence": 98,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.getByRole('option', { name: /CHECKING \\(\\$216\\.04\\)/ })",
+          "strategy": "role_name_regex",
+          "confidence": 95,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('mat-option[value=\"checking\"]')",
+          "strategy": "css_tag_value",
+          "confidence": 89,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('[role=\"listbox\"]').getByRole('option', { name: /CHECKING \\(\\$216\\.04\\)/ })",
+          "strategy": "parent_role_child_role_regex",
+          "confidence": 88,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.getByText('CHECKING ($216.04)')",
+          "strategy": "text",
+          "confidence": 88,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('.mat-focus-indicator[value=\"checking\"]')",
+          "strategy": "css_class_value",
+          "confidence": 87,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('[value=\"checking\"]')",
+          "strategy": "css_value",
+          "confidence": 85,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('#mat-select-2-panel').getByRole('option', { name: 'CHECKING ($216.04)' })",
+          "strategy": "parent_id_role",
+          "confidence": 82,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('mat-option.mat-option.mat-focus-indicator')",
+          "strategy": "css_combined_classes",
+          "confidence": 80,
+          "element_count": 3,
+          "is_unique": false,
+          "target_index": 1,
+          "tier": "near_unique",
+          "warning": "Matches 3 elements",
+          "selector_with_index": "page.locator('mat-option.mat-option.mat-focus-indicator') >> nth=1"
+        },
+        {
+          "selector": "page.locator('mat-option.mat-option')",
+          "strategy": "css_stable_class",
+          "confidence": 78,
+          "element_count": 3,
+          "is_unique": false,
+          "target_index": 1,
+          "tier": "near_unique",
+          "warning": "Matches 3 elements",
+          "selector_with_index": "page.locator('mat-option.mat-option') >> nth=1"
+        },
+        {
+          "selector": "page.locator('#mat-option-3')",
+          "strategy": "id",
+          "confidence": 75,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('mat-option').filter({ hasText: 'CHECKING ($216.04)' })",
+          "strategy": "tag_filter_text",
+          "confidence": 69,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('mat-option').filter({ hasText: /^CHECKING \\(\\$216\\.04\\)$/ })",
+          "strategy": "tag_filter_exact",
+          "confidence": 67,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('xpath=html/body/div[1]/div[2]/div/div/div/mat-option[2]')",
+          "strategy": "xpath",
+          "confidence": 50,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        }
+      ],
+      "tested_count": 18,
+      "viable_count": 16,
+      "selector_metadata": {
+        "has_testid": false,
+        "has_role_based": true,
+        "has_text_based": true,
+        "has_scoped": true,
+        "best_strategy": "roost_primary",
+        "uniqueness_status": "unique",
+        "target_index": 0,
+        "selector_with_index": null,
+        "iframe_selector": null,
+        "web_component_parent": null
+      }
+    },
+    {
+      "index": 717,
+      "action": "click",
+      "selector": "page.getByRole('combobox', { name: 'Transfer To' })",
+      "confidence": 99,
+      "input_value": "",
+      "all_selectors": [
+        {
+          "selector": "page.getByRole('combobox', { name: 'Transfer To' })",
+          "strategy": "roost_primary",
+          "confidence": 99,
+          "source": "roost-primary-selector"
+        },
+        {
+          "selector": "page.locator('mat-select.mat-select-required')",
+          "strategy": "css_tag_semantic_empty",
+          "confidence": 84,
+          "semantic_class": true
+        },
+        {
+          "selector": "page.locator('.mat-select-required')",
+          "strategy": "css_semantic_empty",
+          "confidence": 82,
+          "semantic_class": true
+        },
+        {
+          "selector": "page.locator('[role=\"combobox\"].mat-select-required')",
+          "strategy": "css_role_class_empty",
+          "confidence": 81
+        },
+        {
+          "selector": "page.locator('mat-select.mat-select.ng-tns-c100-20')",
+          "strategy": "css_combined_classes",
+          "confidence": 80
+        },
+        {
+          "selector": "page.locator('mat-select.mat-select')",
+          "strategy": "css_stable_class",
+          "confidence": 78
+        },
+        {
+          "selector": "page.locator('#mat-select-4')",
+          "strategy": "id",
+          "confidence": 75
+        },
+        {
+          "selector": "page.locator('xpath=html/body/app-root/app-main/mat-drawer-container/mat-drawer-content/div/app-make-transfer/div/mat-card/mat-card-content/div[2]/div/form/div[1]/mat-form-field[3]/div/div[1]/div[3]/mat-select')",
+          "strategy": "xpath",
+          "confidence": 50
+        }
+      ],
+      "web_component_parent": {
+        "tagName": "mat-form-field",
+        "attributes": {
+          "_ngcontent-qau-c149": "",
+          "appearance": "outline",
+          "class": "mat-form-field ng-tns-c59-19 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-outline mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-invalid ng-star-inserted",
+          "style": "margin-bottom: 10px;"
+        },
+        "hasShadowRoot": false
+      },
+      "viable_selectors": [
+        {
+          "selector": "page.getByRole('combobox', { name: 'Transfer To' })",
+          "strategy": "roost_primary",
+          "confidence": 99,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique",
+          "source": "roost-primary-selector"
+        },
+        {
+          "selector": "page.locator('mat-select.mat-select-required')",
+          "strategy": "css_tag_semantic_empty",
+          "confidence": 84,
+          "element_count": 3,
+          "is_unique": false,
+          "target_index": 2,
+          "tier": "near_unique",
+          "warning": "Matches 3 elements",
+          "selector_with_index": "page.locator('mat-select.mat-select-required') >> nth=2"
+        },
+        {
+          "selector": "page.locator('.mat-select-required')",
+          "strategy": "css_semantic_empty",
+          "confidence": 82,
+          "element_count": 3,
+          "is_unique": false,
+          "target_index": 2,
+          "tier": "near_unique",
+          "warning": "Matches 3 elements",
+          "selector_with_index": "page.locator('.mat-select-required') >> nth=2"
+        },
+        {
+          "selector": "page.locator('[role=\"combobox\"].mat-select-required')",
+          "strategy": "css_role_class_empty",
+          "confidence": 81,
+          "element_count": 3,
+          "is_unique": false,
+          "target_index": 2,
+          "tier": "near_unique",
+          "warning": "Matches 3 elements",
+          "selector_with_index": "page.locator('[role=\"combobox\"].mat-select-required') >> nth=2"
+        },
+        {
+          "selector": "page.locator('mat-select.mat-select.ng-tns-c100-20')",
+          "strategy": "css_combined_classes",
+          "confidence": 80,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('mat-select.mat-select')",
+          "strategy": "css_stable_class",
+          "confidence": 78,
+          "element_count": 3,
+          "is_unique": false,
+          "target_index": 2,
+          "tier": "near_unique",
+          "warning": "Matches 3 elements",
+          "selector_with_index": "page.locator('mat-select.mat-select') >> nth=2"
+        },
+        {
+          "selector": "page.locator('#mat-select-4')",
+          "strategy": "id",
+          "confidence": 75,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('xpath=html/body/app-root/app-main/mat-drawer-container/mat-drawer-content/div/app-make-transfer/div/mat-card/mat-card-content/div[2]/div/form/div[1]/mat-form-field[3]/div/div[1]/div[3]/mat-select')",
+          "strategy": "xpath",
+          "confidence": 50,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        }
+      ],
+      "tested_count": 8,
+      "viable_count": 8,
+      "selector_metadata": {
+        "has_testid": false,
+        "has_role_based": true,
+        "has_text_based": false,
+        "has_scoped": false,
+        "best_strategy": "roost_primary",
+        "uniqueness_status": "unique",
+        "target_index": 0,
+        "selector_with_index": null,
+        "iframe_selector": null,
+        "web_component_parent": {
+          "tagName": "mat-form-field",
+          "attributes": {
+            "_ngcontent-qau-c149": "",
+            "appearance": "outline",
+            "class": "mat-form-field ng-tns-c59-19 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-outline mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-invalid ng-star-inserted",
+            "style": "margin-bottom: 10px;"
+          },
+          "hasShadowRoot": false
+        }
+      }
+    },
+    {
+      "index": 1001,
+      "action": "select_option",
+      "selector": "page.getByRole('option', { name: 'SAVING ($230.00)' })",
+      "confidence": 99,
+      "input_value": null,
+      "all_selectors": [
+        {
+          "selector": "page.getByRole('option', { name: 'SAVING ($230.00)' })",
+          "strategy": "roost_primary",
+          "confidence": 99,
+          "source": "roost-primary-selector"
+        },
+        {
+          "selector": "page.locator('[role=\"listbox\"]').getByRole('option', { name: 'SAVING ($230.00)' })",
+          "strategy": "portal_role_name",
+          "confidence": 98,
+          "portal_scoped": true
+        },
+        {
+          "selector": "page.locator('[role=\"listbox\"]').getByRole('option', { name: 'SAVING ($230.00)' })",
+          "strategy": "portal_role_child_role",
+          "confidence": 98,
+          "portal_scoped": true
+        },
+        {
+          "selector": "page.locator('[role=\"listbox\"]').getByText('SAVING ($230.00)')",
+          "strategy": "portal_text",
+          "confidence": 97,
+          "portal_scoped": true
+        },
+        {
+          "selector": "page.locator('[role=\"listbox\"]').getByText('SAVING ($230.00)')",
+          "strategy": "portal_role_scoped_text",
+          "confidence": 96,
+          "portal_scoped": true
+        },
+        {
+          "selector": "page.getByRole('option', { name: /SAVING \\(\\$230\\.00\\)/ })",
+          "strategy": "role_name_regex",
+          "confidence": 95
+        },
+        {
+          "selector": "page.locator('mat-option[value=\"saving\"]')",
+          "strategy": "css_tag_value",
+          "confidence": 89
+        },
+        {
+          "selector": "page.locator('[role=\"listbox\"]').getByRole('option', { name: /SAVING \\(\\$230\\.00\\)/ })",
+          "strategy": "parent_role_child_role_regex",
+          "confidence": 88
+        },
+        {
+          "selector": "page.getByText('SAVING ($230.00)')",
+          "strategy": "text",
+          "confidence": 88
+        },
+        {
+          "selector": "page.locator('.mat-focus-indicator[value=\"saving\"]')",
+          "strategy": "css_class_value",
+          "confidence": 87
+        },
+        {
+          "selector": "page.locator('[value=\"saving\"]')",
+          "strategy": "css_value",
+          "confidence": 85
+        },
+        {
+          "selector": "page.locator('#mat-select-4-panel').getByRole('option', { name: 'SAVING ($230.00)' })",
+          "strategy": "parent_id_role",
+          "confidence": 82
+        },
+        {
+          "selector": "page.locator('mat-option.mat-option.mat-focus-indicator')",
+          "strategy": "css_combined_classes",
+          "confidence": 80
+        },
+        {
+          "selector": "page.locator('mat-option.mat-option')",
+          "strategy": "css_stable_class",
+          "confidence": 78
+        },
+        {
+          "selector": "page.locator('#mat-option-7')",
+          "strategy": "id",
+          "confidence": 75
+        },
+        {
+          "selector": "page.locator('mat-option').filter({ hasText: 'SAVING ($230.00)' })",
+          "strategy": "tag_filter_text",
+          "confidence": 69
+        },
+        {
+          "selector": "page.locator('mat-option').filter({ hasText: /^SAVING \\(\\$230\\.00\\)$/ })",
+          "strategy": "tag_filter_exact",
+          "confidence": 67
+        },
+        {
+          "selector": "page.locator('xpath=html/body/div[1]/div[2]/div/div/div/mat-option[3]')",
+          "strategy": "xpath",
+          "confidence": 50
+        }
+      ],
+      "web_component_parent": null,
+      "viable_selectors": [
+        {
+          "selector": "page.getByRole('option', { name: 'SAVING ($230.00)' })",
+          "strategy": "roost_primary",
+          "confidence": 99,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique",
+          "source": "roost-primary-selector"
+        },
+        {
+          "selector": "page.locator('[role=\"listbox\"]').getByRole('option', { name: 'SAVING ($230.00)' })",
+          "strategy": "portal_role_name",
+          "confidence": 98,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('[role=\"listbox\"]').getByRole('option', { name: 'SAVING ($230.00)' })",
+          "strategy": "portal_role_child_role",
+          "confidence": 98,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.getByRole('option', { name: /SAVING \\(\\$230\\.00\\)/ })",
+          "strategy": "role_name_regex",
+          "confidence": 95,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('mat-option[value=\"saving\"]')",
+          "strategy": "css_tag_value",
+          "confidence": 89,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('[role=\"listbox\"]').getByRole('option', { name: /SAVING \\(\\$230\\.00\\)/ })",
+          "strategy": "parent_role_child_role_regex",
+          "confidence": 88,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.getByText('SAVING ($230.00)')",
+          "strategy": "text",
+          "confidence": 88,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('.mat-focus-indicator[value=\"saving\"]')",
+          "strategy": "css_class_value",
+          "confidence": 87,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('[value=\"saving\"]')",
+          "strategy": "css_value",
+          "confidence": 85,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('#mat-select-4-panel').getByRole('option', { name: 'SAVING ($230.00)' })",
+          "strategy": "parent_id_role",
+          "confidence": 82,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('mat-option.mat-option.mat-focus-indicator')",
+          "strategy": "css_combined_classes",
+          "confidence": 80,
+          "element_count": 3,
+          "is_unique": false,
+          "target_index": 2,
+          "tier": "near_unique",
+          "warning": "Matches 3 elements",
+          "selector_with_index": "page.locator('mat-option.mat-option.mat-focus-indicator') >> nth=2"
+        },
+        {
+          "selector": "page.locator('mat-option.mat-option')",
+          "strategy": "css_stable_class",
+          "confidence": 78,
+          "element_count": 3,
+          "is_unique": false,
+          "target_index": 2,
+          "tier": "near_unique",
+          "warning": "Matches 3 elements",
+          "selector_with_index": "page.locator('mat-option.mat-option') >> nth=2"
+        },
+        {
+          "selector": "page.locator('#mat-option-7')",
+          "strategy": "id",
+          "confidence": 75,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('mat-option').filter({ hasText: 'SAVING ($230.00)' })",
+          "strategy": "tag_filter_text",
+          "confidence": 69,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('mat-option').filter({ hasText: /^SAVING \\(\\$230\\.00\\)$/ })",
+          "strategy": "tag_filter_exact",
+          "confidence": 67,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('xpath=html/body/div[1]/div[2]/div/div/div/mat-option[3]')",
+          "strategy": "xpath",
+          "confidence": 50,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        }
+      ],
+      "tested_count": 18,
+      "viable_count": 16,
+      "selector_metadata": {
+        "has_testid": false,
+        "has_role_based": true,
+        "has_text_based": true,
+        "has_scoped": true,
+        "best_strategy": "roost_primary",
+        "uniqueness_status": "unique",
+        "target_index": 0,
+        "selector_with_index": null,
+        "iframe_selector": null,
+        "web_component_parent": null
+      }
+    },
+    {
+      "index": 733,
+      "action": "input_text",
+      "selector": "page.getByRole('spinbutton', { name: 'Amount' })",
+      "confidence": 99,
+      "input_value": "",
+      "all_selectors": [
+        {
+          "selector": "page.getByRole('spinbutton', { name: 'Amount' })",
+          "strategy": "roost_primary",
+          "confidence": 99,
+          "source": "roost-primary-selector"
+        },
+        {
+          "selector": "page.locator('form[action*=\"transfer\"]').getByRole('textbox', { name: /Amount \\*/ })",
+          "strategy": "form_action_role_regex",
+          "confidence": 97
+        },
+        {
+          "selector": "page.getByRole('textbox', { name: /Amount \\*/ })",
+          "strategy": "role_name_regex",
+          "confidence": 95
+        },
+        {
+          "selector": "page.getByLabel('Amount *')",
+          "strategy": "label_text",
+          "confidence": 93
+        },
+        {
+          "selector": "page.getByLabel('Amount *')",
+          "strategy": "label",
+          "confidence": 90
+        },
+        {
+          "selector": "page.locator('input[data-placeholder=\"Write Amount\"]')",
+          "strategy": "data_attr_placeholder",
+          "confidence": 85
+        },
+        {
+          "selector": "page.locator('input.mat-input-element.mat-form-field-autofill-control')",
+          "strategy": "css_combined_classes",
+          "confidence": 80
+        },
+        {
+          "selector": "page.locator('input.mat-input-element')",
+          "strategy": "css_stable_class",
+          "confidence": 78
+        },
+        {
+          "selector": "page.locator('#mat-input-1')",
+          "strategy": "id",
+          "confidence": 75
+        },
+        {
+          "selector": "page.locator('xpath=html/body/app-root/app-main/mat-drawer-container/mat-drawer-content/div/app-make-transfer/div/mat-card/mat-card-content/div[2]/div/form/div[1]/mat-form-field[4]/div/div[1]/div[4]/input')",
+          "strategy": "xpath",
+          "confidence": 50
+        }
+      ],
+      "web_component_parent": {
+        "tagName": "mat-form-field",
+        "attributes": {
+          "_ngcontent-qau-c149": "",
+          "appearance": "outline",
+          "class": "mat-form-field ng-tns-c59-21 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-outline mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-invalid ng-star-inserted",
+          "style": "margin-bottom: 10px;"
+        },
+        "hasShadowRoot": false
+      },
+      "viable_selectors": [
+        {
+          "selector": "page.getByRole('spinbutton', { name: 'Amount' })",
+          "strategy": "roost_primary",
+          "confidence": 99,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique",
+          "source": "roost-primary-selector"
+        },
+        {
+          "selector": "page.getByRole('textbox', { name: /Amount \\*/ })",
+          "strategy": "role_name_regex",
+          "confidence": 95,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.getByLabel('Amount *')",
+          "strategy": "label_text",
+          "confidence": 93,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.getByLabel('Amount *')",
+          "strategy": "label",
+          "confidence": 90,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('input[data-placeholder=\"Write Amount\"]')",
+          "strategy": "data_attr_placeholder",
+          "confidence": 85,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('input.mat-input-element.mat-form-field-autofill-control')",
+          "strategy": "css_combined_classes",
+          "confidence": 80,
+          "element_count": 3,
+          "is_unique": false,
+          "target_index": 1,
+          "tier": "near_unique",
+          "warning": "Matches 3 elements",
+          "selector_with_index": "page.locator('input.mat-input-element.mat-form-field-autofill-control') >> nth=1"
+        },
+        {
+          "selector": "page.locator('input.mat-input-element')",
+          "strategy": "css_stable_class",
+          "confidence": 78,
+          "element_count": 3,
+          "is_unique": false,
+          "target_index": 1,
+          "tier": "near_unique",
+          "warning": "Matches 3 elements",
+          "selector_with_index": "page.locator('input.mat-input-element') >> nth=1"
+        },
+        {
+          "selector": "page.locator('#mat-input-1')",
+          "strategy": "id",
+          "confidence": 75,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('xpath=html/body/app-root/app-main/mat-drawer-container/mat-drawer-content/div/app-make-transfer/div/mat-card/mat-card-content/div[2]/div/form/div[1]/mat-form-field[4]/div/div[1]/div[4]/input')",
+          "strategy": "xpath",
+          "confidence": 50,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        }
+      ],
+      "tested_count": 10,
+      "viable_count": 9,
+      "selector_metadata": {
+        "has_testid": false,
+        "has_role_based": true,
+        "has_text_based": true,
+        "has_scoped": false,
+        "best_strategy": "roost_primary",
+        "uniqueness_status": "unique",
+        "target_index": 0,
+        "selector_with_index": null,
+        "iframe_selector": null,
+        "web_component_parent": {
+          "tagName": "mat-form-field",
+          "attributes": {
+            "_ngcontent-qau-c149": "",
+            "appearance": "outline",
+            "class": "mat-form-field ng-tns-c59-21 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-outline mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-invalid ng-star-inserted",
+            "style": "margin-bottom: 10px;"
+          },
+          "hasShadowRoot": false
+        }
+      }
+    },
+    {
+      "index": 739,
+      "action": "input_text",
+      "selector": "page.getByRole('textbox', { name: 'Payment Date' })",
+      "confidence": 99,
+      "input_value": "3/22/2026",
+      "all_selectors": [
+        {
+          "selector": "page.getByRole('textbox', { name: 'Payment Date' })",
+          "strategy": "roost_primary",
+          "confidence": 99,
+          "source": "roost-primary-selector"
+        },
+        {
+          "selector": "page.locator('form[action*=\"transfer\"]').getByRole('textbox', { name: /Payment Date \\*/ })",
+          "strategy": "form_action_role_regex",
+          "confidence": 97
+        },
+        {
+          "selector": "page.getByRole('textbox', { name: /Payment Date \\*/ })",
+          "strategy": "role_name_regex",
+          "confidence": 95
+        },
+        {
+          "selector": "page.getByLabel('Payment Date *')",
+          "strategy": "label_text",
+          "confidence": 93
+        },
+        {
+          "selector": "page.getByLabel('Payment Date *')",
+          "strategy": "label",
+          "confidence": 90
+        },
+        {
+          "selector": "page.locator('input[data-mat-calendar=\"mat-datepicker-1\"]')",
+          "strategy": "data_attr_mat-calendar",
+          "confidence": 85
+        },
+        {
+          "selector": "page.locator('input.mat-input-element.mat-form-field-autofill-control')",
+          "strategy": "css_combined_classes",
+          "confidence": 80
+        },
+        {
+          "selector": "page.locator('input.mat-input-element')",
+          "strategy": "css_stable_class",
+          "confidence": 78
+        },
+        {
+          "selector": "page.locator('#mat-input-2')",
+          "strategy": "id",
+          "confidence": 75
+        },
+        {
+          "selector": "page.locator('xpath=html/body/app-root/app-main/mat-drawer-container/mat-drawer-content/div/app-make-transfer/div/mat-card/mat-card-content/div[2]/div/form/div[1]/mat-form-field[5]/div/div[1]/div[3]/input')",
+          "strategy": "xpath",
+          "confidence": 50
+        }
+      ],
+      "web_component_parent": {
+        "tagName": "mat-form-field",
+        "attributes": {
+          "_ngcontent-qau-c149": "",
+          "appearance": "outline",
+          "class": "mat-form-field ng-tns-c59-22 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-outline mat-form-field-can-float mat-form-field-should-float mat-form-field-has-label ng-untouched ng-pristine ng-valid ng-star-inserted",
+          "style": "cursor: pointer;"
+        },
+        "hasShadowRoot": false
+      },
+      "viable_selectors": [
+        {
+          "selector": "page.getByRole('textbox', { name: 'Payment Date' })",
+          "strategy": "roost_primary",
+          "confidence": 99,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique",
+          "source": "roost-primary-selector"
+        },
+        {
+          "selector": "page.getByRole('textbox', { name: /Payment Date \\*/ })",
+          "strategy": "role_name_regex",
+          "confidence": 95,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.getByLabel('Payment Date *')",
+          "strategy": "label_text",
+          "confidence": 93,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.getByLabel('Payment Date *')",
+          "strategy": "label",
+          "confidence": 90,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('input[data-mat-calendar=\"mat-datepicker-1\"]')",
+          "strategy": "data_attr_mat-calendar",
+          "confidence": 85,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('input.mat-input-element.mat-form-field-autofill-control')",
+          "strategy": "css_combined_classes",
+          "confidence": 80,
+          "element_count": 3,
+          "is_unique": false,
+          "target_index": 2,
+          "tier": "near_unique",
+          "warning": "Matches 3 elements",
+          "selector_with_index": "page.locator('input.mat-input-element.mat-form-field-autofill-control') >> nth=2"
+        },
+        {
+          "selector": "page.locator('input.mat-input-element')",
+          "strategy": "css_stable_class",
+          "confidence": 78,
+          "element_count": 3,
+          "is_unique": false,
+          "target_index": 2,
+          "tier": "near_unique",
+          "warning": "Matches 3 elements",
+          "selector_with_index": "page.locator('input.mat-input-element') >> nth=2"
+        },
+        {
+          "selector": "page.locator('#mat-input-2')",
+          "strategy": "id",
+          "confidence": 75,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('xpath=html/body/app-root/app-main/mat-drawer-container/mat-drawer-content/div/app-make-transfer/div/mat-card/mat-card-content/div[2]/div/form/div[1]/mat-form-field[5]/div/div[1]/div[3]/input')",
+          "strategy": "xpath",
+          "confidence": 50,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        }
+      ],
+      "tested_count": 10,
+      "viable_count": 9,
+      "selector_metadata": {
+        "has_testid": false,
+        "has_role_based": true,
+        "has_text_based": true,
+        "has_scoped": false,
+        "best_strategy": "roost_primary",
+        "uniqueness_status": "unique",
+        "target_index": 0,
+        "selector_with_index": null,
+        "iframe_selector": null,
+        "web_component_parent": {
+          "tagName": "mat-form-field",
+          "attributes": {
+            "_ngcontent-qau-c149": "",
+            "appearance": "outline",
+            "class": "mat-form-field ng-tns-c59-22 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-outline mat-form-field-can-float mat-form-field-should-float mat-form-field-has-label ng-untouched ng-pristine ng-valid ng-star-inserted",
+            "style": "cursor: pointer;"
+          },
+          "hasShadowRoot": false
+        }
+      }
+    },
+    {
+      "index": 681,
+      "action": "click",
+      "selector": "page.getByRole('button', { name: 'Save' })",
+      "confidence": 99,
+      "input_value": "Save",
+      "all_selectors": [
+        {
+          "selector": "page.getByRole('button', { name: 'Save' })",
+          "strategy": "roost_primary",
+          "confidence": 99,
+          "source": "roost-primary-selector"
+        },
+        {
+          "selector": "page.locator('form[action*=\"transfer\"]').getByRole('button', { name: 'Save' })",
+          "strategy": "form_action_role",
+          "confidence": 97
+        },
+        {
+          "selector": "page.getByRole('button', { name: 'Save' })",
+          "strategy": "role_name",
+          "confidence": 95
+        },
+        {
+          "selector": "page.getByText('Save')",
+          "strategy": "text",
+          "confidence": 88
+        },
+        {
+          "selector": "page.locator('button.mat-focus-indicator.button')",
+          "strategy": "css_combined_classes",
+          "confidence": 80
+        },
+        {
+          "selector": "page.locator('button.mat-focus-indicator')",
+          "strategy": "css_stable_class",
+          "confidence": 78
+        },
+        {
+          "selector": "page.locator('button, input[type=\"submit\"], input[type=\"button\"]').filter({ hasText: /^Save$/ })",
+          "strategy": "button_filter_exact",
+          "confidence": 75
+        },
+        {
+          "selector": "page.getByRole('button', { name: 'Save' }).first()",
+          "strategy": "button_first",
+          "confidence": 71
+        },
+        {
+          "selector": "page.getByRole('button', { name: 'Save' }).last()",
+          "strategy": "button_last",
+          "confidence": 70
+        },
+        {
+          "selector": "page.locator('xpath=html/body/app-root/app-main/mat-drawer-container/mat-drawer-content/div/app-make-transfer/div/mat-card/mat-card-content/div[2]/div/form/div[2]/button[1]')",
+          "strategy": "xpath",
+          "confidence": 50
+        }
+      ],
+      "web_component_parent": {
+        "tagName": "mat-card-content",
+        "attributes": {
+          "_ngcontent-qau-c149": "",
+          "class": "mat-card-content"
+        },
+        "hasShadowRoot": false
+      },
+      "viable_selectors": [
+        {
+          "selector": "page.getByRole('button', { name: 'Save' })",
+          "strategy": "roost_primary",
+          "confidence": 99,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique",
+          "source": "roost-primary-selector"
+        },
+        {
+          "selector": "page.getByRole('button', { name: 'Save' })",
+          "strategy": "role_name",
+          "confidence": 95,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.getByText('Save')",
+          "strategy": "text",
+          "confidence": 88,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('button.mat-focus-indicator.button')",
+          "strategy": "css_combined_classes",
+          "confidence": 80,
+          "element_count": 3,
+          "is_unique": false,
+          "target_index": 1,
+          "tier": "near_unique",
+          "warning": "Matches 3 elements",
+          "selector_with_index": "page.locator('button.mat-focus-indicator.button') >> nth=1"
+        },
+        {
+          "selector": "page.locator('button, input[type=\"submit\"], input[type=\"button\"]').filter({ hasText: /^Save$/ })",
+          "strategy": "button_filter_exact",
+          "confidence": 75,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        },
+        {
+          "selector": "page.locator('button.mat-focus-indicator')",
+          "strategy": "css_stable_class",
+          "confidence": 60,
+          "element_count": 9,
+          "is_unique": false,
+          "target_index": 3,
+          "tier": "semantic_fallback",
+          "warning": "Matches 9 elements (use .nth(3) for disambiguation)",
+          "selector_with_index": "page.locator('button.mat-focus-indicator') >> nth=3"
+        },
+        {
+          "selector": "page.locator('xpath=html/body/app-root/app-main/mat-drawer-container/mat-drawer-content/div/app-make-transfer/div/mat-card/mat-card-content/div[2]/div/form/div[2]/button[1]')",
+          "strategy": "xpath",
+          "confidence": 50,
+          "element_count": 1,
+          "is_unique": true,
+          "target_index": 0,
+          "tier": "unique"
+        }
+      ],
+      "tested_count": 8,
+      "viable_count": 7,
+      "selector_metadata": {
+        "has_testid": false,
+        "has_role_based": true,
+        "has_text_based": true,
+        "has_scoped": false,
+        "best_strategy": "roost_primary",
+        "uniqueness_status": "unique",
+        "target_index": 0,
+        "selector_with_index": null,
+        "iframe_selector": null,
+        "web_component_parent": {
+          "tagName": "mat-card-content",
+          "attributes": {
+            "_ngcontent-qau-c149": "",
+            "class": "mat-card-content"
+          },
+          "hasShadowRoot": false
+        }
+      }
+    }
+  ],
+  "target_url": "https://www.ngpf.org/bank-sim",
+  "failure_time": "2026-03-22T19:05:29.235088"
+}
