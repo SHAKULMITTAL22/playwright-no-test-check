@@ -1,7 +1,7 @@
 {
   "metadata_version": "1.0",
   "created_at": "2026-03-22T18:02:24.580897",
-  "last_updated": "2026-03-22T19:15:12.535687",
+  "last_updated": "2026-03-22T20:44:16.759175",
   "site_url": "https://www.ngpf.org/bank-sim",
   "pom_files": [
     {
@@ -66,7 +66,7 @@
   "User_Scenarios_File": [],
   "Exploration_Scenarios": [
     {
-      "scenario_name": "submit_a_single_transfer_between_accounts_01_1774186529",
+      "scenario_name": "e2e_business_workflow_-_complete_user_journey_01_1774191904",
       "workflow_id": "WF001",
       "scenario_file_path": "scenarios/WF001_submit_a_single_transfer_between_accounts.json",
       "feature_file_path": null,
@@ -104,7 +104,23 @@
       ],
       "scenario_summary_file_path": "scenarios/summaries/WF001_submit_a_single_transfer_between_accounts.md",
       "report_pdf_file_path": "scenarios/reports/WF001_submit_a_single_transfer_between_accounts.pdf",
-      "test_steps": null
+      "test_steps": [
+        "Navigate to homepage: Load homepage",
+        "Click button: Click 'GET STARTED NOW' to begin workflow",
+        "Click button: Dismiss onboarding modal by clicking 'Ok'",
+        "Click sidebar menu: Expand 'TRANSFERS' section in sidebar",
+        "Click sidebar menu: Click 'MAKE A TRANSFER' to open transfer form",
+        "Expand dropdown: Open 'PAYMENT FREQUENCY' dropdown",
+        "Select dropdown option: Select 'SINGLE' option in payment frequency",
+        "Expand dropdown: Open 'Transfer From' dropdown",
+        "Select dropdown option: Select 'CHECKING ($216.04)' as source account",
+        "Expand dropdown: Open 'Transfer To' dropdown",
+        "Select dropdown option: Select 'SAVING ($230.00)' as recipient account",
+        "Fill input field: Enter transfer amount '50'",
+        "Fill input field: Set payment date '3/22/2026'",
+        "Click button: Submit transfer form by clicking 'Save'",
+        "Verify confirmation: Validate green snackbar displays 'Amount has been transferred to Saving Account' and transaction appears in Past Transfers table"
+      ]
     },
     {
       "scenario_name": "partial_flow_--_partial_user_journey_due_to_empty_transfer_h_02_1774186301",
@@ -158,6 +174,114 @@
         "Capture selector then click: Capture selector for sidebar item 'DISPLAY ALL TRANSFERS', then click to view transfer history",
         "Validate UI State: Observe and confirm that both 'Upcoming Transfers' and 'Past Transfers' tables are empty ('0 of 0' records)."
       ]
+    },
+    {
+      "scenario_name": "bill_payment_recipient_management_-_complete_user_journey_02_1774191804",
+      "workflow_id": "WF005",
+      "scenario_file_path": "scenarios/WF005_add_edit_and_delete_a_bill_payment_recipient.json",
+      "feature_file_path": null,
+      "feature_file_name": null,
+      "agent_workflow_file_path": null,
+      "agent_workflow_completed": false,
+      "scenario_analysis_result_file_path": null,
+      "agent_activity_summary": null,
+      "test_generated": false,
+      "test_generation_error": null,
+      "test_name": "bill_payment_recipient_management_-_complete_user_journey_02_1774191804",
+      "test_file_path": null,
+      "test_executed_success": null,
+      "test_execution_error": null,
+      "pom_test_name": null,
+      "pom_test_file_path": null,
+      "pom_test_executed_success": null,
+      "pom_test_execution_error": null,
+      "pom_files": null,
+      "scenario_summary_file_path": "scenarios/summaries/WF005_add_edit_and_delete_a_bill_payment_recipient.md",
+      "report_pdf_file_path": "scenarios/reports/WF005_add_edit_and_delete_a_bill_payment_recipient.pdf",
+      "test_steps": [
+        "Navigate to homepage: Load homepage",
+        "Click: Click 'GET STARTED NOW' to begin onboarding",
+        "Click: Click 'Ok' on welcome modal to continue",
+        "Click: Click 'BILLS' in sidebar to expand bill management options",
+        "Click: Click 'MANAGE RECIPIENT' to open recipient management",
+        "Click: Click '+ ADD RECIPIENT' to start adding a new bill recipient",
+        "Input: Type 'John Doe' into the 'RECIPIENT NAME' input in Add Recipient dialog",
+        "Click: Click 'SUBMIT' to add the recipient (all other form fields are left as pre-filled)",
+        "Click: Click 'Edit' on the listed recipient to open the edit recipient modal",
+        "Input: Edit 'RECIPIENT NAME' from 'John Doe' to 'Jane Smith'",
+        "Click: Click 'SUBMIT' to save the recipient edits",
+        "Click: Click 'Delete' to remove the recipient from the list"
+      ]
+    },
+    {
+      "scenario_name": "e2e_business_workflow_-_complete_user_journey_03_1774192414",
+      "workflow_id": "WF006",
+      "scenario_file_path": "scenarios/WF006_deposit_a_check_and_confirm_posting_in_account_act.json",
+      "feature_file_path": null,
+      "feature_file_name": null,
+      "agent_workflow_file_path": null,
+      "agent_workflow_completed": false,
+      "scenario_analysis_result_file_path": null,
+      "agent_activity_summary": null,
+      "test_generated": false,
+      "test_generation_error": null,
+      "test_name": "e2e_business_workflow_-_complete_user_journey_03_1774192414",
+      "test_file_path": null,
+      "test_executed_success": null,
+      "test_execution_error": null,
+      "pom_test_name": null,
+      "pom_test_file_path": null,
+      "pom_test_executed_success": null,
+      "pom_test_execution_error": null,
+      "pom_files": null,
+      "scenario_summary_file_path": "scenarios/summaries/WF006_deposit_a_check_and_confirm_posting_in_account_act.md",
+      "report_pdf_file_path": "scenarios/reports/WF006_deposit_a_check_and_confirm_posting_in_account_act.pdf",
+      "test_steps": [
+        "Navigate to homepage: Load homepage",
+        "Click 'GET STARTED NOW' button: Enter the Bank Simulator by clicking 'GET STARTED NOW'.",
+        "Click 'Ok' on welcome modal: Acknowledge the welcome modal to proceed.",
+        "Click 'DEPOSIT CHECKS' in sidebar: Navigate to check deposit simulation screen.",
+        "Open 'To' account dropdown: Expand account selection dropdown menu for deposit.",
+        "Select 'CHECKING' account option: Choose 'CHECKING (Available Balance is $216.04)' from account options.",
+        "Fill 'Amount' field: Input check amount: 100.00",
+        "Click 'Front' button to upload check front: Initiate upload of check's front image.",
+        "Click 'close' icon on front image modal: Close the modal displaying the front image.",
+        "Click 'Back' button to upload check back: Trigger upload for the back side of the check.",
+        "Click 'close' icon on back image modal: Close back image modal to continue deposit.",
+        "Click 'Submit' button: Submit the check deposit simulation form."
+      ]
+    },
+    {
+      "scenario_name": "validate_check_deposit_form_and_error_handling_--_partial_04_1774191703",
+      "workflow_id": "WF007",
+      "scenario_file_path": "scenarios/WF007_validate_check_deposit_form_and_error_handling.json",
+      "feature_file_path": null,
+      "feature_file_name": null,
+      "agent_workflow_file_path": null,
+      "agent_workflow_completed": false,
+      "scenario_analysis_result_file_path": null,
+      "agent_activity_summary": null,
+      "test_generated": false,
+      "test_generation_error": null,
+      "test_name": "validate_check_deposit_form_and_error_handling_--_partial_04_1774191703",
+      "test_file_path": null,
+      "test_executed_success": null,
+      "test_execution_error": null,
+      "pom_test_name": null,
+      "pom_test_file_path": null,
+      "pom_test_executed_success": null,
+      "pom_test_execution_error": null,
+      "pom_files": null,
+      "scenario_summary_file_path": "scenarios/summaries/WF007_validate_check_deposit_form_and_error_handling.md",
+      "report_pdf_file_path": "scenarios/reports/WF007_validate_check_deposit_form_and_error_handling.pdf",
+      "test_steps": [
+        "Navigate to homepage: Load the Bank Simulator homepage.",
+        "Click: Click on the 'GET STARTED NOW' button to begin the workflow.",
+        "Click: Click the 'Ok' button on the welcome modal to proceed to the dashboard.",
+        "Click: Click on 'DEPOSIT CHECKS' in the sidebar to enter the deposit workflow.",
+        "Click: Attempt to click the disabled 'Submit' button on the check deposit form (with all fields left empty).",
+        "Assertion/Verification: Verify that no inline error messages are visible after attempting to submit with required fields left empty."
+      ]
     }
   ],
   "Discovered_Workflows": [
@@ -174,7 +298,7 @@
       "scenario_file_path": "scenarios/WF001_submit_a_single_transfer_between_accounts.json",
       "scenario_summary_file_path": "scenarios/summaries/WF001_submit_a_single_transfer_between_accounts.md",
       "report_pdf_file_path": "scenarios/reports/WF001_submit_a_single_transfer_between_accounts.pdf",
-      "linked_scenario_name": "submit_a_single_transfer_between_accounts_01_1774186529",
+      "linked_scenario_name": "e2e_business_workflow_-_complete_user_journey_01_1774191904",
       "error": null
     },
     {
@@ -224,19 +348,100 @@
       "report_pdf_file_path": "scenarios/reports/WF004_delete_a_past_transfer_record.pdf",
       "linked_scenario_name": null,
       "error": null
+    },
+    {
+      "workflow_id": "WF005",
+      "title": "Add, Edit, and Delete a Bill Payment Recipient",
+      "goal": "User creates a new bill payment recipient, updates recipient information, and deletes the recipient. Success: confirmation messages for each action and updates reflected in the recipients list.",
+      "feature_area": "Bill Payments & Bill Management",
+      "priority": "high",
+      "starting_hint": "1. Navigate to https://www.ngpf.org/bank-sim\n2. Click 'GET STARTED NOW'\n3. Click 'Ok'\n4. Click 'BILLS' in the sidebar\n5. Click 'MANAGE RECIPIENT'\n6. Click 'ADD RECIPIENT' and fill fields (Name, Address, City, State, ZIP)\n7. Click 'SUBMIT' and verify confirmation banner\n8. Click 'Edit' next to recipient and modify details\n9. Click 'SUBMIT' and verify confirmation\n10. Click 'Delete' next to recipient\n11. Confirm deletion and recipient disappearance; verify confirmation message",
+      "discovery_source": "orchestrated",
+      "worker_completed": true,
+      "worker_result": "success",
+      "scenario_file_path": "scenarios/WF005_add_edit_and_delete_a_bill_payment_recipient.json",
+      "scenario_summary_file_path": "scenarios/summaries/WF005_add_edit_and_delete_a_bill_payment_recipient.md",
+      "report_pdf_file_path": "scenarios/reports/WF005_add_edit_and_delete_a_bill_payment_recipient.pdf",
+      "linked_scenario_name": "bill_payment_recipient_management_-_complete_user_journey_02_1774191804",
+      "error": null
+    },
+    {
+      "workflow_id": "WF006",
+      "title": "Deposit a Check and Confirm Posting in Account Activity",
+      "goal": "Simulate check deposit by entering amount, selecting account, uploading required images, and confirming deposit. Success: user receives confirmation message and a new deposit record is visible in Account Activity.",
+      "feature_area": "Check Deposit Simulation",
+      "priority": "high",
+      "starting_hint": "1. Navigate to https://www.ngpf.org/bank-sim\n2. Click 'GET STARTED NOW'\n3. Click 'Ok'\n4. Click 'DEPOSIT CHECKS' in the sidebar\n5. Select 'To' account (e.g., 'CHECKING')\n6. Enter 'Amount' in the input field\n7. Upload required images for 'Front' and 'Back' of check\n8. Click 'Submit' button\n9. Observe green confirmation ('You have successfully deposited your check.')\n10. Navigate to 'ACCOUNT ACTIVITY' and confirm new row is present ('Deposit Check To Checking Account' with correct amount)",
+      "discovery_source": "orchestrated",
+      "worker_completed": true,
+      "worker_result": "success",
+      "scenario_file_path": "scenarios/WF006_deposit_a_check_and_confirm_posting_in_account_act.json",
+      "scenario_summary_file_path": "scenarios/summaries/WF006_deposit_a_check_and_confirm_posting_in_account_act.md",
+      "report_pdf_file_path": "scenarios/reports/WF006_deposit_a_check_and_confirm_posting_in_account_act.pdf",
+      "linked_scenario_name": "e2e_business_workflow_-_complete_user_journey_03_1774192414",
+      "error": null
+    },
+    {
+      "workflow_id": "WF007",
+      "title": "Validate Check Deposit Form and Error Handling",
+      "goal": "Attempt to submit check deposit with missing or invalid fields. Success: Submit button remains disabled and inline error messages appear, preventing incomplete deposits.",
+      "feature_area": "Check Deposit Simulation",
+      "priority": "high",
+      "starting_hint": "1. Navigate to https://www.ngpf.org/bank-sim\n2. Click 'GET STARTED NOW'\n3. Click 'Ok'\n4. Click 'DEPOSIT CHECKS' in the sidebar\n5. Leave one or more required fields ('To', 'Amount', 'Front', 'Back') empty\n6. Attempt to click 'Submit'; verify button is disabled\n7. Review inline error messages below fields (e.g., 'Please select any account')",
+      "discovery_source": "orchestrated",
+      "worker_completed": true,
+      "worker_result": "success",
+      "scenario_file_path": "scenarios/WF007_validate_check_deposit_form_and_error_handling.json",
+      "scenario_summary_file_path": "scenarios/summaries/WF007_validate_check_deposit_form_and_error_handling.md",
+      "report_pdf_file_path": "scenarios/reports/WF007_validate_check_deposit_form_and_error_handling.pdf",
+      "linked_scenario_name": "validate_check_deposit_form_and_error_handling_--_partial_04_1774191703",
+      "error": null
+    },
+    {
+      "workflow_id": "WF008",
+      "title": "Navigate to Online Banking Services",
+      "goal": "Navigate to the Online Banking Services area and verify the page loads correctly with expected content.",
+      "feature_area": "Online Banking Services",
+      "priority": "low",
+      "starting_hint": "From https://www.ngpf.org/bank-sim, follow: Click 'ONLINE SERVICES' in sidebar. Verify the page at https://www.ngpf.org/bank-sim/online-services loads and displays the heading.",
+      "discovery_source": "orchestrated",
+      "worker_completed": false,
+      "worker_result": "failed",
+      "scenario_file_path": null,
+      "scenario_summary_file_path": "scenarios/summaries/WF008_navigate_to_online_banking_services.md",
+      "report_pdf_file_path": "scenarios/reports/WF008_navigate_to_online_banking_services.pdf",
+      "linked_scenario_name": null,
+      "error": null
+    },
+    {
+      "workflow_id": "WF009",
+      "title": "Navigate to Bank Shopping & Rewards",
+      "goal": "Navigate to the Bank Shopping & Rewards area and verify the page loads correctly with expected content.",
+      "feature_area": "Bank Shopping & Rewards",
+      "priority": "low",
+      "starting_hint": "From https://www.ngpf.org/bank-sim, follow: Click 'SHOPPING' in sidebar. Verify the page at https://www.ngpf.org/bank-sim/shopping loads and displays the heading.",
+      "discovery_source": "orchestrated",
+      "worker_completed": false,
+      "worker_result": "failed",
+      "scenario_file_path": null,
+      "scenario_summary_file_path": "scenarios/summaries/WF009_navigate_to_bank_shopping_rewards.md",
+      "report_pdf_file_path": "scenarios/reports/WF009_navigate_to_bank_shopping_rewards.pdf",
+      "linked_scenario_name": null,
+      "error": null
     }
   ],
   "explore_focus_areas": [
-    "only transfer funds flow"
+    "only transfer funds flow",
+    null
   ],
   "Imported_Test_Coverage": null,
   "Token_Usage": {
     "cumulative": {
-      "input_tokens": 3270207,
-      "output_tokens": 107339,
-      "cached_input_tokens": 2073728,
-      "total_tokens": 3377546,
-      "total_cost_usd": 4.288534
+      "input_tokens": 7172530,
+      "output_tokens": 251634,
+      "cached_input_tokens": 4318848,
+      "total_tokens": 7424164,
+      "total_cost_usd": 9.87986
     },
     "runs": [
       {
@@ -400,6 +605,139 @@
             "input": 94376,
             "output": 4578,
             "cost": 0.116512
+          }
+        }
+      },
+      {
+        "run_type": "explore",
+        "timestamp": "2026-03-22T20:44:16.715957",
+        "provider": "azure_open_ai",
+        "model": "gpt-4.1",
+        "input_tokens": 3902323,
+        "output_tokens": 144295,
+        "cached_input_tokens": 2245120,
+        "total_tokens": 4046618,
+        "cost_usd": 5.591326,
+        "sessions": {
+          "explore_execution": {
+            "input": 0,
+            "output": 0,
+            "cost": 0.0
+          },
+          "orchestrator_master": {
+            "input": 27414,
+            "output": 1581,
+            "cost": 0.041556
+          },
+          "orchestrator_nav_scout": {
+            "input": 196530,
+            "output": 6095,
+            "cost": 0.234076
+          },
+          "explore_synthesize_testable_areas": {
+            "input": 12925,
+            "output": 1669,
+            "cost": 0.039202
+          },
+          "orchestrator_site_classification": {
+            "input": 1717,
+            "output": 89,
+            "cost": 0.004146
+          },
+          "explore_deepdive_TA005": {
+            "input": 548948,
+            "output": 20713,
+            "cost": 0.766704
+          },
+          "explore_deepdive_TA004": {
+            "input": 712857,
+            "output": 25788,
+            "cost": 0.968274
+          },
+          "explore_deepdive_TA006": {
+            "input": 174670,
+            "output": 6921,
+            "cost": 0.239204
+          },
+          "explore_deepdive_TA009": {
+            "input": 128354,
+            "output": 4876,
+            "cost": 0.177252
+          },
+          "report_curation_WF005": {
+            "input": 29541,
+            "output": 1499,
+            "cost": 0.071074
+          },
+          "report_curation_WF006": {
+            "input": 24446,
+            "output": 1141,
+            "cost": 0.05802
+          },
+          "report_curation_WF007": {
+            "input": 17235,
+            "output": 771,
+            "cost": 0.040638
+          },
+          "report_curation_WF008": {
+            "input": 11793,
+            "output": 348,
+            "cost": 0.02637
+          },
+          "report_curation_WF009": {
+            "input": 7005,
+            "output": 357,
+            "cost": 0.016866
+          },
+          "worker_supervisor_WF001": {
+            "input": 2438,
+            "output": 115,
+            "cost": 0.005796
+          },
+          "worker_supervisor_WF005": {
+            "input": 2448,
+            "output": 119,
+            "cost": 0.005848
+          },
+          "worker_supervisor_WF006": {
+            "input": 2446,
+            "output": 110,
+            "cost": 0.005772
+          },
+          "worker_supervisor_WF007": {
+            "input": 2411,
+            "output": 124,
+            "cost": 0.005814
+          },
+          "explore_worker_WF001_a1": {
+            "input": 562989,
+            "output": 15628,
+            "cost": 0.767354
+          },
+          "explore_worker_WF005_a1": {
+            "input": 546971,
+            "output": 14878,
+            "cost": 0.743334
+          },
+          "explore_worker_WF006_a1": {
+            "input": 531849,
+            "output": 14123,
+            "cost": 0.71761
+          },
+          "explore_worker_WF007_a1": {
+            "input": 289842,
+            "output": 7812,
+            "cost": 0.385284
+          },
+          "explore_synthesize_single_workflow": {
+            "input": 50511,
+            "output": 18582,
+            "cost": 0.229518
+          },
+          "report_curation_WF001": {
+            "input": 16983,
+            "output": 956,
+            "cost": 0.041614
           }
         }
       }
