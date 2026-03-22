@@ -1,0 +1,583 @@
+{
+  "site_type": "dashboard",
+  "site_category": "Banking simulator for bill payments and financial literacy",
+  "confidence_score": 0.95,
+  "user_journeys": [
+    {
+      "journey_name": "Primary Business Workflow",
+      "description": "Main user flow for managing bill payment recipients",
+      "business_value": "Ensures users can successfully add, edit, and delete bill payment recipients, reflecting accurate state and UI feedback",
+      "user_persona": "Consumer practicing online banking features for financial education",
+      "frequency": "daily",
+      "complexity": "high"
+    }
+  ],
+  "proposed_scenarios": [
+    {
+      "scenario_name": "Discovered Workflow: Bill Payment Recipient Management - Complete User Journey",
+      "description": "Comprehensive test covering creation, update, and deletion of a bill payment recipient, with UI confirmations after each action and strict selector-capture compliance.",
+      "workflow_narrative": "A user navigates to the NGPF Bank Simulator, starts the onboarding, enters the 'BILLS' section, manages bill payment recipients by adding 'John Doe', editing to 'Jane Smith', and deleting them, observing confirmation banners and UI state updates at each stage. Every actionable step uses stable, verified selectors as per compliance policy.",
+      "playwright_implementation_guidance": [
+        "Use all provided alternative selectors for robust identification.",
+        "For elements within Angular Material or other web components, switch to sequential press/type actions if web_component_parent is present.",
+        "Wait for confirmation banners (toast notifications) after each critical operation (add/edit/delete).",
+        "Use assertions on the recipients list after each operation to verify visible state matches action (row existence, table updates, emptiness).",
+        "Include navigation waits for all page changes.",
+        "Ensure input fields not interacted with (pre-filled) are left untouched, as in execution."
+      ],
+      "test_type": "e2e_business_workflow",
+      "priority": "high",
+      "business_goal": "Verify users can complete the add, edit, and delete bill payment recipient workflow with proper UI feedback.",
+      "user_story": "As a simulated banking user, I want to add, edit, and delete a bill payment recipient so that I can manage recipients securely and see confirmation of my changes.",
+      "detailed_steps": [
+        {
+          "step_number": 1,
+          "action": "Navigate to homepage",
+          "component": "Navigation",
+          "description": "Load homepage",
+          "expected_page_url": "https://www.ngpf.org/bank-sim",
+          "verification_point": "Page loaded",
+          "business_impact": "Site accessibility",
+          "selector": "page.goto('https://www.ngpf.org/bank-sim', { waitUntil: 'domcontentloaded' })",
+          "confidence": 100,
+          "based_on_interaction": true,
+          "all_selectors": []
+        },
+        {
+          "step_number": 2,
+          "action": "Click",
+          "component": "Landing Get Started Button",
+          "description": "Click 'GET STARTED NOW' to begin onboarding",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/home?returnUrl=%2F",
+          "verification_point": "'Ok' welcome dialog appears",
+          "business_impact": "Workflow entry enabled, next step onboarding",
+          "selector": "page.getByRole('button', { name: 'GET STARTED NOW' })",
+          "all_selectors": [
+            {
+              "selector": "page.getByRole('button', { name: 'GET STARTED NOW' })",
+              "strategy": "roost_primary",
+              "confidence": 99,
+              "is_unique": true
+            },
+            {
+              "selector": "page.getByRole('button', { name: /GET STARTED NOW/ })",
+              "strategy": "role_name_regex",
+              "confidence": 95,
+              "is_unique": true
+            },
+            {
+              "selector": "page.getByText('GET STARTED NOW')",
+              "strategy": "text",
+              "confidence": 88,
+              "is_unique": true
+            }
+          ],
+          "confidence": 99,
+          "based_on_interaction": true,
+          "web_component_parent": {
+            "tagName": "mat-card-content",
+            "attributes": {
+              "_ngcontent-edr-c143": "",
+              "class": "mat-card-content"
+            },
+            "hasShadowRoot": false
+          },
+          "page_context": {
+            "suggested_page_class": "HomePage",
+            "page_url_pattern": "/bank-sim"
+          },
+          "method_context": {
+            "suggested_method_name": "clickGetStarted",
+            "action_type": "click"
+          }
+        },
+        {
+          "step_number": 3,
+          "action": "Click",
+          "component": "Onboarding Modal",
+          "description": "Click 'Ok' on welcome modal to continue",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/",
+          "verification_point": "User lands on main dashboard/home",
+          "business_impact": "Transitions from onboarding to dashboard",
+          "selector": "page.getByRole('button', { name: 'Ok' })",
+          "all_selectors": [
+            {
+              "selector": "page.getByRole('button', { name: 'Ok' })",
+              "strategy": "roost_primary",
+              "confidence": 99,
+              "is_unique": true
+            },
+            {
+              "selector": "page.locator('[role=\"dialog\"]').getByRole('button', { name: 'Ok' })",
+              "strategy": "portal_role_name",
+              "confidence": 95,
+              "is_unique": true
+            },
+            {
+              "selector": "page.getByRole('button', { name: 'Ok' })",
+              "strategy": "role_name",
+              "confidence": 95,
+              "is_unique": true
+            }
+          ],
+          "confidence": 99,
+          "based_on_interaction": true,
+          "web_component_parent": {
+            "tagName": "app-welcome-dialog",
+            "attributes": {
+              "_nghost-edr-c147": "",
+              "class": "ng-star-inserted",
+              "style": ""
+            },
+            "hasShadowRoot": false
+          },
+          "page_context": {
+            "suggested_page_class": "WelcomeDialog",
+            "page_url_pattern": "/bank-sim/"
+          },
+          "method_context": {
+            "suggested_method_name": "dismissOnboarding",
+            "action_type": "click"
+          }
+        },
+        {
+          "step_number": 4,
+          "action": "Click",
+          "component": "Sidebar Navigation",
+          "description": "Click 'BILLS' in sidebar to expand bill management options",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/",
+          "verification_point": "'MANAGE RECIPIENT' visible in sidebar navigation",
+          "business_impact": "Entry to bill payment management flow",
+          "selector": "page.locator('a').filter({ hasText: 'BILLS expand_more' })",
+          "all_selectors": [
+            {
+              "selector": "page.locator('a').filter({ hasText: 'BILLS expand_more' })",
+              "strategy": "roost_primary",
+              "confidence": 99,
+              "is_unique": true
+            },
+            {
+              "selector": "page.locator('a').filter({ hasText: 'BILLS expand_more' })",
+              "strategy": "tag_filter_text",
+              "confidence": 69,
+              "is_unique": true
+            },
+            {
+              "selector": "page.locator('a.mat-list-item.mat-focus-indicator')",
+              "strategy": "css_combined_classes",
+              "confidence": 62,
+              "is_unique": false
+            }
+          ],
+          "confidence": 99,
+          "based_on_interaction": true,
+          "web_component_parent": {
+            "tagName": "app-menu-list-item",
+            "attributes": {
+              "_ngcontent-edr-c146": "",
+              "_nghost-edr-c145": "",
+              "class": "ng-tns-c145-5 ng-star-inserted",
+              "aria-expanded": "false",
+              "style": ""
+            },
+            "hasShadowRoot": false
+          },
+          "page_context": {
+            "suggested_page_class": "Sidebar",
+            "page_url_pattern": "/bank-sim/"
+          },
+          "method_context": {
+            "suggested_method_name": "expandBillsNav",
+            "action_type": "click"
+          }
+        },
+        {
+          "step_number": 5,
+          "action": "Click",
+          "component": "Navigation Sidebar",
+          "description": "Click 'MANAGE RECIPIENT' to open recipient management",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/pay-bill/manage-recipient",
+          "verification_point": "'+ ADD RECIPIENT' button available",
+          "business_impact": "Directs user to manage bill payment recipients",
+          "selector": "page.locator('a').filter({ hasText: 'MANAGE RECIPIENT' })",
+          "all_selectors": [
+            {
+              "selector": "page.locator('a').filter({ hasText: 'MANAGE RECIPIENT' })",
+              "strategy": "roost_primary",
+              "confidence": 99,
+              "is_unique": true
+            },
+            {
+              "selector": "page.getByText('MANAGE RECIPIENT')",
+              "strategy": "text",
+              "confidence": 88,
+              "is_unique": true
+            },
+            {
+              "selector": "page.locator('a').filter({ hasText: /^MANAGE RECIPIENT$/ })",
+              "strategy": "link_filter_exact",
+              "confidence": 74,
+              "is_unique": true
+            }
+          ],
+          "confidence": 99,
+          "based_on_interaction": true,
+          "web_component_parent": {
+            "tagName": "app-menu-list-item",
+            "attributes": {
+              "_ngcontent-edr-c145": "",
+              "_nghost-edr-c145": "",
+              "class": "ng-tns-c145-15 ng-tns-c145-5 ng-star-inserted",
+              "aria-expanded": "false"
+            },
+            "hasShadowRoot": false
+          },
+          "page_context": {
+            "suggested_page_class": "Sidebar",
+            "page_url_pattern": "/pay-bill/manage-recipient"
+          },
+          "method_context": {
+            "suggested_method_name": "openManageRecipients",
+            "action_type": "click"
+          }
+        },
+        {
+          "step_number": 6,
+          "action": "Click",
+          "component": "Manage Recipients Panel",
+          "description": "Click '+ ADD RECIPIENT' to start adding a new bill recipient",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/pay-bill/manage-recipient",
+          "verification_point": "Add Recipient dialog appears with entry fields",
+          "business_impact": "Allows input of new recipient, key to further bill pay actions",
+          "selector": "page.getByText('add', { exact: true })",
+          "all_selectors": [
+            {
+              "selector": "page.getByText('add', { exact: true })",
+              "strategy": "roost_primary",
+              "confidence": 99,
+              "is_unique": true
+            },
+            {
+              "selector": "page.getByRole('img', { name: 'add' })",
+              "strategy": "role_name",
+              "confidence": 95,
+              "is_unique": true
+            },
+            {
+              "selector": "page.getByText('add')",
+              "strategy": "text",
+              "confidence": 88,
+              "is_unique": false
+            }
+          ],
+          "confidence": 99,
+          "based_on_interaction": true,
+          "web_component_parent": {
+            "tagName": "mat-card-content",
+            "attributes": {
+              "_ngcontent-edr-c153": "",
+              "class": "mat-card-content"
+            },
+            "hasShadowRoot": false
+          },
+          "page_context": {
+            "suggested_page_class": "ManageRecipientPage",
+            "page_url_pattern": "/pay-bill/manage-recipient"
+          },
+          "method_context": {
+            "suggested_method_name": "addRecipient",
+            "action_type": "click"
+          }
+        },
+        {
+          "step_number": 7,
+          "action": "Input",
+          "component": "Recipient Name Field",
+          "description": "Type 'John Doe' into the 'RECIPIENT NAME' input in Add Recipient dialog",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/pay-bill/manage-recipient",
+          "verification_point": "Input field shows 'John Doe'",
+          "business_impact": "Collects recipient identity for bill payment",
+          "selector": "page.getByRole('textbox', { name: 'RECIPIENT NAME' })",
+          "all_selectors": [
+            {
+              "selector": "page.getByRole('textbox', { name: 'RECIPIENT NAME' })",
+              "strategy": "roost_primary",
+              "confidence": 99,
+              "is_unique": true
+            },
+            {
+              "selector": "page.locator('[role=\"dialog\"]').getByRole('textbox', { name: 'RECIPIENT NAME *' })",
+              "strategy": "portal_role_name",
+              "confidence": 95,
+              "is_unique": true
+            },
+            {
+              "selector": "page.getByRole('textbox', { name: /RECIPIENT NAME \\*/ })",
+              "strategy": "role_name_regex",
+              "confidence": 95,
+              "is_unique": true
+            }
+          ],
+          "confidence": 99,
+          "based_on_interaction": true,
+          "web_component_parent": {
+            "tagName": "mat-form-field",
+            "attributes": {
+              "_ngcontent-edr-c152": "",
+              "appearance": "outline",
+              "class": "mat-form-field ng-tns-c59-19 mat-primary ng-star-inserted mat-form-field-type-mat-input mat-form-field-appearance-outline mat-form-field-can-float mat-form-field-has-label ng-untouched ng-pristine ng-invalid mat-form-field-should-float mat-focused"
+            },
+            "hasShadowRoot": false
+          },
+          "page_context": {
+            "suggested_page_class": "AddRecipientDialog",
+            "page_url_pattern": "/pay-bill/manage-recipient"
+          },
+          "method_context": {
+            "suggested_method_name": "enterRecipientName",
+            "action_type": "input"
+          }
+        },
+        {
+          "step_number": 8,
+          "action": "Click",
+          "component": "Add Recipient Modal",
+          "description": "Click 'SUBMIT' to add the recipient (all other form fields are left as pre-filled)",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/pay-bill/manage-recipient",
+          "verification_point": "Banner shows 'Payee updated successfully.' Recipient appears in the table.",
+          "business_impact": "New recipient should now be managed for bill pay actions",
+          "selector": "page.getByRole('button', { name: 'SUBMIT' })",
+          "all_selectors": [
+            {
+              "selector": "page.getByRole('button', { name: 'SUBMIT' })",
+              "strategy": "roost_primary",
+              "confidence": 99,
+              "is_unique": true
+            },
+            {
+              "selector": "page.locator('[role=\"dialog\"]').getByRole('button', { name: 'SUBMIT' })",
+              "strategy": "portal_role_name",
+              "confidence": 95,
+              "is_unique": true
+            },
+            {
+              "selector": "page.getByRole('button', { name: 'SUBMIT' })",
+              "strategy": "role_name",
+              "confidence": 95,
+              "is_unique": true
+            }
+          ],
+          "confidence": 99,
+          "based_on_interaction": true,
+          "page_context": {
+            "suggested_page_class": "AddRecipientDialog",
+            "page_url_pattern": "/pay-bill/manage-recipient"
+          },
+          "method_context": {
+            "suggested_method_name": "submitRecipientAdd",
+            "action_type": "click"
+          }
+        },
+        {
+          "step_number": 9,
+          "action": "Click",
+          "component": "Recipients Table Edit Link",
+          "description": "Click 'Edit' on the listed recipient to open the edit recipient modal",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/pay-bill/manage-recipient",
+          "verification_point": "Edit dialog modal present with pre-filled recipient info",
+          "business_impact": "User can update recipient details",
+          "selector": "page.getByText('Edit')",
+          "all_selectors": [
+            {
+              "selector": "page.getByText('Edit')",
+              "strategy": "roost_primary",
+              "confidence": 99,
+              "is_unique": true
+            },
+            {
+              "selector": "page.getByText('Edit')",
+              "strategy": "text",
+              "confidence": 88,
+              "is_unique": true
+            },
+            {
+              "selector": "page.locator('a').filter({ hasText: /^Edit$/ })",
+              "strategy": "link_filter_exact",
+              "confidence": 74,
+              "is_unique": true
+            }
+          ],
+          "confidence": 99,
+          "based_on_interaction": true,
+          "page_context": {
+            "suggested_page_class": "ManageRecipientPage",
+            "page_url_pattern": "/pay-bill/manage-recipient"
+          },
+          "method_context": {
+            "suggested_method_name": "openEditRecipient",
+            "action_type": "click"
+          }
+        },
+        {
+          "step_number": 10,
+          "action": "Input",
+          "component": "Edit Recipient Modal",
+          "description": "Edit 'RECIPIENT NAME' from 'John Doe' to 'Jane Smith'",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/pay-bill/manage-recipient",
+          "verification_point": "Updated name visible in input field before submit",
+          "business_impact": "Recipient info updated for future bill payments",
+          "selector": "page.getByRole('textbox', { name: 'RECIPIENT NAME' })",
+          "all_selectors": [
+            {
+              "selector": "page.getByRole('textbox', { name: 'RECIPIENT NAME' })",
+              "strategy": "roost_primary",
+              "confidence": 99,
+              "is_unique": true
+            },
+            {
+              "selector": "page.locator('[role=\"dialog\"]').getByRole('textbox', { name: 'RECIPIENT NAME *' })",
+              "strategy": "portal_role_name",
+              "confidence": 95,
+              "is_unique": true
+            },
+            {
+              "selector": "page.getByRole('textbox', { name: /RECIPIENT NAME \\*/ })",
+              "strategy": "role_name_regex",
+              "confidence": 95,
+              "is_unique": true
+            }
+          ],
+          "confidence": 99,
+          "based_on_interaction": true,
+          "web_component_parent": {
+            "tagName": "mat-form-field",
+            "attributes": {
+              "_ngcontent-edr-c152": "",
+              "appearance": "outline",
+              "class": "mat-form-field ng-tns-c59-26 mat-primary ng-star-inserted mat-form-field-type-mat-input mat-form-field-appearance-outline mat-form-field-can-float mat-form-field-should-float mat-form-field-has-label ng-untouched ng-pristine ng-valid mat-focused"
+            },
+            "hasShadowRoot": false
+          },
+          "page_context": {
+            "suggested_page_class": "EditRecipientDialog",
+            "page_url_pattern": "/pay-bill/manage-recipient"
+          },
+          "method_context": {
+            "suggested_method_name": "editRecipientName",
+            "action_type": "input"
+          }
+        },
+        {
+          "step_number": 11,
+          "action": "Click",
+          "component": "Edit Recipient Modal",
+          "description": "Click 'SUBMIT' to save the recipient edits",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/pay-bill/manage-recipient",
+          "verification_point": "Banner confirms update; recipient table shows 'Jane Smith'",
+          "business_impact": "Recipient update is persisted in system",
+          "selector": "page.getByRole('button', { name: 'SUBMIT' })",
+          "all_selectors": [
+            {
+              "selector": "page.getByRole('button', { name: 'SUBMIT' })",
+              "strategy": "roost_primary",
+              "confidence": 99,
+              "is_unique": true
+            },
+            {
+              "selector": "page.locator('[role=\"dialog\"]').getByRole('button', { name: 'SUBMIT' })",
+              "strategy": "portal_role_name",
+              "confidence": 95,
+              "is_unique": true
+            },
+            {
+              "selector": "page.getByRole('button', { name: 'SUBMIT' })",
+              "strategy": "role_name",
+              "confidence": 95,
+              "is_unique": true
+            }
+          ],
+          "confidence": 99,
+          "based_on_interaction": true,
+          "page_context": {
+            "suggested_page_class": "EditRecipientDialog",
+            "page_url_pattern": "/pay-bill/manage-recipient"
+          },
+          "method_context": {
+            "suggested_method_name": "submitRecipientEdit",
+            "action_type": "click"
+          }
+        },
+        {
+          "step_number": 12,
+          "action": "Click",
+          "component": "Recipients List",
+          "description": "Click 'Delete' to remove the recipient from the list",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/pay-bill/manage-recipient",
+          "verification_point": "Banner: 'Payee deleted successfully.' Recipients list is empty.",
+          "business_impact": "Recipient can no longer be selected for bill payment",
+          "selector": "page.getByText('Delete')",
+          "all_selectors": [
+            {
+              "selector": "page.getByText('Delete')",
+              "strategy": "roost_primary",
+              "confidence": 99,
+              "is_unique": true
+            },
+            {
+              "selector": "page.getByText('Delete')",
+              "strategy": "text",
+              "confidence": 88,
+              "is_unique": true
+            },
+            {
+              "selector": "page.locator('a').filter({ hasText: /^Delete$/ })",
+              "strategy": "link_filter_exact",
+              "confidence": 74,
+              "is_unique": true
+            }
+          ],
+          "confidence": 99,
+          "based_on_interaction": true,
+          "page_context": {
+            "suggested_page_class": "ManageRecipientPage",
+            "page_url_pattern": "/pay-bill/manage-recipient"
+          },
+          "method_context": {
+            "suggested_method_name": "deleteRecipient",
+            "action_type": "click"
+          }
+        }
+      ],
+      "expected_results": [
+        "User completes workflow for add, edit, and delete recipient",
+        "UI confirmation banners appear after each main action",
+        "Recipients list updates as expected (add, edit, then empty after delete)",
+        "No errors encountered"
+      ],
+      "edge_cases_to_test": [
+        "Slow network or delayed dialog modals",
+        "Recipient with same name already exists (not covered by this flow, but as a variation)",
+        "Cancelling out of dialog then retrying",
+        "Unavailable backend/server error injected after clicking submit"
+      ],
+      "data_requirements": [
+        "Test accounts with no existing recipients",
+        "Valid recipient name values: 'John Doe', 'Jane Smith'"
+      ],
+      "prerequisites": [
+        "https://www.ngpf.org/bank-sim is available and server responds",
+        "Browser compatible with Angular Material overlays"
+      ]
+    }
+  ],
+  "site_url": "https://www.ngpf.org/bank-sim",
+  "test_name": "bill_payment_recipient_management_-_complete_user_journey_02_1774191804",
+  "login_mechanisms": [
+    "general_interaction"
+  ],
+  "login_completion_state": "successful",
+  "analysis_timestamp": "2026-03-22T20:33:24.552354",
+  "auth_required": false,
+  "starting_url": null,
+  "workflow_id": "WF005"
+}
