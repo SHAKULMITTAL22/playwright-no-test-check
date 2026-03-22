@@ -1,7 +1,7 @@
 {
   "metadata_version": "1.0",
   "created_at": "2026-03-22T18:02:24.580897",
-  "last_updated": "2026-03-22T20:44:16.759175",
+  "last_updated": "2026-03-22T21:13:05.479329",
   "site_url": "https://www.ngpf.org/bank-sim",
   "pom_files": [
     {
@@ -33,6 +33,16 @@
       "url": "",
       "file_name": "TransferHistoryPage.js",
       "file_path": "pom_tests/pom/TransferHistoryPage.js"
+    },
+    {
+      "url": "",
+      "file_name": "AccountSidebar.js",
+      "file_path": "pom_tests/pom/AccountSidebar.js"
+    },
+    {
+      "url": "",
+      "file_name": "DepositCheckPage.js",
+      "file_path": "pom_tests/pom/DepositCheckPage.js"
     }
   ],
   "Login_File": {
@@ -66,7 +76,7 @@
   "User_Scenarios_File": [],
   "Exploration_Scenarios": [
     {
-      "scenario_name": "e2e_business_workflow_-_complete_user_journey_01_1774191904",
+      "scenario_name": "e2e_business_workflow_-_complete_user_journey_01_1774193936",
       "workflow_id": "WF001",
       "scenario_file_path": "scenarios/WF001_submit_a_single_transfer_between_accounts.json",
       "feature_file_path": null,
@@ -77,7 +87,7 @@
       "agent_activity_summary": null,
       "test_generated": true,
       "test_generation_error": null,
-      "test_name": "submit_a_single_transfer_between_accounts_01_1774186529",
+      "test_name": "e2e_business_workflow_-_complete_user_journey_01_1774193936",
       "test_file_path": null,
       "test_executed_success": null,
       "test_execution_error": null,
@@ -106,20 +116,20 @@
       "report_pdf_file_path": "scenarios/reports/WF001_submit_a_single_transfer_between_accounts.pdf",
       "test_steps": [
         "Navigate to homepage: Load homepage",
-        "Click button: Click 'GET STARTED NOW' to begin workflow",
-        "Click button: Dismiss onboarding modal by clicking 'Ok'",
-        "Click sidebar menu: Expand 'TRANSFERS' section in sidebar",
-        "Click sidebar menu: Click 'MAKE A TRANSFER' to open transfer form",
-        "Expand dropdown: Open 'PAYMENT FREQUENCY' dropdown",
-        "Select dropdown option: Select 'SINGLE' option in payment frequency",
-        "Expand dropdown: Open 'Transfer From' dropdown",
-        "Select dropdown option: Select 'CHECKING ($216.04)' as source account",
-        "Expand dropdown: Open 'Transfer To' dropdown",
-        "Select dropdown option: Select 'SAVING ($230.00)' as recipient account",
-        "Fill input field: Enter transfer amount '50'",
-        "Fill input field: Set payment date '3/22/2026'",
-        "Click button: Submit transfer form by clicking 'Save'",
-        "Verify confirmation: Validate green snackbar displays 'Amount has been transferred to Saving Account' and transaction appears in Past Transfers table"
+        "Click GET STARTED NOW: Begin onboarding and access dashboard",
+        "Click Ok on onboarding modal: Dismiss modal to permit interaction",
+        "Expand TRANSFERS sidebar: Show transfer menu options",
+        "Click MAKE A TRANSFER: Open transfer form",
+        "Open PAYMENT FREQUENCY dropdown: Expand payment frequency options",
+        "Select SINGLE in PAYMENT FREQUENCY: Set transfer to single occurrence",
+        "Open Transfer From dropdown: Expand source account dropdown",
+        "Select CHECKING ($216.04) in Transfer From: Choose Checking account as source",
+        "Open Transfer To dropdown: Expand receiving account dropdown",
+        "Select SAVING ($230.00) in Transfer To: Choose Saving as destination",
+        "Type transfer Amount ('50'): Enter transfer value",
+        "Input Payment Date ('3/22/2026'): Enter or confirm transfer date",
+        "Click Save button to submit transfer: Submit the transfer",
+        "Verify confirmation and transfer history: Check for snackbar success and new transfer entry"
       ]
     },
     {
@@ -214,7 +224,7 @@
       ]
     },
     {
-      "scenario_name": "e2e_business_workflow_-_complete_user_journey_03_1774192414",
+      "scenario_name": "partial_flow_--_partial_deposit_check_blocked_at_file_upload_06_1774193623",
       "workflow_id": "WF006",
       "scenario_file_path": "scenarios/WF006_deposit_a_check_and_confirm_posting_in_account_act.json",
       "feature_file_path": null,
@@ -223,32 +233,44 @@
       "agent_workflow_completed": false,
       "scenario_analysis_result_file_path": null,
       "agent_activity_summary": null,
-      "test_generated": false,
+      "test_generated": true,
       "test_generation_error": null,
-      "test_name": "e2e_business_workflow_-_complete_user_journey_03_1774192414",
+      "test_name": "partial_flow_--_partial_deposit_check_blocked_at_file_upload_06_1774193623",
       "test_file_path": null,
       "test_executed_success": null,
       "test_execution_error": null,
-      "pom_test_name": null,
-      "pom_test_file_path": null,
-      "pom_test_executed_success": null,
+      "pom_test_name": "partial_flow____partial_deposit_check_blocked_at_file_upload_06_1774193623_pom.noauth.spec.js",
+      "pom_test_file_path": "pom_tests/partial_flow____partial_deposit_check_blocked_at_file_upload_06_1774193623_pom.noauth.spec.js",
+      "pom_test_executed_success": true,
       "pom_test_execution_error": null,
-      "pom_files": null,
+      "pom_files": [
+        {
+          "url": "",
+          "file_name": "HomePage.js",
+          "file_path": "pom_tests/pom/HomePage.js"
+        },
+        {
+          "url": "",
+          "file_name": "AccountSidebar.js",
+          "file_path": "pom_tests/pom/AccountSidebar.js"
+        },
+        {
+          "url": "",
+          "file_name": "DepositCheckPage.js",
+          "file_path": "pom_tests/pom/DepositCheckPage.js"
+        }
+      ],
       "scenario_summary_file_path": "scenarios/summaries/WF006_deposit_a_check_and_confirm_posting_in_account_act.md",
       "report_pdf_file_path": "scenarios/reports/WF006_deposit_a_check_and_confirm_posting_in_account_act.pdf",
       "test_steps": [
         "Navigate to homepage: Load homepage",
-        "Click 'GET STARTED NOW' button: Enter the Bank Simulator by clicking 'GET STARTED NOW'.",
-        "Click 'Ok' on welcome modal: Acknowledge the welcome modal to proceed.",
-        "Click 'DEPOSIT CHECKS' in sidebar: Navigate to check deposit simulation screen.",
-        "Open 'To' account dropdown: Expand account selection dropdown menu for deposit.",
-        "Select 'CHECKING' account option: Choose 'CHECKING (Available Balance is $216.04)' from account options.",
-        "Fill 'Amount' field: Input check amount: 100.00",
-        "Click 'Front' button to upload check front: Initiate upload of check's front image.",
-        "Click 'close' icon on front image modal: Close the modal displaying the front image.",
-        "Click 'Back' button to upload check back: Trigger upload for the back side of the check.",
-        "Click 'close' icon on back image modal: Close back image modal to continue deposit.",
-        "Click 'Submit' button: Submit the check deposit simulation form."
+        "Click GET STARTED NOW: Click 'GET STARTED NOW' button to begin the workflow.",
+        "Click Ok in onboarding dialog: Click the 'Ok' button to close the onboarding intro modal.",
+        "Click DEPOSIT CHECKS in sidebar: Navigate to 'Deposit Checks' feature via the sidebar link.",
+        "Expand 'To' account dropdown: Expand the 'To' account selector for choosing the target deposit account.",
+        "Select 'CHECKING' account option: Choose 'CHECKING' from the expanded account dropdown.",
+        "Fill amount input: Fill in the deposit amount for the check, e.g., 100.00 as used by agent.",
+        "Click 'Front' upload button (simulate upload initiation, DO NOT upload a file): Initiate upload dialog for front image of check. DO NOT provide an actual file. Block here according to Playwright limits or observe that only modal appears."
       ]
     },
     {
@@ -298,7 +320,7 @@
       "scenario_file_path": "scenarios/WF001_submit_a_single_transfer_between_accounts.json",
       "scenario_summary_file_path": "scenarios/summaries/WF001_submit_a_single_transfer_between_accounts.md",
       "report_pdf_file_path": "scenarios/reports/WF001_submit_a_single_transfer_between_accounts.pdf",
-      "linked_scenario_name": "e2e_business_workflow_-_complete_user_journey_01_1774191904",
+      "linked_scenario_name": "e2e_business_workflow_-_complete_user_journey_01_1774193936",
       "error": null
     },
     {
@@ -378,7 +400,7 @@
       "scenario_file_path": "scenarios/WF006_deposit_a_check_and_confirm_posting_in_account_act.json",
       "scenario_summary_file_path": "scenarios/summaries/WF006_deposit_a_check_and_confirm_posting_in_account_act.md",
       "report_pdf_file_path": "scenarios/reports/WF006_deposit_a_check_and_confirm_posting_in_account_act.pdf",
-      "linked_scenario_name": "e2e_business_workflow_-_complete_user_journey_03_1774192414",
+      "linked_scenario_name": "partial_flow_--_partial_deposit_check_blocked_at_file_upload_06_1774193623",
       "error": null
     },
     {
@@ -437,11 +459,11 @@
   "Imported_Test_Coverage": null,
   "Token_Usage": {
     "cumulative": {
-      "input_tokens": 7172530,
-      "output_tokens": 251634,
-      "cached_input_tokens": 4318848,
-      "total_tokens": 7424164,
-      "total_cost_usd": 9.87986
+      "input_tokens": 8289515,
+      "output_tokens": 292595,
+      "cached_input_tokens": 5075200,
+      "total_tokens": 8582110,
+      "total_cost_usd": 11.30699
     },
     "runs": [
       {
@@ -738,6 +760,92 @@
             "input": 16983,
             "output": 956,
             "cost": 0.041614
+          }
+        }
+      },
+      {
+        "run_type": "retrigger_workers",
+        "timestamp": "2026-03-22T21:09:17.591232",
+        "provider": "azure_open_ai",
+        "model": "gpt-4.1",
+        "input_tokens": 695504,
+        "output_tokens": 28598,
+        "cached_input_tokens": 380800,
+        "total_tokens": 724102,
+        "cost_usd": 1.048592,
+        "sessions": {
+          "worker_supervisor_WF001": {
+            "input": 2434,
+            "output": 118,
+            "cost": 0.005812
+          },
+          "worker_supervisor_WF006": {
+            "input": 2444,
+            "output": 127,
+            "cost": 0.005904
+          },
+          "explore_worker_WF001_a1": {
+            "input": 336550,
+            "output": 9123,
+            "cost": 0.440804
+          },
+          "explore_worker_WF006_a1": {
+            "input": 291587,
+            "output": 7804,
+            "cost": 0.379686
+          },
+          "explore_synthesize_single_workflow": {
+            "input": 31047,
+            "output": 9962,
+            "cost": 0.14179
+          },
+          "report_curation_WF006": {
+            "input": 14480,
+            "output": 555,
+            "cost": 0.0334
+          },
+          "report_curation_WF001": {
+            "input": 16962,
+            "output": 909,
+            "cost": 0.041196
+          }
+        }
+      },
+      {
+        "run_type": "retrigger",
+        "timestamp": "2026-03-22T21:13:05.477992",
+        "provider": "azure_open_ai",
+        "model": "gpt-4.1",
+        "input_tokens": 421481,
+        "output_tokens": 12363,
+        "cached_input_tokens": 375552,
+        "total_tokens": 433844,
+        "cost_usd": 0.378538,
+        "sessions": {
+          "post_explore_testgen": {
+            "input": 0,
+            "output": 0,
+            "cost": 0.0
+          },
+          "pom_gen_e2e_business_workflow_-_complete_user_journey_01_1774193936": {
+            "input": 150114,
+            "output": 4318,
+            "cost": 0.124532
+          },
+          "pom_gen_partial_flow_--_partial_deposit_check_blocked_at_file_upload_06_1774193623": {
+            "input": 48596,
+            "output": 2057,
+            "cost": 0.048176
+          },
+          "test_gen_pom_partial_flow____partial_deposit_check_blocked_at_file_upload_06_1774193623": {
+            "input": 184515,
+            "output": 2521,
+            "cost": 0.135182
+          },
+          "code_repair_partial_flow____partial_deposit_check_blocked_at_file_upload_06_1774193623_pom.noauth.spec.js": {
+            "input": 38256,
+            "output": 3467,
+            "cost": 0.070648
           }
         }
       }

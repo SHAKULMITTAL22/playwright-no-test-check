@@ -1,4 +1,4 @@
-# Scenario Summary: e2e_business_workflow_-_complete_user_journey_01_1774191904
+# Scenario Summary: e2e_business_workflow_-_complete_user_journey_01_1774193936
 
 ## Overview
 
@@ -7,79 +7,82 @@
 - **Goal**: Successfully transfer funds between Checking and Saving accounts using the Make a Transfer form. Ensure confirmation and correct entry in transfer history.
 - **Feature Area**: Transfer Funds Workflow
 - **Site URL**: https://www.ngpf.org/bank-sim
-- **Site Type**: dashboard — Banking simulator for educational use; users practice personal finance management via realistic banking features.
+- **Site Type**: saas — Financial education and banking simulator
 - **Confidence Score**: 0.95
 - **Auth Required**: False
-- **Generated On**: 2026-03-22T20:35:04.473753
+- **Generated On**: 2026-03-22T21:08:56.574781
 
 ## User Journeys
 
 ### 1. Primary Business Workflow
-_Main user flow_
+_Main user flow for transferring funds between accounts_
 
-- **Business Value**: Ensures banking simulation works and records transfer history correctly
-- **User Persona**: Student or educator practicing personal finance skills
+- **Business Value**: Verifies the key scenario of transferring funds and recording it in transaction history
+- **User Persona**: Student, financial literacy learner
 - **Frequency**: daily
-- **Complexity**: high
+- **Complexity**: medium
 
 ## Scenarios
 
 ### 1. Discovered Workflow: e2e_business_workflow - Complete User Journey
 **Type**: e2e_business_workflow | **Priority**: high
 
-> Comprehensive test covering a user transferring funds between Checking and Saving accounts, confirming the operation in UI and transaction history.
+> Comprehensive test covering the user's journey to transfer funds between Checking and Saving accounts, and verification in transfer history.
 
-**Business Goal**: Verify users can transfer funds between accounts, with confirmation and accurate transfer history recording.
+**Business Goal**: Verify users can complete the workflow for a single transfer and see it recorded in history.
 
-**User Story**: As a banking simulator user, I want to transfer funds between my Checking and Saving accounts so that I can see correct financial movements and confirmation.
+**User Story**: As a student, I want to transfer funds from my Checking to my Saving account using the simulator so that I can track my transactions accurately.
 
 **Workflow Narrative**:
-A user starts on the NGPF Bank Simulator landing page, completes onboarding, navigates through the sidebar to initiate a transfer, fills the Make a Transfer form (Single frequency, Checking to Saving, $50, today's date), submits, and visually validates both confirmation snackbar and the Past Transfers history. Every field interaction is preceded by selector capture, as confirmed in agent steps.
+A student logs into the NGPF Bank Simulator, dismisses the onboarding modal, expands the sidebar, navigates to the transfer form, and completes a transfer from Checking to Saving. The workflow includes entering all details and verifying confirmation as well as the transfer history entry.
 
 #### Implementation Guidance:
-- Always use each step's all_selectors array for interaction and fallback.
-- For interactions with web components (shadow DOM), respect the web_component_parent presence and use pressSequentially().
-- Use waitForSelector especially for modal dialogs/snackbars and after navigation.
-- Verify both confirmation snackbar and updated Past Transfers table for test completeness.
-- Replay input values exactly as recorded (no dummy data).
+- Use waitForSelector on modals and snackbars for confirmation.
+- Use the 'all_selectors' array for robust locator fallback.
+- Respect Shadow DOM parents where 'web_component_parent' is given (use pressSequentially)
+- Validate transfer history post-submit for business result.
+- Each input field and dropdown interaction requires selector capture step as shown.
 
 #### Detailed Steps:
 
 | # | Action | Component | Description | Verification | URL |
 |---|--------|-----------|-------------|--------------|-----|
 | 1 | Navigate to homepage | Navigation | Load homepage | Page loaded | https://www.ngpf.org/bank-sim |
-| 2 | Click button | Landing Page Main Button | Click 'GET STARTED NOW' to begin workflow | 'GET STARTED NOW' pressed, modal appears | https://www.ngpf.org/bank-sim/home?returnUrl=%2F |
-| 3 | Click button | Onboarding Modal | Dismiss onboarding modal by clicking 'Ok' | Modal disappears, dashboard visible | https://www.ngpf.org/bank-sim/ |
-| 4 | Click sidebar menu | Sidebar TRANSFERS Expand | Expand 'TRANSFERS' section in sidebar | 'MAKE A TRANSFER' visible | https://www.ngpf.org/bank-sim/ |
-| 5 | Click sidebar menu | Transfer Menu | Click 'MAKE A TRANSFER' to open transfer form | Transfer form displayed | https://www.ngpf.org/bank-sim/transfer |
-| 6 | Expand dropdown | Payment Frequency Dropdown | Open 'PAYMENT FREQUENCY' dropdown | Dropdown expanded | https://www.ngpf.org/bank-sim/transfer |
-| 7 | Select dropdown option | PAYMENT FREQUENCY Dropdown | Select 'SINGLE' option in payment frequency | 'SINGLE' selected in dropdown | https://www.ngpf.org/bank-sim/transfer |
-| 8 | Expand dropdown | Transfer From Dropdown | Open 'Transfer From' dropdown | Dropdown expanded | https://www.ngpf.org/bank-sim/transfer |
-| 9 | Select dropdown option | Transfer From Dropdown | Select 'CHECKING ($216.04)' as source account | 'CHECKING ($216.04)' selected | https://www.ngpf.org/bank-sim/transfer |
-| 10 | Expand dropdown | Transfer To Dropdown | Open 'Transfer To' dropdown | Dropdown expanded | https://www.ngpf.org/bank-sim/transfer |
-| 11 | Select dropdown option | Transfer To Dropdown | Select 'SAVING ($230.00)' as recipient account | 'SAVING ($230.00)' selected | https://www.ngpf.org/bank-sim/transfer |
-| 12 | Fill input field | Amount Field | Enter transfer amount '50' | Amount field contains '50' | https://www.ngpf.org/bank-sim/transfer |
-| 13 | Fill input field | Payment Date field | Set payment date '3/22/2026' | Date field updated | https://www.ngpf.org/bank-sim/transfer |
-| 14 | Click button | Make Transfer Form: Save Button | Submit transfer form by clicking 'Save' | Confirmation snackbar/modal, Past Transfers history entry | https://www.ngpf.org/bank-sim/transfer/display-transfers |
-| 15 | Verify confirmation | Snackbar & Past Transfers Table | Validate green snackbar displays 'Amount has been transferred to Saving Account' and transaction appears in Past Transfers table | Snackbar visible, Past Transfers updated (id: 1100002, Date: 03/22/2026, Description: Transfer to Saving Account, Amount: -$50.00) | https://www.ngpf.org/bank-sim/transfer/display-transfers |
+| 2 | Click GET STARTED NOW | Landing - Get Started Button | Begin onboarding and access dashboard | Onboarding modal appears | https://www.ngpf.org/bank-sim/home?returnUrl=%2F |
+| 3 | Click Ok on onboarding modal | Onboarding Modal | Dismiss modal to permit interaction | Sidebar available | https://www.ngpf.org/bank-sim/ |
+| 4 | Expand TRANSFERS sidebar | Transfers Sidebar Expand | Show transfer menu options | TRANSFER menu expanded | https://www.ngpf.org/bank-sim/ |
+| 5 | Click MAKE A TRANSFER | Sidebar Menu - Transfers | Open transfer form | Transfer form visible | https://www.ngpf.org/bank-sim/transfer |
+| 6 | Open PAYMENT FREQUENCY dropdown | PAYMENT FREQUENCY | Expand payment frequency options | Dropdown with SINGLE and MONTHLY visible | https://www.ngpf.org/bank-sim/transfer |
+| 7 | Select SINGLE in PAYMENT FREQUENCY | PAYMENT FREQUENCY Dropdown Option | Set transfer to single occurrence | Dropdown option SINGLE selected | https://www.ngpf.org/bank-sim/transfer |
+| 8 | Open Transfer From dropdown | Transfer From Dropdown | Expand source account dropdown | Source account options visible | https://www.ngpf.org/bank-sim/transfer |
+| 9 | Select CHECKING ($216.04) in Transfer From | Transfer From Dropdown Option | Choose Checking account as source | Checking account selected | https://www.ngpf.org/bank-sim/transfer |
+| 10 | Open Transfer To dropdown | Transfer To Dropdown | Expand receiving account dropdown | Receiving account options visible | https://www.ngpf.org/bank-sim/transfer |
+| 11 | Select SAVING ($230.00) in Transfer To | Transfer To Dropdown Option | Choose Saving as destination | Saving account selected | https://www.ngpf.org/bank-sim/transfer |
+| 12 | Type transfer Amount ('50') | Amount Input | Enter transfer value | Amount field populated | https://www.ngpf.org/bank-sim/transfer |
+| 13 | Input Payment Date ('3/22/2026') | Payment Date Field | Enter or confirm transfer date | Payment Date field populated with 3/22/2026 | https://www.ngpf.org/bank-sim/transfer |
+| 14 | Click Save button to submit transfer | Transfer Form | Submit the transfer | Snackbar confirmation and transfer in past history | https://www.ngpf.org/bank-sim/transfer/display-transfers |
+| 15 | Verify confirmation and transfer history | Confirmation Snackbar & Past Transfers Table | Check for snackbar success and new transfer entry | Snackbar: 'Amount has been transferred to Saving Account'; Past Transfers entry with Id 1100002, Date 03/22/2026, Description 'Transfer to Saving Account', Amount '-$50.00' | https://www.ngpf.org/bank-sim/transfer/display-transfers |
 
 #### Expected Results:
-- User completes workflow; transfer form submitted and confirmation visible
-- Past Transfers table shows new entry reflecting transaction
+- User completes workflow end-to-end
+- Confirmation snackbar appears
+- Transfer is visible in transaction history
 - No errors encountered
 
 #### Edge Cases:
-- Slow network – verify modal and snackbar appear after delay
-- User session interruption after transfer but before confirmation displays
-- Attempting transfer with insufficient funds or invalid input
+- Slow network (modal or snackbar timing out)
+- Modal dismissed unexpectedly
+- Account dropdown options unavailable
+- Attempting transfer with insufficient funds
 
 #### Data Requirements:
-- Test accounts with sufficient funds (Checking: $216.04, Saving: $230.00)
-- Valid input values: exact values as recorded (Single, $50, 3/22/2026)
+- Test accounts with sufficient funds
+- Valid input values: PAYMENT FREQUENCY (SINGLE), Transfer From (CHECKING $216.04), Transfer To (SAVING $230.00), Amount (50), Payment Date (3/22/2026)
 
 #### Prerequisites:
-- Site accessible and responsive at https://www.ngpf.org/bank-sim
+- Site is accessible and responsive
+- Accounts exist and are visible in dropdowns
 
 ## Captured Selectors
 
-- **Total**: 39
+- **Total**: 38
