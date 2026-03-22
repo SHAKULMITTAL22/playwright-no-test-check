@@ -25,6 +25,15 @@ export class HomePage extends BasePage {
   }
 
   /**
+   * Navigates to the homepage with a DOM content loaded wait.
+   * @returns {Promise<this>}
+   */
+  async navigateHome() {
+    await this.page.goto('https://www.ngpf.org/bank-sim', { waitUntil: 'domcontentloaded', timeout: 30000 });
+    return this;
+  }
+
+  /**
    * Clicks the 'GET STARTED NOW' button to initiate onboarding/dashboard flow.
    * @returns {Promise<this>}
    */
