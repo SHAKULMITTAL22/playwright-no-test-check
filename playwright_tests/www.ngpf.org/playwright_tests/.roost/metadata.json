@@ -1,0 +1,186 @@
+{
+  "metadata_version": "1.0",
+  "created_at": "2026-03-22T18:02:24.580897",
+  "last_updated": "2026-03-22T18:13:57.096256",
+  "site_url": "https://www.ngpf.org/bank-sim",
+  "pom_files": null,
+  "Login_File": {
+    "name": null,
+    "path": null,
+    "hash": null,
+    "agent_workflow_completed": false,
+    "agent_workflow_file_path": null,
+    "agent_interaction_file_path": null,
+    "agent_activity_summary": null,
+    "agent_activity_error": null,
+    "agent_activity_outcome": null,
+    "agent_recommendation": null,
+    "agent_completion_level": null,
+    "agent_steps_completed": null,
+    "execution_flow_file_path": null,
+    "systematic_selectors_file_path": null,
+    "scenario_name": null,
+    "scenario_file_path": null,
+    "test_generated": false,
+    "test_generation_error": null,
+    "test_file_path": null,
+    "test_executed_success": null,
+    "test_execution_error": null,
+    "pom_test_name": null,
+    "pom_test_file_path": null,
+    "pom_test_executed_success": null,
+    "pom_test_execution_error": null,
+    "pom_files": null
+  },
+  "User_Scenarios_File": [],
+  "Exploration_Scenarios": [],
+  "Discovered_Workflows": [
+    {
+      "workflow_id": "WF001",
+      "title": "Submit a Single Transfer Between Accounts",
+      "goal": "Successfully transfer funds between Checking and Saving accounts using the Make a Transfer form. Ensure confirmation and correct entry in transfer history.",
+      "feature_area": "Transfer Funds Workflow",
+      "priority": "high",
+      "starting_hint": "1. Navigate to https://www.ngpf.org/bank-sim\n2. Click 'GET STARTED NOW' on the landing page\n3. Click 'Ok' to dismiss onboarding modal\n4. Expand sidebar menu 'TRANSFERS' by clicking expand_more\n5. Click 'MAKE A TRANSFER'\n6. Select 'SINGLE' in PAYMENT FREQUENCY dropdown\n7. Select 'CHECKING ($216.04)' in Transfer From dropdown\n8. Select 'SAVING ($230.00)' in Transfer To dropdown\n9. Enter '50' in $ Amount field\n10. Select today's date in Payment Date field\n11. Click 'Save'\n12. Observe green snackbar 'Amount has been transferred to Saving Account'\n13. Confirm new entry appears in Past Transfers table with correct Id, Date, Description, Amount",
+      "discovery_source": "orchestrated",
+      "worker_completed": false,
+      "worker_result": "failed",
+      "scenario_file_path": null,
+      "scenario_summary_file_path": "scenarios/summaries/WF001_submit_a_single_transfer_between_accounts.md",
+      "report_pdf_file_path": "scenarios/reports/WF001_submit_a_single_transfer_between_accounts.pdf",
+      "linked_scenario_name": null,
+      "error": null
+    },
+    {
+      "workflow_id": "WF002",
+      "title": "Review Transfer History and Confirm Past Transfers",
+      "goal": "View the list of past and scheduled transfers, confirm all required details (Id, Date, Description, Amount), and verify successful record creation after submitting a transfer.",
+      "feature_area": "Transfer History and Management",
+      "priority": "medium",
+      "starting_hint": "1. Navigate to https://www.ngpf.org/bank-sim\n2. Click 'GET STARTED NOW'\n3. Click 'Ok' to dismiss modal\n4. Expand sidebar 'TRANSFERS' and click 'DISPLAY ALL TRANSFERS'\n5. Confirm Past Transfers table reveals completed/scheduled transfers, each with Id, Date, Description, Amount\n6. Validate transfer record appears matching submitted values from previous scenario",
+      "discovery_source": "orchestrated",
+      "worker_completed": false,
+      "worker_result": "failed",
+      "scenario_file_path": null,
+      "scenario_summary_file_path": "scenarios/summaries/WF002_review_transfer_history_and_confirm_past_transfers.md",
+      "report_pdf_file_path": "scenarios/reports/WF002_review_transfer_history_and_confirm_past_transfers.pdf",
+      "linked_scenario_name": null,
+      "error": null
+    },
+    {
+      "workflow_id": "WF003",
+      "title": "Filter and Search Transfer History Records",
+      "goal": "Filter and search completed/scheduled transfers by account, date, and description. Validate table updates correctly and empty states are handled when filters are too restrictive.",
+      "feature_area": "Transfer History and Management",
+      "priority": "medium",
+      "starting_hint": "1. Navigate to https://www.ngpf.org/bank-sim\n2. Click 'GET STARTED NOW'\n3. Click 'Ok'\n4. Expand 'TRANSFERS' sidebar and click 'DISPLAY ALL TRANSFERS'\n5. Click 'Checking' or 'Saving' above Past Transfers to filter by account\n6. Enter keywords (e.g., '03/22/2026', 'Transfer') in Search field to filter by date or description\n7. Observe table displays only matching records; if filters exclude all data, table shows '0 of 0' and disables management actions",
+      "discovery_source": "orchestrated",
+      "worker_completed": false,
+      "worker_result": "failed",
+      "scenario_file_path": null,
+      "scenario_summary_file_path": "scenarios/summaries/WF003_filter_and_search_transfer_history_records.md",
+      "report_pdf_file_path": "scenarios/reports/WF003_filter_and_search_transfer_history_records.pdf",
+      "linked_scenario_name": null,
+      "error": null
+    },
+    {
+      "workflow_id": "WF004",
+      "title": "Delete a Past Transfer Record",
+      "goal": "Successfully delete a completed transfer from the Past Transfers table and verify its removal from history, including UI confirmation if available.",
+      "feature_area": "Transfer History and Management",
+      "priority": "medium",
+      "starting_hint": "1. Navigate to https://www.ngpf.org/bank-sim\n2. Click 'GET STARTED NOW'\n3. Click 'Ok'\n4. Expand sidebar 'TRANSFERS' and click 'DISPLAY ALL TRANSFERS'\n5. Locate desired transfer row in Past Transfers table\n6. Click trash/delete icon in Actions column for row\n7. Confirm the record is removed from table; observe confirmation message if shown",
+      "discovery_source": "orchestrated",
+      "worker_completed": false,
+      "worker_result": "failed",
+      "scenario_file_path": null,
+      "scenario_summary_file_path": "scenarios/summaries/WF004_delete_a_past_transfer_record.md",
+      "report_pdf_file_path": "scenarios/reports/WF004_delete_a_past_transfer_record.pdf",
+      "linked_scenario_name": null,
+      "error": null
+    }
+  ],
+  "explore_focus_areas": [
+    "only transfer funds flow"
+  ],
+  "Imported_Test_Coverage": null,
+  "Token_Usage": {
+    "cumulative": {
+      "input_tokens": 1712076,
+      "output_tokens": 60069,
+      "cached_input_tokens": 956672,
+      "total_tokens": 1772145,
+      "total_cost_usd": 2.469696
+    },
+    "runs": [
+      {
+        "run_type": "explore",
+        "timestamp": "2026-03-22T18:13:57.094744",
+        "provider": "azure_open_ai",
+        "model": "gpt-4.1",
+        "input_tokens": 1712076,
+        "output_tokens": 60069,
+        "cached_input_tokens": 956672,
+        "total_tokens": 1772145,
+        "cost_usd": 2.469696,
+        "sessions": {
+          "explore_execution": {
+            "input": 0,
+            "output": 0,
+            "cost": 0.0
+          },
+          "orchestrator_master": {
+            "input": 23988,
+            "output": 1811,
+            "cost": 0.04192
+          },
+          "orchestrator_nav_scout": {
+            "input": 50900,
+            "output": 1707,
+            "cost": 0.072256
+          },
+          "explore_synthesize_testable_areas": {
+            "input": 4035,
+            "output": 455,
+            "cost": 0.01171
+          },
+          "orchestrator_site_classification": {
+            "input": 637,
+            "output": 76,
+            "cost": 0.001882
+          },
+          "explore_deepdive_TA002": {
+            "input": 772677,
+            "output": 27179,
+            "cost": 1.096546
+          },
+          "explore_deepdive_TA001": {
+            "input": 798921,
+            "output": 26393,
+            "cost": 1.103962
+          },
+          "report_curation_WF001": {
+            "input": 15627,
+            "output": 542,
+            "cost": 0.03559
+          },
+          "report_curation_WF002": {
+            "input": 15075,
+            "output": 685,
+            "cost": 0.03563
+          },
+          "report_curation_WF003": {
+            "input": 15134,
+            "output": 649,
+            "cost": 0.03546
+          },
+          "report_curation_WF004": {
+            "input": 15082,
+            "output": 572,
+            "cost": 0.03474
+          }
+        }
+      }
+    ]
+  }
+}
