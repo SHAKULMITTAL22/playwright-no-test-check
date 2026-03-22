@@ -1,9 +1,25 @@
 {
   "metadata_version": "1.0",
   "created_at": "2026-03-22T18:02:24.580897",
-  "last_updated": "2026-03-22T18:13:57.096256",
+  "last_updated": "2026-03-22T18:37:29.521776",
   "site_url": "https://www.ngpf.org/bank-sim",
-  "pom_files": null,
+  "pom_files": [
+    {
+      "url": "",
+      "file_name": "HomePage.js",
+      "file_path": "pom_tests/pom/HomePage.js"
+    },
+    {
+      "url": "",
+      "file_name": "SidebarPage.js",
+      "file_path": "pom_tests/pom/SidebarPage.js"
+    },
+    {
+      "url": "",
+      "file_name": "TransferHistoryPage.js",
+      "file_path": "pom_tests/pom/TransferHistoryPage.js"
+    }
+  ],
   "Login_File": {
     "name": null,
     "path": null,
@@ -33,7 +49,56 @@
     "pom_files": null
   },
   "User_Scenarios_File": [],
-  "Exploration_Scenarios": [],
+  "Exploration_Scenarios": [
+    {
+      "scenario_name": "review_transfer_history_--_partial_02_1774184317",
+      "workflow_id": "WF002",
+      "scenario_file_path": "scenarios/WF002_review_transfer_history_and_confirm_past_transfers.json",
+      "feature_file_path": null,
+      "feature_file_name": null,
+      "agent_workflow_file_path": null,
+      "agent_workflow_completed": false,
+      "scenario_analysis_result_file_path": null,
+      "agent_activity_summary": null,
+      "test_generated": true,
+      "test_generation_error": null,
+      "test_name": "review_transfer_history_--_partial_02_1774184317",
+      "test_file_path": null,
+      "test_executed_success": null,
+      "test_execution_error": null,
+      "pom_test_name": "review_transfer_history____partial_02_1774184317_pom.noauth.spec.js",
+      "pom_test_file_path": "pom_tests/review_transfer_history____partial_02_1774184317_pom.noauth.spec.js",
+      "pom_test_executed_success": true,
+      "pom_test_execution_error": null,
+      "pom_files": [
+        {
+          "url": "",
+          "file_name": "HomePage.js",
+          "file_path": "pom_tests/pom/HomePage.js"
+        },
+        {
+          "url": "",
+          "file_name": "SidebarPage.js",
+          "file_path": "pom_tests/pom/SidebarPage.js"
+        },
+        {
+          "url": "",
+          "file_name": "TransferHistoryPage.js",
+          "file_path": "pom_tests/pom/TransferHistoryPage.js"
+        }
+      ],
+      "scenario_summary_file_path": "scenarios/summaries/WF002_review_transfer_history_and_confirm_past_transfers.md",
+      "report_pdf_file_path": "scenarios/reports/WF002_review_transfer_history_and_confirm_past_transfers.pdf",
+      "test_steps": [
+        "Navigate to homepage: Load homepage",
+        "Click: Click 'GET STARTED NOW' to begin simulation",
+        "Click: Dismiss 'Welcome to the NGPF Bank Simulator' modal by clicking 'Ok'",
+        "Click: Expand 'TRANSFERS' section in sidebar",
+        "Click: Click 'DISPLAY ALL TRANSFERS' in the expanded sidebar",
+        "Verify: Confirm table columns (Id, Date, Description, Amount, Actions) are visible, but 0 records shown"
+      ]
+    }
+  ],
   "Discovered_Workflows": [
     {
       "workflow_id": "WF001",
@@ -59,12 +124,12 @@
       "priority": "medium",
       "starting_hint": "1. Navigate to https://www.ngpf.org/bank-sim\n2. Click 'GET STARTED NOW'\n3. Click 'Ok' to dismiss modal\n4. Expand sidebar 'TRANSFERS' and click 'DISPLAY ALL TRANSFERS'\n5. Confirm Past Transfers table reveals completed/scheduled transfers, each with Id, Date, Description, Amount\n6. Validate transfer record appears matching submitted values from previous scenario",
       "discovery_source": "orchestrated",
-      "worker_completed": false,
-      "worker_result": "failed",
-      "scenario_file_path": null,
+      "worker_completed": true,
+      "worker_result": "success",
+      "scenario_file_path": "scenarios/WF002_review_transfer_history_and_confirm_past_transfers.json",
       "scenario_summary_file_path": "scenarios/summaries/WF002_review_transfer_history_and_confirm_past_transfers.md",
       "report_pdf_file_path": "scenarios/reports/WF002_review_transfer_history_and_confirm_past_transfers.pdf",
-      "linked_scenario_name": null,
+      "linked_scenario_name": "review_transfer_history_--_partial_02_1774184317",
       "error": null
     },
     {
@@ -106,11 +171,11 @@
   "Imported_Test_Coverage": null,
   "Token_Usage": {
     "cumulative": {
-      "input_tokens": 1712076,
-      "output_tokens": 60069,
-      "cached_input_tokens": 956672,
-      "total_tokens": 1772145,
-      "total_cost_usd": 2.469696
+      "input_tokens": 2317596,
+      "output_tokens": 80545,
+      "cached_input_tokens": 1425792,
+      "total_tokens": 2398141,
+      "total_cost_usd": 3.140864
     },
     "runs": [
       {
@@ -178,6 +243,72 @@
             "input": 15082,
             "output": 572,
             "cost": 0.03474
+          }
+        }
+      },
+      {
+        "run_type": "retrigger_workers",
+        "timestamp": "2026-03-22T18:28:48.673640",
+        "provider": "azure_open_ai",
+        "model": "gpt-4.1",
+        "input_tokens": 74983,
+        "output_tokens": 5039,
+        "cached_input_tokens": 39168,
+        "total_tokens": 80022,
+        "cost_usd": 0.131526,
+        "sessions": {
+          "worker_supervisor_WF002": {
+            "input": 2397,
+            "output": 177,
+            "cost": 0.00621
+          },
+          "explore_worker_WF002_a1": {
+            "input": 59630,
+            "output": 1966,
+            "cost": 0.076236
+          },
+          "explore_synthesize_single_workflow": {
+            "input": 6557,
+            "output": 2544,
+            "cost": 0.033466
+          },
+          "report_curation_WF002": {
+            "input": 6399,
+            "output": 352,
+            "cost": 0.015614
+          }
+        }
+      },
+      {
+        "run_type": "retrigger",
+        "timestamp": "2026-03-22T18:37:29.520723",
+        "provider": "azure_open_ai",
+        "model": "gpt-4.1",
+        "input_tokens": 530537,
+        "output_tokens": 15437,
+        "cached_input_tokens": 429952,
+        "total_tokens": 545974,
+        "cost_usd": 0.539642,
+        "sessions": {
+          "post_explore_testgen": {
+            "input": 0,
+            "output": 0,
+            "cost": 0.0
+          },
+          "pom_gen_review_transfer_history_--_partial_02_1774184317": {
+            "input": 46754,
+            "output": 2219,
+            "cost": 0.048284
+          },
+          "test_gen_pom_review_transfer_history____partial_02_1774184317": {
+            "input": 73362,
+            "output": 1569,
+            "cost": 0.064428
+          },
+          "code_repair_review_transfer_history____partial_02_1774184317_pom.noauth.spec.js": {
+            "input": 410421,
+            "output": 11649,
+            "cost": 0.42693
           }
         }
       }

@@ -1,0 +1,295 @@
+{
+  "site_type": "service",
+  "site_category": "Bank account simulation and financial education",
+  "confidence_score": 0.95,
+  "user_journeys": [
+    {
+      "journey_name": "Primary Business Workflow",
+      "description": "Main user flow for transfer history review",
+      "business_value": "Allows users to review and verify completed/ scheduled transfers for personal finance management or educational simulation tracking",
+      "user_persona": "Student or teacher using bank simulation",
+      "frequency": "daily",
+      "complexity": "low"
+    }
+  ],
+  "proposed_scenarios": [
+    {
+      "scenario_name": "Discovered Workflow: Review Transfer History -- Partial",
+      "description": "Test scenario validating navigation and visibility of transfer history table structure, but no actual transfer records found. Covers all elements the agent observed.",
+      "workflow_narrative": "User navigates from the homepage, starts the simulation, dismisses the welcome modal, opens the sidebar TRANSFERS section, and attempts to view all transfers. The agent confirms column headers are present but no transfer entries are visible, indicating a partial workflow due to missing data.",
+      "playwright_implementation_guidance": [
+        "Use waitForSelector for modals and sidebar transitions.",
+        "Ensure selectors are captured before each click as per strong QA rules.",
+        "Validate UI structure even if table data is empty."
+      ],
+      "test_type": "partial_flow",
+      "priority": "medium",
+      "business_goal": "Verify users can access the transfer history page and confirm table columns are visible, even if there are no transfers present.",
+      "user_story": "As a bank simulator user, I want to review my past and upcoming transfers, verify transfer details, and confirm record visibility even if none exist.",
+      "detailed_steps": [
+        {
+          "step_number": 1,
+          "action": "Navigate to homepage",
+          "component": "Navigation",
+          "description": "Load homepage",
+          "expected_page_url": "https://www.ngpf.org/bank-sim",
+          "verification_point": "Page loaded",
+          "business_impact": "Site accessibility",
+          "selector": "page.goto('https://www.ngpf.org/bank-sim', { waitUntil: 'domcontentloaded' })",
+          "confidence": 100,
+          "based_on_interaction": true,
+          "all_selectors": []
+        },
+        {
+          "step_number": 2,
+          "action": "Click",
+          "component": "Landing Page Action Button",
+          "description": "Click 'GET STARTED NOW' to begin simulation",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/home?returnUrl=%2F",
+          "verification_point": "'GET STARTED NOW' button activates",
+          "business_impact": "Workflow progress",
+          "selector": "page.getByRole('button', { name: 'GET STARTED NOW' })",
+          "all_selectors": [
+            {
+              "selector": "page.getByRole('button', { name: 'GET STARTED NOW' })",
+              "strategy": "roost_primary",
+              "confidence": 99,
+              "is_unique": true
+            },
+            {
+              "selector": "page.getByRole('button', { name: /GET STARTED NOW/ })",
+              "strategy": "role_name_regex",
+              "confidence": 95,
+              "is_unique": true
+            },
+            {
+              "selector": "page.getByText('GET STARTED NOW')",
+              "strategy": "text",
+              "confidence": 88,
+              "is_unique": true
+            }
+          ],
+          "confidence": 99,
+          "based_on_interaction": true,
+          "web_component_parent": {
+            "tagName": "mat-card-content",
+            "attributes": {
+              "_ngcontent-ndd-c143": "",
+              "class": "mat-card-content"
+            },
+            "hasShadowRoot": false
+          },
+          "page_context": {
+            "suggested_page_class": "HomePage",
+            "page_url_pattern": "/"
+          },
+          "method_context": {
+            "suggested_method_name": "clickGetStarted",
+            "action_type": "click"
+          }
+        },
+        {
+          "step_number": 3,
+          "action": "Click",
+          "component": "Welcome Modal",
+          "description": "Dismiss 'Welcome to the NGPF Bank Simulator' modal by clicking 'Ok'",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/",
+          "verification_point": "Modal disappears",
+          "business_impact": "Allows access to sidebar navigation",
+          "selector": "page.getByRole('button', { name: 'Ok' })",
+          "all_selectors": [
+            {
+              "selector": "page.getByRole('button', { name: 'Ok' })",
+              "strategy": "roost_primary",
+              "confidence": 99,
+              "is_unique": true
+            },
+            {
+              "selector": "page.locator('[role=\"dialog\"]').getByRole('button', { name: 'Ok' })",
+              "strategy": "portal_role_name",
+              "confidence": 95,
+              "is_unique": true
+            },
+            {
+              "selector": "page.getByRole('button', { name: 'Ok' })",
+              "strategy": "role_name",
+              "confidence": 95,
+              "is_unique": true
+            }
+          ],
+          "confidence": 99,
+          "based_on_interaction": true,
+          "web_component_parent": {
+            "tagName": "app-welcome-dialog",
+            "attributes": {
+              "_nghost-ndd-c147": "",
+              "class": "ng-star-inserted",
+              "style": ""
+            },
+            "hasShadowRoot": false
+          },
+          "page_context": {
+            "suggested_page_class": "HomePage",
+            "page_url_pattern": "/"
+          },
+          "method_context": {
+            "suggested_method_name": "dismissWelcomeModal",
+            "action_type": "click"
+          }
+        },
+        {
+          "step_number": 4,
+          "action": "Click",
+          "component": "Sidebar TRANSFERS",
+          "description": "Expand 'TRANSFERS' section in sidebar",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/",
+          "verification_point": "'TRANSFERS' section expands",
+          "business_impact": "Enables access to transfer history options",
+          "selector": "page.locator('a').filter({ hasText: 'TRANSFERS expand_more' })",
+          "all_selectors": [
+            {
+              "selector": "page.locator('a').filter({ hasText: 'TRANSFERS expand_more' })",
+              "strategy": "roost_primary",
+              "confidence": 99,
+              "is_unique": true
+            },
+            {
+              "selector": "page.locator('a').filter({ hasText: 'TRANSFERS expand_more' })",
+              "strategy": "tag_filter_text",
+              "confidence": 69,
+              "is_unique": true
+            },
+            {
+              "selector": "page.locator('a.mat-list-item.mat-focus-indicator')",
+              "strategy": "css_combined_classes",
+              "confidence": 62,
+              "is_unique": false
+            }
+          ],
+          "confidence": 99,
+          "based_on_interaction": true,
+          "web_component_parent": {
+            "tagName": "app-menu-list-item",
+            "attributes": {
+              "_ngcontent-ndd-c146": "",
+              "_nghost-ndd-c145": "",
+              "class": "ng-tns-c145-4 ng-star-inserted",
+              "aria-expanded": "false",
+              "style": ""
+            },
+            "hasShadowRoot": false
+          },
+          "page_context": {
+            "suggested_page_class": "SidebarPage",
+            "page_url_pattern": "/"
+          },
+          "method_context": {
+            "suggested_method_name": "expandTransfersSidebar",
+            "action_type": "click"
+          }
+        },
+        {
+          "step_number": 5,
+          "action": "Click",
+          "component": "Transfer Management Sidebar",
+          "description": "Click 'DISPLAY ALL TRANSFERS' in the expanded sidebar",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/transfer/display-transfers",
+          "verification_point": "Transfer history page loads",
+          "business_impact": "Shows transfer list/table",
+          "selector": "page.locator('a').filter({ hasText: 'DISPLAY ALL TRANSFERS' })",
+          "all_selectors": [
+            {
+              "selector": "page.locator('a').filter({ hasText: 'DISPLAY ALL TRANSFERS' })",
+              "strategy": "roost_primary",
+              "confidence": 99,
+              "is_unique": true
+            },
+            {
+              "selector": "page.getByText('DISPLAY ALL TRANSFERS')",
+              "strategy": "text",
+              "confidence": 88,
+              "is_unique": true
+            },
+            {
+              "selector": "page.locator('a').filter({ hasText: /^DISPLAY ALL TRANSFERS$/ })",
+              "strategy": "link_filter_exact",
+              "confidence": 74,
+              "is_unique": true
+            }
+          ],
+          "confidence": 99,
+          "based_on_interaction": true,
+          "web_component_parent": {
+            "tagName": "app-menu-list-item",
+            "attributes": {
+              "_ngcontent-ndd-c145": "",
+              "_nghost-ndd-c145": "",
+              "class": "ng-tns-c145-14 ng-tns-c145-4 ng-star-inserted",
+              "aria-expanded": "false"
+            },
+            "hasShadowRoot": false
+          },
+          "page_context": {
+            "suggested_page_class": "SidebarPage",
+            "page_url_pattern": "/"
+          },
+          "method_context": {
+            "suggested_method_name": "viewAllTransfers",
+            "action_type": "click"
+          }
+        },
+        {
+          "step_number": 6,
+          "action": "Verify",
+          "component": "Transfer History Table",
+          "description": "Confirm table columns (Id, Date, Description, Amount, Actions) are visible, but 0 records shown",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/transfer/display-transfers",
+          "verification_point": "Table rendered with headers, tables show '0 of 0', no transfer data.",
+          "business_impact": "User can verify the absence of transfer records and UI structure for audit/QA purposes",
+          "selector": null,
+          "all_selectors": [],
+          "confidence": 95,
+          "based_on_interaction": true,
+          "web_component_parent": null,
+          "page_context": {
+            "suggested_page_class": "TransferHistoryPage",
+            "page_url_pattern": "/transfer/display-transfers"
+          },
+          "method_context": {
+            "suggested_method_name": "validateTransferTableStructure",
+            "action_type": "assert"
+          }
+        }
+      ],
+      "expected_results": [
+        "User successfully navigates and reaches transfer history page",
+        "Columns are visible (Id, Date, Description, Amount, Actions)",
+        "No transfer records are shown (tables display '0 of 0')"
+      ],
+      "edge_cases_to_test": [
+        "Site loads with pre-existing transfers (would populate tables)",
+        "Site loaded with slow network or delayed sidebar rendering",
+        "Unexpected modal or popup overlays",
+        "Non-standard user role with restricted sidebar"
+      ],
+      "data_requirements": [
+        "Bank sim user account session",
+        "No scheduled or past transfers (or test account with empty state)"
+      ],
+      "prerequisites": [
+        "Site https://www.ngpf.org/bank-sim accessible",
+        "No prior transfer setup required (test for empty state)"
+      ]
+    }
+  ],
+  "site_url": "https://www.ngpf.org/bank-sim",
+  "test_name": "review_transfer_history_--_partial_02_1774184317",
+  "login_mechanisms": [
+    "general_interaction"
+  ],
+  "login_completion_state": "successful",
+  "analysis_timestamp": "2026-03-22T18:28:37.650869",
+  "auth_required": false,
+  "starting_url": null,
+  "workflow_id": "WF002"
+}

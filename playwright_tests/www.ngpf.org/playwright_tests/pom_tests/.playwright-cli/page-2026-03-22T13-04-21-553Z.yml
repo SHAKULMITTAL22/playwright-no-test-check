@@ -1,0 +1,14 @@
+- generic [ref=e10]:
+  - generic [ref=e11]: WELCOME TO
+  - generic [ref=e12]: NGPF Bank Simulator
+  - generic [ref=e13]: "This Online Banking Simulation allows you to see what it is like to manage your own online bank account. With OnlineBank Sim you can:"
+  - generic [ref=e14]:
+    - listitem [ref=e15]:
+      - generic [ref=e17]: View account activity for both checking and savings
+    - listitem [ref=e18]:
+      - generic [ref=e20]: Look at monthly bank statements
+    - listitem [ref=e21]:
+      - generic [ref=e23]: Pay bills, transfer funds, and make check deposits
+    - listitem [ref=e24]:
+      - generic [ref=e26]: and more!
+  - button "GET STARTED NOW" [ref=e28] [cursor=pointer]: GET STARTED NOW
