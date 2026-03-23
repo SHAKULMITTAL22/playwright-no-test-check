@@ -16,12 +16,25 @@ export class HomePage extends BasePage {
     // 4. page.locator('button.mat-focus-indicator.button')
     this.getStartedNowBtn = page.getByRole('button', { name: 'GET STARTED NOW' });
 
+    // Alias for getStartedNowBtn (used by test)
+    this.getStartedButton = this.getStartedNowBtn;
+
     // Ok button in welcome modal
     // 1. page.getByRole('button', { name: 'Ok' })
     // 2. page.locator('[role="dialog"]').getByRole('button', { name: 'Ok' })
     // 3. page.getByText('Ok')
     // 4. page.locator('#mat-dialog-0').getByRole('button', { name: 'Ok' })
     this.okBtn = page.getByRole('button', { name: 'Ok' });
+  }
+
+  /**
+   * Navigates to the given URL.
+   * @param {string} url
+   * @returns {Promise<this>}
+   */
+  async navigateToSite(url) {
+    await this.page.goto(url, { waitUntil: 'domcontentloaded' });
+    return this;
   }
 
   /**
@@ -34,11 +47,28 @@ export class HomePage extends BasePage {
   }
 
   /**
+   * Alias for clickGetStartedNow().
+   * @returns {Promise<this>}
+   */
+  async clickGetStarted() {
+    return this.clickGetStartedNow();
+  }
+
+  /**
    * Clicks the Ok button in the welcome dialog modal.
    * @returns {Promise<this>}
    */
   async clickWelcomeOk() {
+    await this.okBtn.waitFor({ state: 'visible', timeout: 30000 });
     await this.okBtn.click({ timeout: 20000 });
     return this;
+  }
+
+  /**
+   * Alias for clickWelcomeOk() — dismisses the welcome modal.
+   * @returns {Promise<this>}
+   */
+  async dismissWelcomeModal() {
+    return this.clickWelcomeOk();
   }
 }

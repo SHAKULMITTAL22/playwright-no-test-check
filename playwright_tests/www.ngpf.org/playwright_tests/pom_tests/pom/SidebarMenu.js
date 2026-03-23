@@ -24,6 +24,14 @@ export class SidebarMenu extends BasePage {
     // 2. page.getByText('DISPLAY ALL TRANSFERS')
     // 3. page.locator('a').filter({ hasText: /^DISPLAY ALL TRANSFERS$/ })
     this.displayAllTransfersLink = page.locator('a').filter({ hasText: 'DISPLAY ALL TRANSFERS' });
+
+    // DEPOSIT CHECKS link in sidebar (inside app-menu-list-item Angular component)
+    // 1. page.locator('a').filter({ hasText: 'DEPOSIT CHECKS' })
+    // 2. page.getByText('DEPOSIT CHECKS')
+    // 3. page.locator('a').filter({ hasText: /^DEPOSIT CHECKS$/ })
+    // 4. page.locator('app-menu-list-item a').filter({ hasText: 'DEPOSIT CHECKS' })
+    // 5. page.locator('mat-nav-list a').filter({ hasText: 'DEPOSIT CHECKS' })
+    this.depositChecksLink = page.locator('a').filter({ hasText: 'DEPOSIT CHECKS' });
   }
 
   /**
@@ -51,6 +59,16 @@ export class SidebarMenu extends BasePage {
    */
   async clickDisplayAllTransfers() {
     await this.displayAllTransfersLink.click({ timeout: 25000 });
+    return this;
+  }
+
+  /**
+   * Navigates to the DEPOSIT CHECKS page from sidebar.
+   * Routes to /bank-sim/deposit-check.
+   * @returns {Promise<this>}
+   */
+  async clickDepositChecks() {
+    await this.depositChecksLink.click({ timeout: 30000 });
     return this;
   }
 }
