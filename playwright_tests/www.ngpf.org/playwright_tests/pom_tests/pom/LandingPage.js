@@ -15,6 +15,16 @@ export class LandingPage extends BasePage {
   }
 
   /**
+   * Navigates to the NGPF Bank Simulator landing page.
+   * Uses domcontentloaded since the app redirects before settling at /bank-sim.
+   * @returns {Promise<this>}
+   */
+  async navigateToSite() {
+    await this.page.goto('https://www.ngpf.org/bank-sim', { waitUntil: 'domcontentloaded', timeout: 60000 });
+    return this;
+  }
+
+  /**
    * Clicks the GET STARTED NOW button to enter the simulator.
    * @returns {Promise<this>}
    */
