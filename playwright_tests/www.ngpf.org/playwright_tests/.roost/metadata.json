@@ -1,7 +1,7 @@
 {
   "metadata_version": "1.0",
   "created_at": "2026-03-22T18:02:24.580897",
-  "last_updated": "2026-03-22T20:44:16.759175",
+  "last_updated": "2026-03-23T11:04:18.426379",
   "site_url": "https://www.ngpf.org/bank-sim",
   "pom_files": [
     {
@@ -33,6 +33,21 @@
       "url": "",
       "file_name": "TransferHistoryPage.js",
       "file_path": "pom_tests/pom/TransferHistoryPage.js"
+    },
+    {
+      "url": "",
+      "file_name": "DashboardPage.js",
+      "file_path": "pom_tests/pom/DashboardPage.js"
+    },
+    {
+      "url": "",
+      "file_name": "DepositCheckPage.js",
+      "file_path": "pom_tests/pom/DepositCheckPage.js"
+    },
+    {
+      "url": "",
+      "file_name": "AccountActivityPage.js",
+      "file_path": "pom_tests/pom/AccountActivityPage.js"
     }
   ],
   "Login_File": {
@@ -214,7 +229,7 @@
       ]
     },
     {
-      "scenario_name": "e2e_business_workflow_-_complete_user_journey_03_1774192414",
+      "scenario_name": "check_deposit_workflow_-_complete_user_journey_06_1774243851",
       "workflow_id": "WF006",
       "scenario_file_path": "scenarios/WF006_deposit_a_check_and_confirm_posting_in_account_act.json",
       "feature_file_path": null,
@@ -223,32 +238,55 @@
       "agent_workflow_completed": false,
       "scenario_analysis_result_file_path": null,
       "agent_activity_summary": null,
-      "test_generated": false,
+      "test_generated": true,
       "test_generation_error": null,
-      "test_name": "e2e_business_workflow_-_complete_user_journey_03_1774192414",
+      "test_name": "check_deposit_workflow_-_complete_user_journey_06_1774243851",
       "test_file_path": null,
       "test_executed_success": null,
       "test_execution_error": null,
-      "pom_test_name": null,
-      "pom_test_file_path": null,
-      "pom_test_executed_success": null,
+      "pom_test_name": "check_deposit_workflow___complete_user_journey_06_1774243851_pom.noauth.spec.js",
+      "pom_test_file_path": "pom_tests/check_deposit_workflow___complete_user_journey_06_1774243851_pom.noauth.spec.js",
+      "pom_test_executed_success": true,
       "pom_test_execution_error": null,
-      "pom_files": null,
+      "pom_files": [
+        {
+          "url": "",
+          "file_name": "LandingPage.js",
+          "file_path": "pom_tests/pom/LandingPage.js"
+        },
+        {
+          "url": "",
+          "file_name": "DashboardPage.js",
+          "file_path": "pom_tests/pom/DashboardPage.js"
+        },
+        {
+          "url": "",
+          "file_name": "DepositCheckPage.js",
+          "file_path": "pom_tests/pom/DepositCheckPage.js"
+        },
+        {
+          "url": "",
+          "file_name": "AccountActivityPage.js",
+          "file_path": "pom_tests/pom/AccountActivityPage.js"
+        }
+      ],
       "scenario_summary_file_path": "scenarios/summaries/WF006_deposit_a_check_and_confirm_posting_in_account_act.md",
       "report_pdf_file_path": "scenarios/reports/WF006_deposit_a_check_and_confirm_posting_in_account_act.pdf",
       "test_steps": [
-        "Navigate to homepage: Load homepage",
-        "Click 'GET STARTED NOW' button: Enter the Bank Simulator by clicking 'GET STARTED NOW'.",
-        "Click 'Ok' on welcome modal: Acknowledge the welcome modal to proceed.",
-        "Click 'DEPOSIT CHECKS' in sidebar: Navigate to check deposit simulation screen.",
-        "Open 'To' account dropdown: Expand account selection dropdown menu for deposit.",
-        "Select 'CHECKING' account option: Choose 'CHECKING (Available Balance is $216.04)' from account options.",
-        "Fill 'Amount' field: Input check amount: 100.00",
-        "Click 'Front' button to upload check front: Initiate upload of check's front image.",
-        "Click 'close' icon on front image modal: Close the modal displaying the front image.",
-        "Click 'Back' button to upload check back: Trigger upload for the back side of the check.",
-        "Click 'close' icon on back image modal: Close back image modal to continue deposit.",
-        "Click 'Submit' button: Submit the check deposit simulation form."
+        "Navigate to NGPF Bank Simulator: Load the bank simulator homepage",
+        "Click GET STARTED NOW button: Enter the bank simulator interface",
+        "Dismiss welcome modal: Click Ok button to dismiss welcome modal",
+        "Click DEPOSIT CHECKS in sidebar: Navigate to check deposit feature",
+        "Click To account dropdown: Open account selection dropdown",
+        "Select CHECKING account: Choose CHECKING account as deposit destination",
+        "Enter deposit amount: Input $100.00 as deposit amount",
+        "Upload front check image: Click Front button to simulate front check image upload",
+        "Close front check modal: Close the front check image modal",
+        "Upload back check image: Click Back button to simulate back check image upload",
+        "Close back check modal: Close the back check image modal",
+        "Submit check deposit: Click Submit button to process the check deposit",
+        "Navigate to Account Activity: Click ACCOUNTS to access account activity page",
+        "Verify deposit transaction: Confirm new deposit record appears with correct details"
       ]
     },
     {
@@ -378,7 +416,7 @@
       "scenario_file_path": "scenarios/WF006_deposit_a_check_and_confirm_posting_in_account_act.json",
       "scenario_summary_file_path": "scenarios/summaries/WF006_deposit_a_check_and_confirm_posting_in_account_act.md",
       "report_pdf_file_path": "scenarios/reports/WF006_deposit_a_check_and_confirm_posting_in_account_act.pdf",
-      "linked_scenario_name": "e2e_business_workflow_-_complete_user_journey_03_1774192414",
+      "linked_scenario_name": "check_deposit_workflow_-_complete_user_journey_06_1774243851",
       "error": null
     },
     {
@@ -437,11 +475,11 @@
   "Imported_Test_Coverage": null,
   "Token_Usage": {
     "cumulative": {
-      "input_tokens": 7172530,
-      "output_tokens": 251634,
-      "cached_input_tokens": 4318848,
-      "total_tokens": 7424164,
-      "total_cost_usd": 9.87986
+      "input_tokens": 7902487,
+      "output_tokens": 280255,
+      "cached_input_tokens": 4535648,
+      "total_tokens": 8182742,
+      "total_cost_usd": 11.913686
     },
     "runs": [
       {
@@ -738,6 +776,67 @@
             "input": 16983,
             "output": 956,
             "cost": 0.041614
+          }
+        }
+      },
+      {
+        "run_type": "retrigger_workers",
+        "timestamp": "2026-03-23T11:01:41.222559",
+        "provider": "bedrock_ai",
+        "model": "eu.anthropic.claude-sonnet-4-20250514-v1:0",
+        "input_tokens": 379543,
+        "output_tokens": 20153,
+        "cached_input_tokens": 216800,
+        "total_tokens": 399696,
+        "cost_usd": 0.855564,
+        "sessions": {
+          "worker_supervisor_WF006": {
+            "input": 2890,
+            "output": 145,
+            "cost": 0.010845
+          },
+          "explore_worker_WF006_a1": {
+            "input": 323448,
+            "output": 11389,
+            "cost": 0.555819
+          },
+          "explore_synthesize_single_workflow": {
+            "input": 24990,
+            "output": 7408,
+            "cost": 0.18609
+          },
+          "report_curation_WF006": {
+            "input": 28215,
+            "output": 1211,
+            "cost": 0.10281
+          }
+        }
+      },
+      {
+        "run_type": "retrigger",
+        "timestamp": "2026-03-23T11:04:18.425114",
+        "provider": "bedrock_ai",
+        "model": "eu.anthropic.claude-sonnet-4-20250514-v1:0",
+        "input_tokens": 350414,
+        "output_tokens": 8468,
+        "cached_input_tokens": 0,
+        "total_tokens": 358882,
+        "cost_usd": 1.178262,
+        "sessions": {
+          "post_explore_testgen": {
+            "input": 0,
+            "output": 0,
+            "cost": 0.0
+          },
+          "pom_gen_check_deposit_workflow_-_complete_user_journey_06_1774243851": {
+            "input": 115973,
+            "output": 5050,
+            "cost": 0.423669
+          },
+          "test_gen_pom_check_deposit_workflow___complete_user_journey_06_1774243851": {
+            "input": 234441,
+            "output": 3418,
+            "cost": 0.754593
           }
         }
       }

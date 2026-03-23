@@ -1,40 +1,41 @@
 {
-  "site_type": "dashboard",
-  "site_category": "Personal finance simulation and education portal",
-  "confidence_score": 0.95,
+  "site_type": "saas",
+  "site_category": "Educational Banking Simulator",
+  "confidence_score": 0.98,
   "user_journeys": [
     {
-      "journey_name": "Primary Business Workflow",
-      "description": "Main user flow for depositing a check and verifying account posting.",
-      "business_value": "Ensures users can simulate real-world check deposit activities, reinforcing financial literacy.",
-      "user_persona": "Student or participant in a personal finance course",
-      "frequency": "daily",
+      "journey_name": "Check Deposit Simulation",
+      "description": "Complete check deposit workflow in educational banking simulator",
+      "business_value": "Enables users to practice banking operations in a risk-free environment",
+      "user_persona": "Student learning banking processes",
+      "frequency": "weekly",
       "complexity": "medium"
     }
   ],
   "proposed_scenarios": [
     {
-      "scenario_name": "Discovered Workflow: e2e_business_workflow - Complete User Journey",
-      "description": "Comprehensive test covering the deposit check simulation end to end: from initial navigation, through deposit form completion, required image uploads, to confirmation and activity check.",
-      "workflow_narrative": "A user navigates to the NGPF Bank Simulator to practice depositing a check. They walk through the main dashboard, select the 'Deposit Checks' menu, choose the correct account, input the deposit amount, upload both front and back check images, and successfully submit the deposit. Confirmation via on-screen banner and transaction record in Account Activity completes the journey.",
+      "scenario_name": "Check Deposit Workflow - Complete User Journey",
+      "description": "End-to-end check deposit simulation including form completion, image uploads, and verification",
+      "workflow_narrative": "User navigates to NGPF Bank Simulator, accesses check deposit feature, completes deposit form with CHECKING account and $100.00 amount, uploads simulated check images (front and back), submits deposit, receives confirmation, and verifies the transaction appears in account activity with correct details.",
       "playwright_implementation_guidance": [
-        "Use waitForSelector to handle modals and menu transitions.",
-        "Interact with Shadow DOM parents using pressSequentially if web_component_parent is present.",
-        "Always reference the provided all_selectors list for each step.",
-        "Confirm presence of success banner and new row in Account Activity after submission."
+        "Use waitForSelector for modals and dynamic content",
+        "Handle Angular Material components with proper role selectors",
+        "Close simulated check image modals after they appear",
+        "Verify success notification and account balance changes",
+        "Account activity verification requires navigation to accounts page"
       ],
       "test_type": "e2e_business_workflow",
       "priority": "high",
-      "business_goal": "Verify users can complete a check deposit simulation and confirm posting in account activity.",
-      "user_story": "As a student user, I want to practice depositing a check so that I can see how funds are posted and tracked in my simulated account.",
+      "business_goal": "Verify users can complete check deposit simulation workflow",
+      "user_story": "As a student, I want to practice depositing a check so that I can learn banking processes in a safe environment",
       "detailed_steps": [
         {
           "step_number": 1,
-          "action": "Navigate to homepage",
+          "action": "Navigate to NGPF Bank Simulator",
           "component": "Navigation",
-          "description": "Load homepage",
+          "description": "Load the bank simulator homepage",
           "expected_page_url": "https://www.ngpf.org/bank-sim",
-          "verification_point": "Page loaded",
+          "verification_point": "Page loaded successfully",
           "business_impact": "Site accessibility",
           "selector": "page.goto('https://www.ngpf.org/bank-sim', { waitUntil: 'domcontentloaded' })",
           "confidence": 100,
@@ -43,15 +44,13 @@
         },
         {
           "step_number": 2,
-          "action": "Click 'GET STARTED NOW' button",
-          "component": "Welcome Menu",
-          "description": "Enter the Bank Simulator by clicking 'GET STARTED NOW'.",
-          "expected_page_url": "https://www.ngpf.org/bank-sim/home?returnUrl=%2F",
-          "verification_point": "Modal for simulator welcome is displayed.",
-          "business_impact": "Initiates banking simulation workflow.",
+          "action": "Click GET STARTED NOW button",
+          "component": "Landing Page Start Button",
+          "description": "Enter the bank simulator interface",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/home",
+          "verification_point": "Bank simulator interface loads",
+          "business_impact": "User onboarding",
           "selector": "page.getByRole('button', { name: 'GET STARTED NOW' })",
-          "confidence": 99,
-          "based_on_interaction": true,
           "all_selectors": [
             {
               "selector": "page.getByRole('button', { name: 'GET STARTED NOW' })",
@@ -72,26 +71,34 @@
               "is_unique": true
             }
           ],
+          "confidence": 99,
+          "based_on_interaction": true,
           "web_component_parent": {
             "tagName": "mat-card-content",
             "attributes": {
-              "_ngcontent-pyb-c143": "",
+              "_ngcontent-gus-c143": "",
               "class": "mat-card-content"
             },
             "hasShadowRoot": false
+          },
+          "page_context": {
+            "suggested_page_class": "HomePage",
+            "page_url_pattern": "/home"
+          },
+          "method_context": {
+            "suggested_method_name": "clickGetStarted",
+            "action_type": "click"
           }
         },
         {
           "step_number": 3,
-          "action": "Click 'Ok' on welcome modal",
+          "action": "Dismiss welcome modal",
           "component": "Welcome Modal",
-          "description": "Acknowledge the welcome modal to proceed.",
+          "description": "Click Ok button to dismiss welcome modal",
           "expected_page_url": "https://www.ngpf.org/bank-sim/",
-          "verification_point": "Dashboard and sidebar fully visible.",
-          "business_impact": "Allows user to access main functionality.",
+          "verification_point": "Modal dismissed and dashboard visible",
+          "business_impact": "Access to main interface",
           "selector": "page.getByRole('button', { name: 'Ok' })",
-          "confidence": 99,
-          "based_on_interaction": true,
           "all_selectors": [
             {
               "selector": "page.getByRole('button', { name: 'Ok' })",
@@ -112,27 +119,35 @@
               "is_unique": true
             }
           ],
+          "confidence": 99,
+          "based_on_interaction": true,
           "web_component_parent": {
             "tagName": "app-welcome-dialog",
             "attributes": {
-              "_nghost-pyb-c147": "",
+              "_nghost-gus-c147": "",
               "class": "ng-star-inserted",
               "style": ""
             },
             "hasShadowRoot": false
+          },
+          "page_context": {
+            "suggested_page_class": "DashboardPage",
+            "page_url_pattern": "/"
+          },
+          "method_context": {
+            "suggested_method_name": "dismissWelcomeModal",
+            "action_type": "click"
           }
         },
         {
           "step_number": 4,
-          "action": "Click 'DEPOSIT CHECKS' in sidebar",
-          "component": "Sidebar Navigation",
-          "description": "Navigate to check deposit simulation screen.",
+          "action": "Click DEPOSIT CHECKS in sidebar",
+          "component": "Navigation Sidebar",
+          "description": "Navigate to check deposit feature",
           "expected_page_url": "https://www.ngpf.org/bank-sim/deposit-check",
-          "verification_point": "'Deposit Checks' form appears.",
-          "business_impact": "User proceeds to check deposit workflow.",
+          "verification_point": "Check deposit form loads",
+          "business_impact": "Access to deposit functionality",
           "selector": "page.locator('a').filter({ hasText: 'DEPOSIT CHECKS' })",
-          "confidence": 99,
-          "based_on_interaction": true,
           "all_selectors": [
             {
               "selector": "page.locator('a').filter({ hasText: 'DEPOSIT CHECKS' })",
@@ -153,29 +168,37 @@
               "is_unique": true
             }
           ],
+          "confidence": 99,
+          "based_on_interaction": true,
           "web_component_parent": {
             "tagName": "app-menu-list-item",
             "attributes": {
-              "_ngcontent-pyb-c146": "",
-              "_nghost-pyb-c145": "",
+              "_ngcontent-gus-c146": "",
+              "_nghost-gus-c145": "",
               "class": "ng-tns-c145-6 ng-star-inserted",
               "aria-expanded": "false",
               "style": ""
             },
             "hasShadowRoot": false
+          },
+          "page_context": {
+            "suggested_page_class": "DepositCheckPage",
+            "page_url_pattern": "/deposit-check"
+          },
+          "method_context": {
+            "suggested_method_name": "navigateToDepositChecks",
+            "action_type": "click"
           }
         },
         {
           "step_number": 5,
-          "action": "Open 'To' account dropdown",
-          "component": "Deposit Account Dropdown",
-          "description": "Expand account selection dropdown menu for deposit.",
+          "action": "Click To account dropdown",
+          "component": "To Account Dropdown",
+          "description": "Open account selection dropdown",
           "expected_page_url": "https://www.ngpf.org/bank-sim/deposit-check",
-          "verification_point": "Account dropdown with options is expanded for selection.",
-          "business_impact": "User can select into which account to deposit.",
+          "verification_point": "Dropdown opens showing account options",
+          "business_impact": "Account selection interface",
           "selector": "page.getByRole('combobox', { name: 'To' })",
-          "confidence": 99,
-          "based_on_interaction": true,
           "all_selectors": [
             {
               "selector": "page.getByRole('combobox', { name: 'To' })",
@@ -196,28 +219,36 @@
               "is_unique": true
             }
           ],
+          "confidence": 99,
+          "based_on_interaction": true,
           "web_component_parent": {
             "tagName": "mat-form-field",
             "attributes": {
-              "_ngcontent-pyb-c150": "",
+              "_ngcontent-gus-c150": "",
               "appearance": "outline",
               "class": "mat-form-field ng-tns-c59-13 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-outline mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-invalid ng-star-inserted",
               "style": "margin-bottom: 10px;"
             },
             "hasShadowRoot": false
+          },
+          "page_context": {
+            "suggested_page_class": "DepositCheckPage",
+            "page_url_pattern": "/deposit-check"
+          },
+          "method_context": {
+            "suggested_method_name": "openAccountDropdown",
+            "action_type": "click"
           }
         },
         {
           "step_number": 6,
-          "action": "Select 'CHECKING' account option",
-          "component": "Account Dropdown Option",
-          "description": "Choose 'CHECKING (Available Balance is $216.04)' from account options.",
+          "action": "Select CHECKING account",
+          "component": "Account Selection Dropdown",
+          "description": "Choose CHECKING account as deposit destination",
           "expected_page_url": "https://www.ngpf.org/bank-sim/deposit-check",
-          "verification_point": "Deposit form is now ready for amount and check images.",
-          "business_impact": "Ensures correct account is credited.",
+          "verification_point": "CHECKING account selected in dropdown",
+          "business_impact": "Account destination specified",
           "selector": "page.getByRole('option', { name: 'CHECKING (Available Balance' })",
-          "confidence": 99,
-          "based_on_interaction": true,
           "all_selectors": [
             {
               "selector": "page.getByRole('option', { name: 'CHECKING (Available Balance' })",
@@ -237,19 +268,28 @@
               "confidence": 98,
               "is_unique": true
             }
-          ]
+          ],
+          "confidence": 99,
+          "based_on_interaction": true,
+          "page_context": {
+            "suggested_page_class": "DepositCheckPage",
+            "page_url_pattern": "/deposit-check"
+          },
+          "method_context": {
+            "suggested_method_name": "selectCheckingAccount",
+            "action_type": "select_option"
+          }
         },
         {
           "step_number": 7,
-          "action": "Fill 'Amount' field",
-          "component": "Amount Field",
-          "description": "Input check amount: 100.00",
+          "action": "Enter deposit amount",
+          "component": "Amount Input Field",
+          "description": "Input $100.00 as deposit amount",
           "expected_page_url": "https://www.ngpf.org/bank-sim/deposit-check",
-          "verification_point": "Amount is entered in input field.",
-          "business_impact": "Facilitates deposit of specific value for traceability.",
+          "verification_point": "Amount field shows $100.00",
+          "business_impact": "Deposit amount specified",
           "selector": "page.getByRole('textbox', { name: 'Amount' })",
-          "confidence": 99,
-          "based_on_interaction": true,
+          "input_value": "100.00",
           "all_selectors": [
             {
               "selector": "page.getByRole('textbox', { name: 'Amount' })",
@@ -270,28 +310,36 @@
               "is_unique": true
             }
           ],
+          "confidence": 99,
+          "based_on_interaction": true,
           "web_component_parent": {
             "tagName": "mat-form-field",
             "attributes": {
-              "_ngcontent-pyb-c150": "",
+              "_ngcontent-gus-c150": "",
               "appearance": "outline",
               "class": "mat-form-field ng-tns-c59-15 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-outline mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-invalid ng-star-inserted",
               "style": "margin-bottom: 10px;"
             },
             "hasShadowRoot": false
+          },
+          "page_context": {
+            "suggested_page_class": "DepositCheckPage",
+            "page_url_pattern": "/deposit-check"
+          },
+          "method_context": {
+            "suggested_method_name": "enterDepositAmount",
+            "action_type": "input"
           }
         },
         {
           "step_number": 8,
-          "action": "Click 'Front' button to upload check front",
-          "component": "Upload Front Button",
-          "description": "Initiate upload of check's front image.",
+          "action": "Upload front check image",
+          "component": "Front Check Image Upload",
+          "description": "Click Front button to simulate front check image upload",
           "expected_page_url": "https://www.ngpf.org/bank-sim/deposit-check",
-          "verification_point": "Modal for uploading/displaying front image opens.",
-          "business_impact": "Simulates realistic check requirements.",
+          "verification_point": "Front check image modal appears",
+          "business_impact": "Front image simulation",
           "selector": "page.getByRole('button', { name: 'Front' })",
-          "confidence": 99,
-          "based_on_interaction": true,
           "all_selectors": [
             {
               "selector": "page.getByRole('button', { name: 'Front' })",
@@ -311,19 +359,27 @@
               "confidence": 80,
               "is_unique": false
             }
-          ]
+          ],
+          "confidence": 99,
+          "based_on_interaction": true,
+          "page_context": {
+            "suggested_page_class": "DepositCheckPage",
+            "page_url_pattern": "/deposit-check"
+          },
+          "method_context": {
+            "suggested_method_name": "clickFrontUpload",
+            "action_type": "click"
+          }
         },
         {
           "step_number": 9,
-          "action": "Click 'close' icon on front image modal",
-          "component": "Front Side Modal Close",
-          "description": "Close the modal displaying the front image.",
+          "action": "Close front check modal",
+          "component": "Front Check Modal",
+          "description": "Close the front check image modal",
           "expected_page_url": "https://www.ngpf.org/bank-sim/deposit-check",
-          "verification_point": "Back at deposit form.",
-          "business_impact": "Ensures workflow can proceed to next upload.",
+          "verification_point": "Modal closes and form is visible",
+          "business_impact": "Return to form",
           "selector": "page.getByText('close')",
-          "confidence": 99,
-          "based_on_interaction": true,
           "all_selectors": [
             {
               "selector": "page.getByText('close')",
@@ -344,26 +400,34 @@
               "is_unique": true
             }
           ],
+          "confidence": 99,
+          "based_on_interaction": true,
           "web_component_parent": {
             "tagName": "app-upload-check-dialog",
             "attributes": {
-              "_nghost-pyb-c149": "",
+              "_nghost-gus-c149": "",
               "class": "ng-star-inserted"
             },
             "hasShadowRoot": false
+          },
+          "page_context": {
+            "suggested_page_class": "DepositCheckPage",
+            "page_url_pattern": "/deposit-check"
+          },
+          "method_context": {
+            "suggested_method_name": "closeFrontModal",
+            "action_type": "click"
           }
         },
         {
           "step_number": 10,
-          "action": "Click 'Back' button to upload check back",
-          "component": "Check Deposit Back Image Button",
-          "description": "Trigger upload for the back side of the check.",
+          "action": "Upload back check image",
+          "component": "Back Check Image Upload",
+          "description": "Click Back button to simulate back check image upload",
           "expected_page_url": "https://www.ngpf.org/bank-sim/deposit-check",
-          "verification_point": "Modal for uploading/displaying back image opens.",
-          "business_impact": "Completes regulatory check requirements.",
+          "verification_point": "Back check image modal appears",
+          "business_impact": "Back image simulation",
           "selector": "page.getByRole('button', { name: 'Back' })",
-          "confidence": 99,
-          "based_on_interaction": true,
           "all_selectors": [
             {
               "selector": "page.getByRole('button', { name: 'Back' })",
@@ -383,19 +447,27 @@
               "confidence": 80,
               "is_unique": false
             }
-          ]
+          ],
+          "confidence": 99,
+          "based_on_interaction": true,
+          "page_context": {
+            "suggested_page_class": "DepositCheckPage",
+            "page_url_pattern": "/deposit-check"
+          },
+          "method_context": {
+            "suggested_method_name": "clickBackUpload",
+            "action_type": "click"
+          }
         },
         {
           "step_number": 11,
-          "action": "Click 'close' icon on back image modal",
-          "component": "Back Image Modal",
-          "description": "Close back image modal to continue deposit.",
+          "action": "Close back check modal",
+          "component": "Back Check Image Modal",
+          "description": "Close the back check image modal",
           "expected_page_url": "https://www.ngpf.org/bank-sim/deposit-check",
-          "verification_point": "Deposit form visible; all requirements met for deposit.",
-          "business_impact": "Ready for deposit submission.",
+          "verification_point": "Modal closes and form is ready for submission",
+          "business_impact": "Return to form for submission",
           "selector": "page.getByText('close')",
-          "confidence": 99,
-          "based_on_interaction": true,
           "all_selectors": [
             {
               "selector": "page.getByText('close')",
@@ -416,26 +488,34 @@
               "is_unique": true
             }
           ],
+          "confidence": 99,
+          "based_on_interaction": true,
           "web_component_parent": {
             "tagName": "app-upload-check-dialog",
             "attributes": {
-              "_nghost-pyb-c149": "",
+              "_nghost-gus-c149": "",
               "class": "ng-star-inserted"
             },
             "hasShadowRoot": false
+          },
+          "page_context": {
+            "suggested_page_class": "DepositCheckPage",
+            "page_url_pattern": "/deposit-check"
+          },
+          "method_context": {
+            "suggested_method_name": "closeBackModal",
+            "action_type": "click"
           }
         },
         {
           "step_number": 12,
-          "action": "Click 'Submit' button",
-          "component": "Check Deposit Submit Button",
-          "description": "Submit the check deposit simulation form.",
-          "expected_page_url": "https://www.ngpf.org/bank-sim/account",
-          "verification_point": "Confirmation banner and Account Activity update.",
-          "business_impact": "Completes the main simulation - simulates fund deposit.",
+          "action": "Submit check deposit",
+          "component": "Submit Button",
+          "description": "Click Submit button to process the check deposit",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/deposit-check",
+          "verification_point": "Success notification appears",
+          "business_impact": "Deposit transaction processed",
           "selector": "page.getByRole('button', { name: 'Submit' })",
-          "confidence": 99,
-          "based_on_interaction": true,
           "all_selectors": [
             {
               "selector": "page.getByRole('button', { name: 'Submit' })",
@@ -455,39 +535,121 @@
               "confidence": 88,
               "is_unique": true
             }
-          ]
+          ],
+          "confidence": 99,
+          "based_on_interaction": true,
+          "page_context": {
+            "suggested_page_class": "DepositCheckPage",
+            "page_url_pattern": "/deposit-check"
+          },
+          "method_context": {
+            "suggested_method_name": "submitDeposit",
+            "action_type": "click"
+          }
+        },
+        {
+          "step_number": 13,
+          "action": "Navigate to Account Activity",
+          "component": "Accounts Menu",
+          "description": "Click ACCOUNTS to access account activity page",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/account",
+          "verification_point": "Account activity page loads with transaction history",
+          "business_impact": "Access to transaction verification",
+          "selector": "page.locator('a').filter({ hasText: 'ACCOUNTS expand_more' })",
+          "all_selectors": [
+            {
+              "selector": "page.locator('a').filter({ hasText: 'ACCOUNTS expand_more' })",
+              "strategy": "roost_primary",
+              "confidence": 99,
+              "is_unique": true
+            },
+            {
+              "selector": "page.locator('a').filter({ hasText: 'ACCOUNTS expand_more' })",
+              "strategy": "tag_filter_text",
+              "confidence": 69,
+              "is_unique": true
+            },
+            {
+              "selector": "page.locator('a.mat-list-item.mat-focus-indicator')",
+              "strategy": "css_combined_classes",
+              "confidence": 62,
+              "is_unique": false
+            }
+          ],
+          "confidence": 99,
+          "based_on_interaction": true,
+          "web_component_parent": {
+            "tagName": "app-menu-list-item",
+            "attributes": {
+              "_ngcontent-gus-c146": "",
+              "_nghost-gus-c145": "",
+              "class": "ng-tns-c145-3 ng-star-inserted",
+              "aria-expanded": "false",
+              "style": ""
+            },
+            "hasShadowRoot": false
+          },
+          "page_context": {
+            "suggested_page_class": "AccountActivityPage",
+            "page_url_pattern": "/account"
+          },
+          "method_context": {
+            "suggested_method_name": "navigateToAccounts",
+            "action_type": "click"
+          }
+        },
+        {
+          "step_number": 14,
+          "action": "Verify deposit transaction",
+          "component": "Account Activity Table",
+          "description": "Confirm new deposit record appears with correct details",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/account",
+          "verification_point": "Deposit record shows: 'Deposit Check To Checking Account', $100.00 amount, updated balance $316.04",
+          "business_impact": "Transaction verification and workflow completion",
+          "selector": "page.locator('table').first()",
+          "confidence": 100,
+          "based_on_interaction": true,
+          "page_context": {
+            "suggested_page_class": "AccountActivityPage",
+            "page_url_pattern": "/account"
+          },
+          "method_context": {
+            "suggested_method_name": "verifyDepositRecord",
+            "action_type": "verify"
+          }
         }
       ],
       "expected_results": [
-        "User completes workflow successfully.",
-        "No errors during navigation or deposit.",
-        "Confirmation banner ('You have successfully deposited your check.') is visible.",
-        "New record for $100.00 deposit appears in Account Activity."
+        "User successfully completes check deposit workflow",
+        "Green confirmation message appears: 'You have successfully deposited your check.'",
+        "New transaction record appears in Account Activity with correct amount",
+        "Account balance increases from $216.04 to $316.04"
       ],
       "edge_cases_to_test": [
-        "Slow network or lag in modal dialogs.",
-        "User interrupts workflow before submission.",
-        "Missing either image upload and submits (should error).",
-        "Submits with invalid amount (negative, blank, or non-numeric)."
+        "Form validation with missing required fields",
+        "Different account selection (SAVING vs CHECKING)",
+        "Various deposit amounts",
+        "Modal handling and proper closure"
       ],
       "data_requirements": [
-        "Valid simulator test account available.",
-        "Amount input must be numeric and positive.",
-        "Front and back check images must be uploadable (or simulation widget must respond as if successful on click)."
+        "Valid deposit amount (e.g., 100.00)",
+        "Account selection (CHECKING account with existing balance)",
+        "Simulated check image uploads (handled by system)"
       ],
       "prerequisites": [
-        "Site is accessible at https://www.ngpf.org/bank-sim",
-        "No service outages or modal bugs"
+        "NGPF Bank Simulator site accessible",
+        "Angular Material components render correctly",
+        "Bank simulator properly initialized"
       ]
     }
   ],
   "site_url": "https://www.ngpf.org/bank-sim",
-  "test_name": "e2e_business_workflow_-_complete_user_journey_03_1774192414",
+  "test_name": "check_deposit_workflow_-_complete_user_journey_06_1774243851",
   "login_mechanisms": [
     "general_interaction"
   ],
   "login_completion_state": "successful",
-  "analysis_timestamp": "2026-03-22T20:43:34.613563",
+  "analysis_timestamp": "2026-03-23T11:00:51.339627",
   "auth_required": false,
   "starting_url": null,
   "workflow_id": "WF006"
