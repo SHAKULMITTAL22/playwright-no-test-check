@@ -1,0 +1,352 @@
+{
+  "site_type": "service",
+  "site_category": "Banking Simulation and Financial Literacy",
+  "confidence_score": 0.98,
+  "user_journeys": [
+    {
+      "journey_name": "Bill Payment Execution",
+      "description": "User navigates to the bill payment section, adds a new recipient, and submits a payment.",
+      "business_value": "Ensures core banking functionality is operational for educational simulations.",
+      "user_persona": "Student",
+      "frequency": "daily",
+      "complexity": "medium"
+    }
+  ],
+  "proposed_scenarios": [
+    {
+      "scenario_name": "Discovered Workflow: e2e_business_workflow - Complete User Journey",
+      "description": "Verify the full end-to-end flow of paying a bill by creating a new recipient.",
+      "workflow_narrative": "The user starts the simulation, navigates to the bills section, adds a new recipient to bypass existing dropdown issues, and successfully submits a payment of 50.",
+      "playwright_implementation_guidance": [
+        "Use page.waitForURL to confirm navigation to /pay-bill.",
+        "Use pressSequentially() for input fields inside mat-form-field components.",
+        "Ensure the modal for adding a recipient is fully loaded before interacting with inputs."
+      ],
+      "test_type": "e2e_business_workflow",
+      "priority": "high",
+      "business_goal": "Verify users can complete the bill payment workflow",
+      "user_story": "As a student, I want to pay a bill so that I can practice financial management.",
+      "detailed_steps": [
+        {
+          "step_number": 1,
+          "action": "Navigate to homepage",
+          "component": "Navigation",
+          "description": "Load homepage",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/home",
+          "verification_point": "Page loaded",
+          "business_impact": "Site accessibility",
+          "selector": "page.goto('https://www.ngpf.org/bank-sim/home', { waitUntil: 'domcontentloaded' })",
+          "confidence": 100,
+          "based_on_interaction": true,
+          "all_selectors": []
+        },
+        {
+          "step_number": 2,
+          "action": "click",
+          "component": "Button",
+          "description": "Start simulation",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/dashboard",
+          "verification_point": "Dashboard visible",
+          "business_impact": "Workflow entry",
+          "selector": "page.getByRole('button', { name: 'GET STARTED NOW' })",
+          "all_selectors": [
+            {
+              "selector": "page.getByRole('button', { name: /GET STARTED NOW/ })",
+              "strategy": "role_name_regex",
+              "confidence": 95,
+              "is_unique": true
+            },
+            {
+              "selector": "page.getByText('GET STARTED NOW')",
+              "strategy": "text",
+              "confidence": 88,
+              "is_unique": true
+            }
+          ],
+          "web_component_parent": {
+            "tagName": "mat-card-content",
+            "attributes": {
+              "_ngcontent-uru-c143": "",
+              "class": "mat-card-content"
+            },
+            "hasShadowRoot": false
+          },
+          "confidence": 99,
+          "based_on_interaction": true
+        },
+        {
+          "step_number": 3,
+          "action": "click",
+          "component": "Modal",
+          "description": "Dismiss welcome modal",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/dashboard",
+          "verification_point": "Modal closed",
+          "business_impact": "Workflow progress",
+          "selector": "page.getByRole('button', { name: 'Ok' })",
+          "all_selectors": [
+            {
+              "selector": "page.locator('[role=\"dialog\"]').getByRole('button', { name: 'Ok' })",
+              "strategy": "portal_role_name",
+              "confidence": 95,
+              "is_unique": true
+            },
+            {
+              "selector": "page.locator('[role=\"dialog\"]').getByRole('button', { name: 'Ok' })",
+              "strategy": "parent_role_child_role",
+              "confidence": 88,
+              "is_unique": true
+            }
+          ],
+          "web_component_parent": {
+            "tagName": "app-welcome-dialog",
+            "attributes": {
+              "_nghost-uru-c147": "",
+              "class": "ng-star-inserted",
+              "style": ""
+            },
+            "hasShadowRoot": false
+          },
+          "confidence": 99,
+          "based_on_interaction": true
+        },
+        {
+          "step_number": 4,
+          "action": "click",
+          "component": "Menu",
+          "description": "Navigate to Bills",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/dashboard",
+          "verification_point": "Bills menu expanded",
+          "business_impact": "Navigation",
+          "selector": "page.locator('a').filter({ hasText: 'BILLS expand_more' })",
+          "all_selectors": [
+            {
+              "selector": "page.locator('a.mat-list-item.mat-focus-indicator')",
+              "strategy": "css_combined_classes",
+              "confidence": 62,
+              "is_unique": false
+            },
+            {
+              "selector": "page.locator('a.mat-list-item')",
+              "strategy": "css_stable_class",
+              "confidence": 60,
+              "is_unique": false
+            }
+          ],
+          "web_component_parent": {
+            "tagName": "app-menu-list-item",
+            "attributes": {
+              "_ngcontent-uru-c146": "",
+              "_nghost-uru-c145": "",
+              "class": "ng-tns-c145-5 ng-star-inserted",
+              "aria-expanded": "false",
+              "style": ""
+            },
+            "hasShadowRoot": false
+          },
+          "confidence": 99,
+          "based_on_interaction": true
+        },
+        {
+          "step_number": 5,
+          "action": "click",
+          "component": "Link",
+          "description": "Select Pay Bill",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/pay-bill",
+          "verification_point": "Navigated to /pay-bill",
+          "business_impact": "Workflow progress",
+          "selector": "page.locator('a').filter({ hasText: 'PAY BILL' })",
+          "all_selectors": [
+            {
+              "selector": "page.getByText('PAY BILL')",
+              "strategy": "text",
+              "confidence": 88,
+              "is_unique": true
+            },
+            {
+              "selector": "page.locator('a').filter({ hasText: /^PAY BILL$/ })",
+              "strategy": "link_filter_exact",
+              "confidence": 74,
+              "is_unique": true
+            }
+          ],
+          "web_component_parent": {
+            "tagName": "app-menu-list-item",
+            "attributes": {
+              "_ngcontent-uru-c145": "",
+              "_nghost-uru-c145": "",
+              "class": "ng-tns-c145-13 ng-tns-c145-5 ng-star-inserted",
+              "aria-expanded": "false"
+            },
+            "hasShadowRoot": false
+          },
+          "confidence": 99,
+          "based_on_interaction": true
+        },
+        {
+          "step_number": 6,
+          "action": "select",
+          "component": "Dropdown",
+          "description": "Set Payment Frequency to SINGLE",
+          "expected_page_url": "https://www.ngpf.org/pay-bill",
+          "verification_point": "Frequency set",
+          "business_impact": "Workflow configuration",
+          "selector": "page.getByRole('combobox', { name: 'Payment Frequency' })",
+          "all_selectors": [
+            {
+              "selector": "page.locator('mat-select.mat-select-required')",
+              "strategy": "css_tag_semantic_empty",
+              "confidence": 84,
+              "is_unique": false
+            },
+            {
+              "selector": "page.locator('.mat-select-required')",
+              "strategy": "css_semantic_empty",
+              "confidence": 82,
+              "is_unique": false
+            }
+          ],
+          "web_component_parent": {
+            "tagName": "mat-form-field",
+            "attributes": {
+              "_ngcontent-uru-c154": "",
+              "appearance": "outline",
+              "class": "mat-form-field ng-tns-c59-18 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-outline mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-untouched ng-pristine ng-invalid ng-star-inserted"
+            },
+            "hasShadowRoot": false
+          },
+          "confidence": 99,
+          "based_on_interaction": true
+        },
+        {
+          "step_number": 7,
+          "action": "click",
+          "component": "Button",
+          "description": "Add New Recipient",
+          "expected_page_url": "https://www.ngpf.org/pay-bill",
+          "verification_point": "Recipient modal opened",
+          "business_impact": "Workflow progress",
+          "selector": "page.getByText('ADD RECIPIENT')",
+          "all_selectors": [
+            {
+              "selector": "page.locator('span').filter({ hasText: 'ADD RECIPIENT' })",
+              "strategy": "tag_filter_text",
+              "confidence": 69,
+              "is_unique": true
+            },
+            {
+              "selector": "page.locator('span').filter({ hasText: /^ADD RECIPIENT$/ })",
+              "strategy": "tag_filter_exact",
+              "confidence": 67,
+              "is_unique": true
+            }
+          ],
+          "confidence": 99,
+          "based_on_interaction": true
+        },
+        {
+          "step_number": 8,
+          "action": "input_text",
+          "component": "Form",
+          "description": "Populate Recipient Details",
+          "expected_page_url": "https://www.ngpf.org/pay-bill",
+          "verification_point": "Details entered",
+          "business_impact": "Data entry",
+          "selector": "page.getByRole('textbox', { name: 'RECIPIENT NAME' })",
+          "all_selectors": [
+            {
+              "selector": "page.locator('[role=\"dialog\"]').getByRole('textbox', { name: 'RECIPIENT NAME *' })",
+              "strategy": "portal_role_name",
+              "confidence": 95,
+              "is_unique": true
+            }
+          ],
+          "web_component_parent": {
+            "tagName": "mat-form-field",
+            "attributes": {
+              "_ngcontent-uru-c152": "",
+              "appearance": "outline",
+              "class": "mat-form-field ng-tns-c59-25 mat-primary ng-star-inserted mat-form-field-type-mat-input mat-form-field-appearance-outline mat-form-field-can-float mat-form-field-has-label ng-untouched ng-pristine ng-invalid mat-form-field-should-float mat-focused"
+            },
+            "hasShadowRoot": false
+          },
+          "confidence": 99,
+          "based_on_interaction": true
+        },
+        {
+          "step_number": 9,
+          "action": "click",
+          "component": "Button",
+          "description": "Submit Recipient",
+          "expected_page_url": "https://www.ngpf.org/pay-bill",
+          "verification_point": "Recipient added",
+          "business_impact": "Workflow progress",
+          "selector": "page.getByRole('button', { name: 'SUBMIT' })",
+          "all_selectors": [
+            {
+              "selector": "page.locator('[role=\"dialog\"]').getByRole('button', { name: 'SUBMIT' })",
+              "strategy": "portal_role_name",
+              "confidence": 95,
+              "is_unique": true
+            }
+          ],
+          "confidence": 99,
+          "based_on_interaction": true
+        },
+        {
+          "step_number": 10,
+          "action": "input_text",
+          "component": "Form",
+          "description": "Final Payment Submission",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/pay-bill/display-bills",
+          "verification_point": "Payment successful",
+          "business_impact": "Workflow completion",
+          "selector": "page.getByRole('textbox', { name: 'Amount' })",
+          "all_selectors": [
+            {
+              "selector": "page.getByRole('textbox', { name: /Amount \\*/ })",
+              "strategy": "role_name_regex",
+              "confidence": 95,
+              "is_unique": true
+            }
+          ],
+          "web_component_parent": {
+            "tagName": "mat-form-field",
+            "attributes": {
+              "_ngcontent-uru-c154": "",
+              "appearance": "outline",
+              "class": "mat-form-field ng-tns-c59-23 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-outline mat-form-field-can-float mat-form-field-should-float mat-form-field-has-label ng-untouched ng-pristine ng-valid ng-star-inserted"
+            },
+            "hasShadowRoot": false
+          },
+          "confidence": 99,
+          "based_on_interaction": true
+        }
+      ],
+      "expected_results": [
+        "User completes workflow",
+        "No errors"
+      ],
+      "edge_cases_to_test": [
+        "Slow network",
+        "Interruptions"
+      ],
+      "data_requirements": [
+        "Test accounts",
+        "Valid inputs"
+      ],
+      "prerequisites": [
+        "Site accessible"
+      ]
+    }
+  ],
+  "site_url": "https://www.ngpf.org/bank-sim/home",
+  "test_name": "e2e_business_workflow_-_complete_user_journey_02_1775031311",
+  "login_mechanisms": [
+    "general_interaction"
+  ],
+  "login_completion_state": "successful",
+  "analysis_timestamp": "2026-04-01T13:45:11.733782",
+  "auth_required": false,
+  "starting_url": null,
+  "workflow_id": "WF002"
+}
