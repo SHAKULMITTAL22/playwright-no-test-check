@@ -1,10 +1,31 @@
 {
   "metadata_version": "1.0",
   "created_at": "2026-03-30T06:33:38.489328",
-  "last_updated": "2026-03-30T06:39:00.135253",
+  "last_updated": "2026-04-01T13:47:48.868966",
   "output_dir": "RoostGPT/ngpf-new-update/143f6117-0c91-4ae2-adbe-c881262cf543/source/playwright-no-test-check/generated_tests/www.ngpf.org/playwright_tests",
   "site_url": "https://www.ngpf.org/bank-sim/home",
-  "pom_files": null,
+  "pom_files": [
+    {
+      "url": "",
+      "file_name": "HomePage.js",
+      "file_path": "pom_tests\\pom\\HomePage.js"
+    },
+    {
+      "url": "",
+      "file_name": "DashboardPage.js",
+      "file_path": "pom_tests\\pom\\DashboardPage.js"
+    },
+    {
+      "url": "",
+      "file_name": "TransferPage.js",
+      "file_path": "pom_tests\\pom\\TransferPage.js"
+    },
+    {
+      "url": "",
+      "file_name": "PayBillPage.js",
+      "file_path": "pom_tests\\pom\\PayBillPage.js"
+    }
+  ],
   "Login_File": {
     "name": null,
     "path": null,
@@ -37,92 +58,170 @@
     {
       "workflow_id": "WF001",
       "title": "Internal Fund Transfer",
-      "goal": "Transfer funds between Checking and Savings accounts and verify the transaction.",
-      "feature_area": "Banking Transactions",
+      "goal": "Verify users can complete the internal fund transfer workflow",
+      "feature_area": "Banking Simulation and Financial Literacy",
       "priority": "high",
       "starting_hint": "1. Navigate to https://www.ngpf.org/bank-sim/home\n2. Click 'GET STARTED NOW'\n3. Click 'Ok'\n4. Click 'TRANSFERS'\n5. Click 'MAKE A TRANSFER'\n6. Select 'SINGLE' frequency\n7. Select 'CHECKING' as 'Transfer From'\n8. Select 'SAVING' as 'Transfer To'\n9. Enter amount\n10. Click 'Save'",
       "discovery_source": "roost_discovered",
       "source_file": null,
       "source_file_hash": null,
-      "worker_completed": false,
-      "worker_result": "pending",
-      "linked_scenario_name": null,
+      "worker_completed": true,
+      "worker_result": "success",
+      "linked_scenario_name": "internal_fund_transfer_-_complete_user_journey_01_1775031262",
       "error": null,
-      "scenario_name": null,
-      "scenario_file_path": null,
-      "scenario_summary_file_path": "scenarios/summaries/WF001_internal_fund_transfer.md",
-      "report_pdf_file_path": "scenarios/reports/WF001_internal_fund_transfer.pdf",
+      "scenario_name": "internal_fund_transfer_-_complete_user_journey_01_1775031262",
+      "scenario_file_path": "scenarios\\WF001_internal_fund_transfer.json",
+      "scenario_summary_file_path": "scenarios\\summaries\\WF001_internal_fund_transfer.md",
+      "report_pdf_file_path": "scenarios\\reports\\WF001_internal_fund_transfer.pdf",
       "feature_file_path": null,
       "feature_file_name": null,
-      "agent_workflow_file_path": null,
-      "agent_workflow_completed": false,
+      "agent_workflow_file_path": "C:\\var\\tmp\\Roost\\RoostGPT\\ngpf-new-update\\1775031045\\temp_info\\www.ngpf.org\\extracted_data\\execution_flow_WF001_internal_fund_transfer.json",
+      "agent_workflow_completed": true,
       "scenario_analysis_result_file_path": null,
-      "agent_activity_summary": null,
-      "agent_activity_error": null,
-      "agent_activity_outcome": null,
-      "agent_recommendation": null,
-      "agent_completion_level": null,
-      "agent_steps_completed": null,
-      "visited_urls": null,
+      "agent_activity_summary": [
+        "The agent successfully navigated to the NGPF bank simulation portal, bypassed the welcome modal, and executed the fund transfer workflow. The agent correctly identified and interacted with the required dropdowns for payment frequency and account selection, entered the transfer amount, and finalized the transaction by clicking 'Save'."
+      ],
+      "agent_activity_error": [
+        "No blocking issues or errors were encountered during the execution. The agent successfully handled the dynamic nature of the dropdowns by capturing the specific account options (e.g., 'CHECKING ($216.04)') and performed all actions as required by the scenario."
+      ],
+      "agent_activity_outcome": [
+        "The fund transfer from Checking to Savings was successfully initiated and completed, with the agent navigating to the final confirmation page."
+      ],
+      "agent_recommendation": "The current automation flow is stable. Future enhancements could include adding explicit assertions to verify the account balances before and after the transfer to ensure data integrity.",
+      "agent_completion_level": "complete",
+      "agent_steps_completed": 13,
+      "visited_urls": [
+        "https://www.ngpf.org/bank-sim/",
+        "https://www.ngpf.org/bank-sim/home?returnUrl=%2Fhome%2F",
+        "https://www.ngpf.org/bank-sim/home",
+        "https://www.ngpf.org/bank-sim/transfer",
+        "https://www.ngpf.org/bank-sim/transfer/display-transfers"
+      ],
       "execution_flow_file_path": null,
-      "test_generated": false,
+      "test_generated": true,
       "test_generation_error": null,
-      "test_name": null,
-      "test_file_path": null,
-      "test_executed_success": null,
+      "test_name": "internal_fund_transfer___complete_user_journey_01_1775031262_pom.noauth.spec.js",
+      "test_file_path": "pom_tests\\internal_fund_transfer___complete_user_journey_01_1775031262_pom.noauth.spec.js",
+      "test_executed_success": true,
       "test_execution_error": null,
-      "pom_test_name": null,
-      "pom_test_file_path": null,
+      "pom_test_name": "internal_fund_transfer___complete_user_journey_01_1775031262_pom.noauth.spec.js",
+      "pom_test_file_path": "pom_tests\\internal_fund_transfer___complete_user_journey_01_1775031262_pom.noauth.spec.js",
       "pom_test_executed_success": null,
       "pom_test_execution_error": null,
-      "pom_files": null,
-      "test_steps": null,
-      "video_recording_path": null
+      "pom_files": [
+        {
+          "url": "",
+          "file_name": "HomePage.js",
+          "file_path": "pom_tests\\pom\\HomePage.js"
+        },
+        {
+          "url": "",
+          "file_name": "DashboardPage.js",
+          "file_path": "pom_tests\\pom\\DashboardPage.js"
+        },
+        {
+          "url": "",
+          "file_name": "TransferPage.js",
+          "file_path": "pom_tests\\pom\\TransferPage.js"
+        }
+      ],
+      "test_steps": [
+        "Navigate to homepage: Load homepage",
+        "click: Start simulation",
+        "click: Dismiss welcome modal",
+        "click: Expand transfers menu",
+        "click: Navigate to transfer page",
+        "select_option: Set frequency to SINGLE",
+        "select_option: Select CHECKING ($216.04)",
+        "select_option: Select SAVING ($230.00)",
+        "input_text: Enter 50.00",
+        "click: Execute transfer"
+      ],
+      "video_recording_path": "C:\\var\\tmp\\Roost\\RoostGPT\\ngpf-new-update\\1775031045\\temp_info\\www.ngpf.org\\extracted_data\\recordings\\WF001_a1\\069ccd33-2842-7a32-8000-38a245c69983.mp4"
     },
     {
       "workflow_id": "WF002",
       "title": "Bill Payment Execution",
-      "goal": "Submit a bill payment to a recipient.",
-      "feature_area": "Banking Transactions",
+      "goal": "Verify users can complete the bill payment workflow",
+      "feature_area": "Banking Simulation and Financial Literacy",
       "priority": "high",
       "starting_hint": "1. Navigate to https://www.ngpf.org/bank-sim/home\n2. Click 'GET STARTED NOW'\n3. Click 'Ok'\n4. Click 'BILLS'\n5. Click 'PAY BILL'\n6. Select 'SINGLE' frequency\n7. Select a recipient\n8. Enter amount\n9. Click 'Submit'",
       "discovery_source": "roost_discovered",
       "source_file": null,
       "source_file_hash": null,
-      "worker_completed": false,
-      "worker_result": "pending",
-      "linked_scenario_name": null,
+      "worker_completed": true,
+      "worker_result": "success",
+      "linked_scenario_name": "e2e_business_workflow_-_complete_user_journey_02_1775031311",
       "error": null,
-      "scenario_name": null,
-      "scenario_file_path": null,
-      "scenario_summary_file_path": "scenarios/summaries/WF002_bill_payment_execution.md",
-      "report_pdf_file_path": "scenarios/reports/WF002_bill_payment_execution.pdf",
+      "scenario_name": "e2e_business_workflow_-_complete_user_journey_02_1775031311",
+      "scenario_file_path": "scenarios\\WF002_bill_payment_execution.json",
+      "scenario_summary_file_path": "scenarios\\summaries\\WF002_bill_payment_execution.md",
+      "report_pdf_file_path": "scenarios\\reports\\WF002_bill_payment_execution.pdf",
       "feature_file_path": null,
       "feature_file_name": null,
-      "agent_workflow_file_path": null,
-      "agent_workflow_completed": false,
+      "agent_workflow_file_path": "C:\\var\\tmp\\Roost\\RoostGPT\\ngpf-new-update\\1775031045\\temp_info\\www.ngpf.org\\extracted_data\\execution_flow_WF002_bill_payment_execution.json",
+      "agent_workflow_completed": true,
       "scenario_analysis_result_file_path": null,
-      "agent_activity_summary": null,
-      "agent_activity_error": null,
-      "agent_activity_outcome": null,
-      "agent_recommendation": null,
-      "agent_completion_level": null,
-      "agent_steps_completed": null,
-      "visited_urls": null,
+      "agent_activity_summary": [
+        "The agent successfully navigated to the NGPF bank simulation portal, bypassed the welcome modal, and navigated to the 'Pay Bill' section. After encountering difficulty selecting an existing recipient from the dropdown, the agent successfully recovered by creating a new recipient ('Test Recipient'), populating the required fields, and submitting the payment."
+      ],
+      "agent_activity_error": [
+        "The agent encountered a recurring issue in steps 8-12 where it failed to select an existing recipient from the dropdown menu despite multiple attempts. The agent recovered by identifying the 'ADD RECIPIENT' functionality, creating a new recipient, and proceeding with the payment workflow using the newly created entity."
+      ],
+      "agent_activity_outcome": [
+        "The bill payment was successfully submitted, and the agent reached the final confirmation/display bills page."
+      ],
+      "agent_recommendation": "The dropdown interaction logic for existing recipients should be reviewed for stability, as the agent struggled to interact with the existing list despite the elements being present.",
+      "agent_completion_level": "complete",
+      "agent_steps_completed": 18,
+      "visited_urls": [
+        "https://www.ngpf.org/bank-sim/pay-bill/display-bills",
+        "https://www.ngpf.org/bank-sim/",
+        "https://www.ngpf.org/bank-sim/home?returnUrl=%2Fhome%2F",
+        "https://www.ngpf.org/bank-sim/pay-bill",
+        "https://www.ngpf.org/bank-sim/home"
+      ],
       "execution_flow_file_path": null,
-      "test_generated": false,
+      "test_generated": true,
       "test_generation_error": null,
-      "test_name": null,
+      "test_name": "e2e_business_workflow_-_complete_user_journey_02_1775031311",
       "test_file_path": null,
       "test_executed_success": null,
       "test_execution_error": null,
-      "pom_test_name": null,
-      "pom_test_file_path": null,
+      "pom_test_name": "e2e_business_workflow___complete_user_journey_02_1775031311_pom.noauth.spec.js",
+      "pom_test_file_path": "pom_tests\\e2e_business_workflow___complete_user_journey_02_1775031311_pom.noauth.spec.js",
       "pom_test_executed_success": null,
       "pom_test_execution_error": null,
-      "pom_files": null,
-      "test_steps": null,
-      "video_recording_path": null
+      "pom_files": [
+        {
+          "url": "",
+          "file_name": "HomePage.js",
+          "file_path": "pom_tests\\pom\\HomePage.js"
+        },
+        {
+          "url": "",
+          "file_name": "DashboardPage.js",
+          "file_path": "pom_tests\\pom\\DashboardPage.js"
+        },
+        {
+          "url": "",
+          "file_name": "PayBillPage.js",
+          "file_path": "pom_tests\\pom\\PayBillPage.js"
+        }
+      ],
+      "test_steps": [
+        "Navigate to homepage: Load homepage",
+        "click: Start simulation",
+        "click: Dismiss welcome modal",
+        "click: Navigate to Bills",
+        "click: Select Pay Bill",
+        "select: Set Payment Frequency to SINGLE",
+        "click: Add New Recipient",
+        "input_text: Populate Recipient Details",
+        "click: Submit Recipient",
+        "input_text: Final Payment Submission"
+      ],
+      "video_recording_path": "C:\\var\\tmp\\Roost\\RoostGPT\\ngpf-new-update\\1775031045\\temp_info\\www.ngpf.org\\extracted_data\\recordings\\WF002_a1\\069ccd33-2914-7f70-8000-ff3a4d73576e.mp4"
     },
     {
       "workflow_id": "WF003",
@@ -266,11 +365,11 @@
   "Imported_Test_Coverage": null,
   "Token_Usage": {
     "cumulative": {
-      "input_tokens": 877105,
-      "output_tokens": 29871,
+      "input_tokens": 1517200,
+      "output_tokens": 55903,
       "cached_input_tokens": 0,
-      "total_tokens": 906976,
-      "total_cost_usd": 0.171502
+      "total_tokens": 1573103,
+      "total_cost_usd": 0.310774
     },
     "runs": [
       {
@@ -347,6 +446,43 @@
             "input": 30804,
             "output": 686,
             "cost": 0.00873
+          }
+        }
+      },
+      {
+        "run_type": "retrigger_workers",
+        "timestamp": "2026-04-01T13:45:32.949752",
+        "provider": "gemini",
+        "model": "gemini-3.1-flash-lite-preview",
+        "input_tokens": 640095,
+        "output_tokens": 26032,
+        "total_tokens": 666127,
+        "cost_usd": 0.139272,
+        "sessions": {
+          "worker_supervisor_WF001": {
+            "input": 2950,
+            "output": 137,
+            "cost": 0.000943
+          },
+          "worker_supervisor_WF002": {
+            "input": 3083,
+            "output": 149,
+            "cost": 0.000994
+          },
+          "explore_worker_WF002_a1": {
+            "input": 337143,
+            "output": 10236,
+            "cost": 0.067263
+          },
+          "explore_worker_WF001_a1": {
+            "input": 283474,
+            "output": 8375,
+            "cost": 0.056008
+          },
+          "explore_synthesize_single_workflow": {
+            "input": 13445,
+            "output": 7135,
+            "cost": 0.014064
           }
         }
       }
