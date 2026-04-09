@@ -1,0 +1,244 @@
+{
+  "site_type": "service",
+  "site_category": "Financial Literacy and Banking Simulation",
+  "confidence_score": 0.98,
+  "user_journeys": [
+    {
+      "journey_name": "Internal Fund Transfer",
+      "description": "User navigates to the transfer module, configures a single transfer between accounts, and submits the transaction.",
+      "business_value": "Ensures core banking simulation functionality is operational.",
+      "user_persona": "Student/User",
+      "frequency": "daily",
+      "complexity": "medium"
+    }
+  ],
+  "proposed_scenarios": [
+    {
+      "scenario_name": "Discovered Workflow: e2e_business_workflow - Complete User Journey",
+      "description": "Comprehensive test covering the internal fund transfer process from start to finish.",
+      "workflow_narrative": "The user initiates a transfer simulation, navigates through the dashboard to the transfer form, selects accounts, sets an amount, and successfully submits the transfer.",
+      "playwright_implementation_guidance": [
+        "Use page.waitForURL to confirm navigation after clicking 'Save'.",
+        "Since the site uses Angular Material, use pressSequentially() for input fields if standard fill() causes validation issues.",
+        "Ensure the date format matches the simulation requirements (MM/DD/YYYY)."
+      ],
+      "test_type": "e2e_business_workflow",
+      "priority": "high",
+      "business_goal": "Verify users can complete the internal fund transfer workflow.",
+      "user_story": "As a student, I want to transfer funds between my accounts so that I can practice managing my finances.",
+      "detailed_steps": [
+        {
+          "step_number": 1,
+          "action": "Navigate to homepage",
+          "component": "Navigation",
+          "description": "Load the transfer page",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/transfer",
+          "verification_point": "Page loaded",
+          "business_impact": "Site accessibility",
+          "selector": "page.goto('https://www.ngpf.org/bank-sim/transfer', { waitUntil: 'domcontentloaded' })",
+          "confidence": 100,
+          "based_on_interaction": true,
+          "all_selectors": []
+        },
+        {
+          "step_number": 2,
+          "action": "click",
+          "component": "Button",
+          "description": "Start simulation",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/",
+          "verification_point": "Redirected to dashboard",
+          "business_impact": "Workflow entry",
+          "selector": "page.getByRole('button', { name: 'GET STARTED NOW' })",
+          "all_selectors": [
+            {
+              "selector": "page.getByRole('button', { name: /GET STARTED NOW/ })",
+              "strategy": "role_name_regex",
+              "confidence": 95,
+              "is_unique": true
+            },
+            {
+              "selector": "page.getByText('GET STARTED NOW')",
+              "strategy": "text",
+              "confidence": 88,
+              "is_unique": true
+            }
+          ],
+          "confidence": 99,
+          "based_on_interaction": true,
+          "web_component_parent": {
+            "tagName": "mat-card-content",
+            "attributes": {
+              "_ngcontent-ady-c143": "",
+              "class": "mat-card-content"
+            },
+            "hasShadowRoot": false
+          },
+          "page_context": {
+            "suggested_page_class": "DashboardPage",
+            "page_url_pattern": "/bank-sim/"
+          },
+          "method_context": {
+            "suggested_method_name": "startSimulation",
+            "action_type": "click"
+          }
+        },
+        {
+          "step_number": 3,
+          "action": "click",
+          "component": "Menu",
+          "description": "Expand transfers menu",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/",
+          "verification_point": "Menu expanded",
+          "business_impact": "Navigation",
+          "selector": "page.locator('a').filter({ hasText: 'TRANSFERS expand_more' })",
+          "all_selectors": [
+            {
+              "selector": "page.locator('a.mat-list-item.mat-focus-indicator')",
+              "strategy": "css_combined_classes",
+              "confidence": 62,
+              "is_unique": false
+            },
+            {
+              "selector": "page.locator('a.mat-list-item')",
+              "strategy": "css_stable_class",
+              "confidence": 60,
+              "is_unique": false
+            }
+          ],
+          "confidence": 99,
+          "based_on_interaction": true,
+          "web_component_parent": {
+            "tagName": "app-menu-list-item",
+            "attributes": {
+              "_ngcontent-ady-c146": "",
+              "_nghost-ady-c145": "",
+              "class": "ng-tns-c145-4 ng-star-inserted",
+              "aria-expanded": "false",
+              "style": ""
+            },
+            "hasShadowRoot": false
+          },
+          "page_context": {
+            "suggested_page_class": "DashboardPage",
+            "page_url_pattern": "/bank-sim/"
+          },
+          "method_context": {
+            "suggested_method_name": "expandTransfersMenu",
+            "action_type": "click"
+          }
+        },
+        {
+          "step_number": 4,
+          "action": "click",
+          "component": "Link",
+          "description": "Select Make a Transfer",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/transfer",
+          "verification_point": "Navigated to transfer form",
+          "business_impact": "Workflow progress",
+          "selector": "page.locator('a').filter({ hasText: 'MAKE A TRANSFER' })",
+          "all_selectors": [
+            {
+              "selector": "page.getByText('MAKE A TRANSFER')",
+              "strategy": "text",
+              "confidence": 88,
+              "is_unique": true
+            },
+            {
+              "selector": "page.locator('a').filter({ hasText: /^MAKE A TRANSFER$/ })",
+              "strategy": "link_filter_exact",
+              "confidence": 74,
+              "is_unique": true
+            }
+          ],
+          "confidence": 99,
+          "based_on_interaction": true,
+          "web_component_parent": {
+            "tagName": "app-menu-list-item",
+            "attributes": {
+              "_ngcontent-ady-c145": "",
+              "_nghost-ady-c145": "",
+              "class": "ng-tns-c145-13 ng-tns-c145-4 ng-star-inserted",
+              "aria-expanded": "false"
+            },
+            "hasShadowRoot": false
+          },
+          "page_context": {
+            "suggested_page_class": "TransferPage",
+            "page_url_pattern": "/bank-sim/transfer"
+          },
+          "method_context": {
+            "suggested_method_name": "navigateToTransferForm",
+            "action_type": "click"
+          }
+        },
+        {
+          "step_number": 5,
+          "action": "input_text",
+          "component": "Form",
+          "description": "Submit transfer details",
+          "expected_page_url": "https://www.ngpf.org/bank-sim/transfer/display-transfers",
+          "verification_point": "Redirected to history",
+          "business_impact": "Workflow completion",
+          "selector": "page.getByRole('button', { name: 'Save' })",
+          "all_selectors": [
+            {
+              "selector": "page.getByText('Save')",
+              "strategy": "text",
+              "confidence": 88,
+              "is_unique": true
+            },
+            {
+              "selector": "page.locator('button.mat-focus-indicator.button')",
+              "strategy": "css_combined_classes",
+              "confidence": 80,
+              "is_unique": false
+            }
+          ],
+          "confidence": 99,
+          "based_on_interaction": true,
+          "web_component_parent": {
+            "tagName": "mat-card-content",
+            "attributes": {
+              "_ngcontent-ady-c149": "",
+              "class": "mat-card-content"
+            },
+            "hasShadowRoot": false
+          },
+          "page_context": {
+            "suggested_page_class": "TransferPage",
+            "page_url_pattern": "/bank-sim/transfer"
+          },
+          "method_context": {
+            "suggested_method_name": "submitTransfer",
+            "action_type": "click"
+          }
+        }
+      ],
+      "expected_results": [
+        "User completes workflow",
+        "No errors"
+      ],
+      "edge_cases_to_test": [
+        "Insufficient funds",
+        "Invalid date format"
+      ],
+      "data_requirements": [
+        "Test accounts",
+        "Valid inputs"
+      ],
+      "prerequisites": [
+        "Site accessible"
+      ]
+    }
+  ],
+  "site_url": "https://www.ngpf.org/bank-sim/home",
+  "test_name": "w01_internal_fund_transfer",
+  "login_mechanisms": [
+    "general_interaction"
+  ],
+  "login_completion_state": "successful",
+  "analysis_timestamp": "2026-04-09T07:24:50.294755",
+  "auth_required": false,
+  "starting_url": null,
+  "workflow_id": "WF001"
+}
