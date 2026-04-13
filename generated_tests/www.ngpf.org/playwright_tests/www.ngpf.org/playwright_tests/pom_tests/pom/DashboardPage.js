@@ -10,13 +10,14 @@ export class DashboardPage extends BasePage {
 
   async startSimulation() {
     await this.startSimulationBtn.click({ timeout: 30000 });
-    // Handle welcome modal if it appears
-    try {
-      await this.okButton.waitFor({ state: 'visible', timeout: 5000 });
-      await this.okButton.click();
-    } catch (e) {
-      // Modal did not appear, continue
-    }
+  }
+
+  async dismissModal() {
+    await this.okButton.click({ timeout: 30000 });
+  }
+
+  async openTransfersMenu() {
+    await this.transfersMenu.click({ timeout: 30000 });
   }
 
   async expandTransfersMenu() {
