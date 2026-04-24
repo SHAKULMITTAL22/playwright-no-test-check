@@ -1,0 +1,109 @@
+{
+  "site_type": "service",
+  "site_category": "Banking and Mortgage Services",
+  "confidence_score": 0.95,
+  "user_journeys": [
+    {
+      "journey_name": "Initiate Digital Mortgage Application",
+      "description": "Start a new digital mortgage application process by navigating to the external FormTitan application.",
+      "business_value": "Customer acquisition and digital onboarding for mortgage loans.",
+      "user_persona": "Prospective home buyer or current homeowner seeking refinancing",
+      "frequency": "daily",
+      "complexity": "low"
+    }
+  ],
+  "proposed_scenarios": [
+    {
+      "scenario_name": "Initiate Digital Mortgage Application -- Partial",
+      "description": "Attempt to start the digital mortgage application. The flow is partial because the expected external redirect did not occur.",
+      "workflow_narrative": "The user navigates to the Leumi mortgage homepage and clicks the '\u05d1\u05d5\u05d0\u05d5 \u05e0\u05ea\u05d7\u05d9\u05dc' (Let's start) button. The agent expected to be redirected to an external FormTitan application but was instead routed to an internal minisite page, blocking further progress.",
+      "playwright_implementation_guidance": [
+        "Ensure to handle potential redirects after clicking the start button.",
+        "Add an assertion to verify the resulting URL. In this partial flow, it lands on /minisite/mortgage instead of the expected external app."
+      ],
+      "test_type": "partial_flow",
+      "priority": "high",
+      "business_goal": "Verify the entry point for the digital mortgage application is functional.",
+      "user_story": "As a prospective borrower, I want to click the start button so that I can begin my digital mortgage application.",
+      "detailed_steps": [
+        {
+          "step_number": 1,
+          "action": "Navigate to homepage",
+          "component": "Navigation",
+          "description": "Load the Leumi mortgage homepage",
+          "expected_page_url": "https://mortgage.leumi.co.il",
+          "verification_point": "Page loaded successfully",
+          "business_impact": "Site accessibility",
+          "selector": "page.goto('https://mortgage.leumi.co.il', { waitUntil: 'domcontentloaded' })",
+          "confidence": 100,
+          "based_on_interaction": true,
+          "all_selectors": [],
+          "page_context": {
+            "suggested_page_class": "MortgageHomePage",
+            "page_url_pattern": "/"
+          },
+          "method_context": {
+            "suggested_method_name": "navigateToHomePage",
+            "action_type": "navigate"
+          }
+        },
+        {
+          "step_number": 2,
+          "action": "Click Start Button",
+          "component": "Link '\u05d1\u05d5\u05d0\u05d5 \u05e0\u05ea\u05d7\u05d9\u05dc'",
+          "description": "Click the 'Let's start' button to initiate the application",
+          "expected_page_url": "https://mortgage.leumi.co.il/",
+          "verification_point": "Button click triggers navigation",
+          "business_impact": "Workflow progress",
+          "selector": "page.getByRole('link', { name: '\u05d1\u05d5\u05d0\u05d5 \u05e0\u05ea\u05d7\u05d9\u05dc' })",
+          "all_selectors": [
+            {
+              "selector": "page.getByRole('link', { name: /\u05d1\u05d5\u05d0\u05d5 \u05e0\u05ea\u05d7\u05d9\u05dc/ })",
+              "strategy": "role_name_regex",
+              "confidence": 95,
+              "is_unique": false
+            },
+            {
+              "selector": "page.locator('[class*=\"Menu\"]').getByRole('link', { name: '\u05d1\u05d5\u05d0\u05d5 \u05e0\u05ea\u05d7\u05d9\u05dc' })",
+              "strategy": "portal_role_name",
+              "confidence": 92,
+              "is_unique": true
+            }
+          ],
+          "confidence": 99,
+          "based_on_interaction": true,
+          "page_context": {
+            "suggested_page_class": "MortgageHomePage",
+            "page_url_pattern": "/"
+          },
+          "method_context": {
+            "suggested_method_name": "clickStartApplication",
+            "action_type": "click"
+          }
+        }
+      ],
+      "expected_results": [
+        "User is able to click the start button",
+        "Application navigates to the next step (currently an internal minisite instead of external app)"
+      ],
+      "edge_cases_to_test": [
+        "Broken link or missing redirect configuration",
+        "High latency during redirect"
+      ],
+      "data_requirements": [],
+      "prerequisites": [
+        "Site accessible"
+      ]
+    }
+  ],
+  "site_url": "https://mortgage.leumi.co.il",
+  "test_name": "w01_initiate_digital_mortgage_application",
+  "login_mechanisms": [
+    "general_interaction"
+  ],
+  "login_completion_state": "successful",
+  "analysis_timestamp": "2026-04-24T13:45:47.649482",
+  "auth_required": false,
+  "starting_url": null,
+  "workflow_id": "WF001"
+}
