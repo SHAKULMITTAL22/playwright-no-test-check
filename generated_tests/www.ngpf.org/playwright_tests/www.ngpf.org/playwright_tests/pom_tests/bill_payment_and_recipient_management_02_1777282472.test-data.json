@@ -1,0 +1,10 @@
+{
+  "variations": [
+    {
+      "recipientName": "John Doe",
+      "address": "440 Sleepy Hollow Dr.",
+      "city": "Chelsea",
+      "amount": "0"
+    }
+  ]
+}
