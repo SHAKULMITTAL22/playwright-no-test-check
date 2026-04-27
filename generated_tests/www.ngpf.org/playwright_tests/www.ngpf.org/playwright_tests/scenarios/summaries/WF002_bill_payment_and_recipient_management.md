@@ -1,24 +1,17 @@
-# Bill Payment and Recipient Management
-
-> **Status**: Preview — awaiting worker execution for full scenario details
+# Scenario Summary: bill_payment_and_recipient_management_02_1777282472
 
 ## Overview
 
-| Field | Value |
-|-------|-------|
-| Workflow ID | WF002 |
-| Feature Area | Bill Management |
-| Priority | high |
-| Goal | Add a recipient and attempt to pay a bill. |
+- **Workflow ID**: WF002
+- **Title**: Bill Payment and Recipient Management
+- **Goal**: Add a recipient and attempt to pay a bill.
+- **Feature Area**: Bill Management
+- **Site URL**: https://www.ngpf.org/bank-sim/home
+- **Site Type**: unknown — unknown
+- **Confidence Score**: 0.0
+- **Auth Required**: False
+- **Generated On**: 2026-04-27T09:34:32.388811
 
-## Navigation Hint
+## Captured Selectors
 
-1. Navigate to https://www.ngpf.org/bank-sim/pay-bill
-2. Click 'GET STARTED NOW'
-3. Click 'BILLS' menu
-4. Click 'MANAGE RECIPIENT'
-5. Click 'ADD RECIPIENT', fill details, and submit
-6. Click 'PAY BILL'
-7. Select recipient, enter amount, and submit
-8. Navigate to 'DISPLAY ALL BILLS' to verify.
-
+- **Total**: 18

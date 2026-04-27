@@ -1,0 +1,26 @@
+{
+    "login_scenario": "Skipped",
+    "workflow_completed": false,
+    "workflow_result": "FAIL",
+    "workflow_error": "",
+    "login_agent_activity_summary": "Not available",
+    "user_scenario_agent_activity_summary": "Not available",
+    "generated_files": {
+        "feature_files": [],
+        "json_files": []
+    },
+    "scenarios": {
+        "w01_internal_fund_transfer": {
+            "test_name": "w01_internal_fund_transfer",
+            "description": "Scenario run is working",
+            "testFilePath": "",
+            "extracted_data": "www.ngpf.org/extracted_data/captured_ui_data.json"
+        },
+        "bill_payment_and_recipient_management_02_1777282472": {
+            "test_name": "bill_payment_and_recipient_management_02_1777282472",
+            "description": "Scenario run is working",
+            "testFilePath": "",
+            "extracted_data": "www.ngpf.org/extracted_data/captured_ui_data.json"
+        }
+    }
+}
