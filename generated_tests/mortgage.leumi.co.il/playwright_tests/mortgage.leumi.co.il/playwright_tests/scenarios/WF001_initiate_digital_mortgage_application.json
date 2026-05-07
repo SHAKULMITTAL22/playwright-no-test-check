@@ -1,0 +1,140 @@
+{
+  "site_type": "service",
+  "site_category": "Digital Banking and Mortgage Services",
+  "confidence_score": 0.98,
+  "user_journeys": [
+    {
+      "journey_name": "Initiate Digital Mortgage Application",
+      "description": "User navigates to the mortgage beginners page, dismisses any popups, and initiates the digital mortgage application process.",
+      "business_value": "Drives customer acquisition by funneling users into the digital mortgage application pipeline.",
+      "user_persona": "Prospective homebuyer or mortgage applicant",
+      "frequency": "daily",
+      "complexity": "low"
+    }
+  ],
+  "proposed_scenarios": [
+    {
+      "scenario_name": "Discovered Workflow: Initiate Digital Mortgage Application - Complete User Journey",
+      "description": "Verifies that a user can successfully navigate to the mortgage application minisite from the beginners informational page.",
+      "workflow_narrative": "The user starts on the 'First Step' beginners page for mortgages. An obstructing chat popup appears, which the user closes. The user then clicks the '\u05d1\u05d5\u05d0\u05d5 \u05e0\u05ea\u05d7\u05d9\u05dc' (Let's Start) button and is successfully redirected to the mortgage application minisite.",
+      "playwright_implementation_guidance": [
+        "Use page.goto() to navigate directly to the beginners page.",
+        "Implement a conditional check or waitForSelector for the chat popup close button, as popups may not always appear or might take a moment to load.",
+        "Ensure navigation to the minisite is verified by checking the resulting URL after clicking the start button."
+      ],
+      "test_type": "e2e_business_workflow",
+      "priority": "high",
+      "business_goal": "Verify users can reach the digital mortgage application form without being blocked.",
+      "user_story": "As a prospective homebuyer, I want to start my digital mortgage application so that I can get an in-principle approval.",
+      "detailed_steps": [
+        {
+          "step_number": 1,
+          "action": "Navigate to Beginners Page",
+          "component": "Navigation",
+          "description": "Load the first step beginners page for mortgages.",
+          "expected_page_url": "https://mortgage.leumi.co.il/all-about-mortgage/category/beginners/first-step-0",
+          "verification_point": "Page loaded successfully.",
+          "business_impact": "Site accessibility and entry point availability.",
+          "selector": "page.goto('https://mortgage.leumi.co.il/all-about-mortgage/category/beginners/first-step-0', { waitUntil: 'domcontentloaded' })",
+          "confidence": 100,
+          "based_on_interaction": true,
+          "all_selectors": [],
+          "page_context": {
+            "suggested_page_class": "BeginnersMortgagePage",
+            "page_url_pattern": "/all-about-mortgage/category/beginners/first-step-0"
+          },
+          "method_context": {
+            "suggested_method_name": "navigateToBeginnersPage",
+            "action_type": "navigate"
+          }
+        },
+        {
+          "step_number": 2,
+          "action": "Close Chat Popup",
+          "component": "Chat Widget",
+          "description": "Click the close button on the chat popup to remove obstruction.",
+          "expected_page_url": "https://mortgage.leumi.co.il/all-about-mortgage/category/beginners/first-step-0",
+          "verification_point": "Chat popup is dismissed.",
+          "business_impact": "Prevents UI blockers from stopping user conversion.",
+          "selector": "page.getByLabel('\u05e1\u05d2\u05d5\u05e8')",
+          "all_selectors": [
+            {
+              "selector": "page.locator('[aria-label=\"\u05e1\u05d2\u05d5\u05e8\"]')",
+              "strategy": "css_aria_label",
+              "confidence": 90,
+              "is_unique": true
+            }
+          ],
+          "confidence": 95,
+          "based_on_interaction": true,
+          "page_context": {
+            "suggested_page_class": "BeginnersMortgagePage",
+            "page_url_pattern": "/all-about-mortgage/category/beginners/first-step-0"
+          },
+          "method_context": {
+            "suggested_method_name": "closeChatPopup",
+            "action_type": "click"
+          }
+        },
+        {
+          "step_number": 3,
+          "action": "Click Start Application Button",
+          "component": "Call to Action Button",
+          "description": "Click the '\u05d1\u05d5\u05d0\u05d5 \u05e0\u05ea\u05d7\u05d9\u05dc' button to initiate the application.",
+          "expected_page_url": "https://mortgage.leumi.co.il/all-about-mortgage/category/beginners/first-step-0",
+          "verification_point": "User is redirected to the mortgage minisite.",
+          "business_impact": "Workflow progress to the actual application form.",
+          "selector": "page.getByRole('link', { name: '\u05d1\u05d5\u05d0\u05d5 \u05e0\u05ea\u05d7\u05d9\u05dc' })",
+          "all_selectors": [
+            {
+              "selector": "page.getByRole('link', { name: /\u05d1\u05d5\u05d0\u05d5 \u05e0\u05ea\u05d7\u05d9\u05dc/ })",
+              "strategy": "role_name_regex",
+              "confidence": 95,
+              "is_unique": true
+            },
+            {
+              "selector": "page.locator('[class*=\"Menu\"]').getByRole('link', { name: '\u05d1\u05d5\u05d0\u05d5 \u05e0\u05ea\u05d7\u05d9\u05dc' })",
+              "strategy": "portal_role_name",
+              "confidence": 92,
+              "is_unique": true
+            }
+          ],
+          "confidence": 99,
+          "based_on_interaction": true,
+          "page_context": {
+            "suggested_page_class": "BeginnersMortgagePage",
+            "page_url_pattern": "/all-about-mortgage/category/beginners/first-step-0"
+          },
+          "method_context": {
+            "suggested_method_name": "clickStartApplication",
+            "action_type": "click"
+          }
+        }
+      ],
+      "expected_results": [
+        "User successfully navigates to the beginners page.",
+        "Chat popup is closed without errors.",
+        "Clicking the start button redirects the user to 'https://mortgage.leumi.co.il/minisite/mortgage'."
+      ],
+      "edge_cases_to_test": [
+        "Chat popup does not appear (ensure close action is conditional).",
+        "Slow network causing delayed redirection to the minisite."
+      ],
+      "data_requirements": [],
+      "prerequisites": [
+        "Site is accessible.",
+        "Mortgage minisite is active and accepting redirects."
+      ]
+    }
+  ],
+  "site_url": "https://mortgage.leumi.co.il",
+  "test_name": "w01_initiate_digital_mortgage_application",
+  "login_mechanisms": [
+    "general_interaction"
+  ],
+  "login_completion_state": "successful",
+  "analysis_timestamp": "2026-05-07T05:44:17.194309",
+  "auth_required": false,
+  "starting_url": null,
+  "workflow_id": "WF001"
+}
