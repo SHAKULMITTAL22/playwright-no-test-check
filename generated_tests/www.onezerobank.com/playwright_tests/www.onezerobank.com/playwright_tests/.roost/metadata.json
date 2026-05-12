@@ -1,0 +1,145 @@
+{
+  "metadata_version": "1.0",
+  "created_at": "2026-05-12T04:34:59.975024",
+  "last_updated": "2026-05-12T04:39:25.489053",
+  "output_dir": "RoostGPT/one-zero-ui-wo-login/3219187d-8da8-4bd4-89d8-7890bd009715/source/playwright-no-test-check/generated_tests/www.onezerobank.com/playwright_tests/www.onezerobank.com/playwright_tests",
+  "site_url": "https://www.onezerobank.com/en",
+  "pom_files": null,
+  "Login_File": {
+    "name": null,
+    "path": null,
+    "hash": null,
+    "agent_workflow_completed": false,
+    "agent_workflow_file_path": null,
+    "agent_interaction_file_path": null,
+    "agent_activity_summary": null,
+    "agent_activity_error": null,
+    "agent_activity_outcome": null,
+    "agent_recommendation": null,
+    "agent_completion_level": null,
+    "agent_steps_completed": null,
+    "execution_flow_file_path": null,
+    "systematic_selectors_file_path": null,
+    "scenario_name": null,
+    "scenario_file_path": null,
+    "test_generated": false,
+    "test_generation_error": null,
+    "test_file_path": null,
+    "test_executed_success": null,
+    "test_execution_error": null,
+    "pom_test_name": null,
+    "pom_test_file_path": null,
+    "pom_test_executed_success": null,
+    "pom_test_execution_error": null,
+    "pom_files": null
+  },
+  "Workflows": [
+    {
+      "workflow_id": "WF001",
+      "title": "Verify Cloudflare Block",
+      "goal": "Verify that the site is protected by Cloudflare and blocks automated access.",
+      "feature_area": "Security / Access",
+      "priority": "low",
+      "starting_hint": "1. Navigate to https://www.onezerobank.com/en\n2. Observe Cloudflare security verification page",
+      "discovery_source": "roost_discovered",
+      "source_file": null,
+      "source_file_hash": null,
+      "worker_completed": false,
+      "worker_result": "pending",
+      "linked_scenario_name": null,
+      "error": null,
+      "scenario_name": null,
+      "scenario_file_path": null,
+      "scenario_summary_file_path": "generated_tests/www.onezerobank.com/playwright_tests/www.onezerobank.com/playwright_tests/scenarios/summaries/WF001_verify_cloudflare_block.md",
+      "report_pdf_file_path": "generated_tests/www.onezerobank.com/playwright_tests/www.onezerobank.com/playwright_tests/scenarios/reports/WF001_verify_cloudflare_block.pdf",
+      "feature_file_path": null,
+      "feature_file_name": null,
+      "agent_workflow_file_path": null,
+      "agent_workflow_completed": false,
+      "scenario_analysis_result_file_path": null,
+      "agent_activity_summary": null,
+      "agent_activity_error": null,
+      "agent_activity_outcome": null,
+      "agent_recommendation": null,
+      "agent_completion_level": null,
+      "agent_steps_completed": null,
+      "visited_urls": null,
+      "execution_flow_file_path": null,
+      "test_generated": false,
+      "test_generation_error": null,
+      "test_name": null,
+      "test_file_path": null,
+      "test_executed_success": null,
+      "test_execution_error": null,
+      "pom_test_name": null,
+      "pom_test_file_path": null,
+      "pom_test_executed_success": null,
+      "pom_test_execution_error": null,
+      "pom_files": null,
+      "test_steps": null,
+      "video_recording_path": null
+    }
+  ],
+  "explore_focus_areas": [
+    null
+  ],
+  "Imported_Test_Coverage": null,
+  "Token_Usage": {
+    "cumulative": {
+      "input_tokens": 105253,
+      "output_tokens": 11059,
+      "cached_input_tokens": 0,
+      "total_tokens": 116312,
+      "total_cost_usd": 0.246942
+    },
+    "runs": [
+      {
+        "run_type": "explore_discovery",
+        "timestamp": "2026-05-12T04:39:25.488847",
+        "provider": "gemini",
+        "model": "gemini-3.1-pro-preview-customtools",
+        "input_tokens": 105253,
+        "output_tokens": 11059,
+        "total_tokens": 116312,
+        "cost_usd": 0.246942,
+        "sessions": {
+          "explore_execution": {
+            "input": 0,
+            "output": 0,
+            "cost": 0.0
+          },
+          "orchestrator_master": {
+            "input": 8045,
+            "output": 395,
+            "cost": 0.02083
+          },
+          "orchestrator_nav_scout": {
+            "input": 79983,
+            "output": 9722,
+            "cost": 0.189119
+          },
+          "explore_synthesize_testable_areas": {
+            "input": 8312,
+            "output": 202,
+            "cost": 0.019048
+          },
+          "orchestrator_site_classification": {
+            "input": 390,
+            "output": 65,
+            "cost": 0.00156
+          },
+          "explore_deepdive_TA001": {
+            "input": 6688,
+            "output": 537,
+            "cost": 0.011059
+          },
+          "report_curation_WF001": {
+            "input": 1835,
+            "output": 138,
+            "cost": 0.005326
+          }
+        }
+      }
+    ]
+  }
+}
